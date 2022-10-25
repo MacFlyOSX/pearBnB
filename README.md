@@ -11,6 +11,7 @@ Looking for vacation rentals, cabins, beach houses, and/or unique homes around t
 * [Feature List](https://github.com/MacFlyOSX/pearBnB/wiki/Feature-List)
 * [Redux Store Shape](https://github.com/MacFlyOSX/pearBnB/wiki/Redux-Store-Shape)
 * [User Stories](https://github.com/MacFlyOSX/pearBnB/wiki/User-Stories)
+* [Wireframes](https://github.com/MacFlyOSX/pearBnB/wiki/Wireframes)
 
 # 🧑‍💻 Under the Hood
 
