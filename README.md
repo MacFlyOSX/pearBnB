@@ -1,6 +1,6 @@
 ![pearbnb](https://user-images.githubusercontent.com/102837663/197653551-04239be8-0717-472e-b010-c49eb731e0d6.png)
 
-Looking for vacation rentals, cabins, beach houses, unique homes and/or experiences around the world? pearbnb is where you can find all these things!
+Looking for vacation rentals, cabins, beach houses, and/or unique homes around the world? pearbnb is where you can find all these things!
 (Inspired by the popular website, [airbnb](https://www.airbnb.com/))
 
 **🚀 Live site: Coming Soon! **
