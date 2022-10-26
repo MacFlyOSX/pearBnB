@@ -33,6 +33,8 @@ class Listing(db.Model):
     description = db.Column(db.String(5000), nullable=False)
     price = db.Column(db.Integer, nullable=False)
     max_guests = db.Column(db.Integer, nullable=False)
+    bed = db.Column(db.Integer, nullable=False)
+    bath = db.Column(db.Integer, nullable=False)
     created_at = db.Column(db.String(225), default=datetime.now)
 
     owner = db.relationship('User', back_populates='listing')
@@ -57,6 +59,8 @@ class Listing(db.Model):
             "description": self.description,
             "price": self.price,
             "max_guests": self.max_guests,
+            "bed": self.bed,
+            "bath": self.bath,
             "created_at": self.created_at
         }
 
