@@ -3,7 +3,7 @@
 Looking for vacation rentals, cabins, beach houses, and/or unique homes around the world? pearbnb is where you can find all these things!
 (Inspired by the popular website, [airbnb](https://www.airbnb.com/))
 
-**🚀 Live site: Coming Soon! **
+**🚀 Live site: [pearbnb](https://pearbnb-final.herokuapp.com/) **
 
 # 🖱 Wiki Links
 * [API Documentation](https://github.com/MacFlyOSX/pearBnB/wiki/API-Documentation)
