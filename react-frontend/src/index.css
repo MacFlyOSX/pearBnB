@@ -1,1 +1,25 @@
 /* TODO Add site wide styles */
+@import url('http://fonts.cdnfonts.com/css/circular-std');
+
+* {
+    font-family: 'Circular Std', sans-serif;
+    box-sizing: border-box;
+}
+
+a:hover {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+body {
+    margin: 0;
+}
+
+textarea {
+    resize: none;
+}
+
+button,
+NavLink {
+    cursor: pointer;
+}

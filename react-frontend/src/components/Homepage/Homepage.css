@@ -1,4 +1,11 @@
 
+.main-card-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-column-gap: 24px;
+    grid-row-gap: 40px;
+}
+
 /************************* LISTING CARDS *************************/
 
 .listing-card-link {

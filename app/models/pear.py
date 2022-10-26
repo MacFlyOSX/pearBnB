@@ -78,7 +78,6 @@ class Review(db.Model):
 
     user = db.relationship('User', back_populates='review')
     listing = db.relationship('Listing', back_populates='review')
-    images = db.relationship('Image', back_populates='reviews')
 
     def to_dict(self):
         return {
@@ -124,10 +123,8 @@ class Image(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     listing_id = db.Column(db.Integer, db.ForeignKey('listings.id'))
-    review_id = db.Column(db.Integer, db.ForeignKey('reviews.id'))
     url = db.Column(db.String(500))
 
-    reviews = db.relationship('Review', back_populates='images')
     listing = db.relationship('Listing', back_populates='images')
 
     def to_dict(self):
