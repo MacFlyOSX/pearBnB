@@ -1,0 +1,109 @@
+
+/************************* LISTING CARDS *************************/
+
+.listing-card-link {
+    box-sizing: border-box;
+    display: block;
+}
+
+.listing-card {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 271px;
+    height: 336.3px;
+}
+
+/****************** TOP PORTION OF LISTING CARD ******************/
+
+.listing-card-innertop {
+    margin-bottom: 12px;
+    height: 257.3px;
+    border-radius: 12px;
+    width: 100%;
+}
+
+/**************** BOTTOM PORTION OF LISTING CARD ****************/
+
+.listing-card-innerbottom {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    height: 67px;
+    width: 100%;
+}
+
+.listing-card-info {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 19px 19px 25px;
+    row-gap: 2px;
+}
+
+.listing-info {
+    line-height: 19px;
+    text-size-adjust: 100%;
+}
+
+.listing-info-location {
+    font-weight: 600;
+}
+
+.listing-info-distance {
+    color: rgb(113, 113, 113);
+}
+
+.listing-info-cost {
+    margin-top: 6px;
+}
+
+.cost-dollars {
+    font-weight: 600;
+}
+
+.listing-card-rating {
+    box-sizing: border-box;
+    height: 19px;
+    display: flex;
+    align-items: center;
+}
+
+.listing-rating-star {
+    height: 12px;
+    width: 12px;
+    align-items: center;
+}
+
+.listing-rating-avg {
+    height: 19px;
+    margin-left: 4px;
+}
+
+.listing-image-inner {
+    padding: 12px 12px 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.listing-image-top {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.listing-image-top-button {
+    height: 32px;
+    width: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: transparent;
+}
+
+.listing-image-middle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

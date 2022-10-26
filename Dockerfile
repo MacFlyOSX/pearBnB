@@ -1,6 +1,6 @@
 FROM python:3.9
 
-# ENV REACT_APP_BASE_URL=https://{APP_NAME}.herokuapp.com/
+ENV REACT_APP_BASE_URL=https://pearbnb-final.herokuapp.com/
 ENV FLASK_APP=app
 ENV FLASK_ENV=production
 ENV SQLALCHEMY_ECHO=true

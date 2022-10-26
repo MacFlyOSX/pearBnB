@@ -5,10 +5,10 @@ __pycache__/
 .venv
 .DS_Store
 .vscode/
-flask-backend/app/dev.db
 flask-backend/app/migrations/versions
 node_modules
 reset-db.sh
+app/dev.db
 
 # dependencies
 /node_modules
