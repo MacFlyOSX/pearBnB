@@ -10,7 +10,7 @@ def seed_users():
                   first_name="David",
                   last_name="Rogers"
                   )
-
+      # 3
     owner6 = User(first_name='Brandon',
                   last_name='Tasaki',
                   email='brandontasaki@user.io',
@@ -22,7 +22,7 @@ def seed_users():
                   email='jaehwang@user.io',
                 password='password'
                   )
-
+         # 5
     owner10 = User(first_name='Jake',
                    last_name='Matillano',
                    email='jakematillano@user.io',
@@ -40,13 +40,13 @@ def seed_users():
                    email='joannagilbert@user.io',
                       password='password'
                    )
-
+      # 8
     owner16 = User(first_name='John',
                    last_name='Carrera',
                    email='johncarrera@user.io',
                     password='password'
                    )
-
+      # 9
     owner17 = User(first_name='Logan',
                    last_name='Seals',
                    email='loganseals@user.io',
@@ -64,7 +64,7 @@ def seed_users():
                    email='kylekassen@user.io',
                    password='password'
                    )
-
+      # 12
     owner20 = User(first_name='Michael',
                    last_name='Jung',
                    email='michaeljung@user.io',
@@ -76,7 +76,7 @@ def seed_users():
                    email='nachen@user.io',
                 password='password'
                    )
-
+      # 13
     owner22 = User(first_name='Sam',
                    last_name='Suh',
                    email='samsuh@user.io',
@@ -88,7 +88,7 @@ def seed_users():
                    email='schaefferahn@user.io',
                      password='password'
                    )
-
+      # 15
     owner25 = User(first_name='Amanda',
                    last_name='Vien',
                    email='vienbean@user.io',
@@ -100,7 +100,7 @@ def seed_users():
                    email='yashayang@user.io',
                   password='password'
                    )
-
+      # 17
     owner27 = User(first_name='Gary',
                    last_name='Song',
                    email='garebear@user.io',
