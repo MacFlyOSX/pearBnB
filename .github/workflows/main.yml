@@ -14,16 +14,16 @@ jobs:
       with:
         node-version: '16'
         cache: 'npm'
-        cache-dependency-path: react-app/package-lock.json
+        cache-dependency-path: react-frontend/package-lock.json
     - name: Build React App
-      working-directory: react-app
+      working-directory: react-frontend
       # CI=false allows the build to ignore any warnings when building
       run: npm install && CI=false npm run build
 
     # https://github.com/actions/setup-python
-    # If a student sees this, they could speed up their builds 
+    # If a student sees this, they could speed up their builds
     # by moving install from docker to cached GH action runner
-    # Have fun (after you have a passing project!) :) 
+    # Have fun (after you have a passing project!) :)
     - uses: actions/setup-python@v3
       with:
         python-version: '3.9'
@@ -34,19 +34,19 @@ jobs:
       run: pipenv requirements > requirements.txt
 
     - name: Login to Heroku Container registry
-      env: 
+      env:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-      run: heroku container:login 
+      run: heroku container:login
 
     - name: Build Container and push
       env:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-      run: heroku container:push -a ${{ secrets.HEROKU_APP_NAME }} web 
+      run: heroku container:push -a ${{ secrets.HEROKU_APP_NAME }} web
 
     - name: Release
       env:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-      run: heroku container:release -a ${{ secrets.HEROKU_APP_NAME }} web 
+      run: heroku container:release -a ${{ secrets.HEROKU_APP_NAME }} web
 
     - name: Run DB Migration
       env:
