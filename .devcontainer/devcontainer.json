@@ -5,14 +5,14 @@
 	"build": {
 		"dockerfile": "Dockerfile",
 		"context": "..",
-		"args": { 
+		"args": {
 			"VARIANT": "3.9",
 			"NODE_VERSION": "16"
 		}
 	},
 
 	// Set *default* container specific settings.json values on container create.
-	"settings": { 
+	"settings": {
 		// "python.defaultInterpreterPath": "/usr/local/bin/python",
 		// "python.linting.enabled": true,
 		// "python.linting.pylintEnabled": true,
@@ -37,7 +37,7 @@
 	"forwardPorts": [5000, 5432, 3000],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "pipenv install --dev && cd react-app && npm install",
+	"postCreateCommand": "pipenv install --dev && cd react-frontend && npm install",
 	//  Flask python-dotenv SQLAlchemy Flask-SQLAlchemy psycopg2-binary WTForms Flask-WTF Flask-Login
 
 	"postStartCommand": "sudo service postgresql start",
