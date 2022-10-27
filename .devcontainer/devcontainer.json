@@ -37,7 +37,7 @@
 	"forwardPorts": [5000, 5432, 3000],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "pipenv install --dev && cd react-frontend && npm install",
+	"postCreateCommand": "pipenv install --dev && cd react-app && npm install",
 	//  Flask python-dotenv SQLAlchemy Flask-SQLAlchemy psycopg2-binary WTForms Flask-WTF Flask-Login
 
 	"postStartCommand": "sudo service postgresql start",

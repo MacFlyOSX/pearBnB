@@ -21,11 +21,25 @@ def validation_errors_to_error_messages(validation_errors):
 @listing_routes.route('/')
 def get_all_listings():
     # type = request.args.get('type')
+    # location = request.args.get('location)
+    # guests = request.args.get('guests')
     # listings = None
     # if (type):
     #     listings = Listing.query.filter()
     listings = Listing.query.all()
     all_listings = [listing.to_dict() for listing in listings]
+
+    for listing in all_listings:
+        avg = db.session.query(func.avg(Review.rating)).filter_by(listing_id=listing['id']).first()
+        if list(avg)[0]:
+            avg_rating = float(list(avg)[0])
+            listing['avg_rating'] = avg_rating
+        else:
+            listing['avg_rating'] = 0
+
+        images = Image.query.filter_by(listing_id=listing['id']).all()
+        listing_images = [ img.to_dict()['url'] for img in images ]
+        listing['images'] = listing_images
 
     return jsonify({ 'Listings': all_listings})
 
@@ -36,6 +50,18 @@ def user_listings():
     user = current_user.to_dict()
     listings = Listing.query.filter(Listing.owner_id == user['id']).all()
     user_listings = [listing.to_dict() for listing in listings]
+
+    for listing in user_listings:
+        avg = db.session.query(func.avg(Review.rating)).filter_by(listing_id=listing['id']).first()
+        if list(avg)[0]:
+            avg_rating = float(list(avg)[0])
+            listing['avg_rating'] = avg_rating
+        else:
+            listing['avg_rating'] = 0
+
+        images = Image.query.filter_by(listing_id=listing['id']).all()
+        listing_images = [ img.to_dict()['url'] for img in images ]
+        listing['images'] = listing_images
 
     return jsonify({ 'Listings': user_listings })
 
@@ -50,7 +76,7 @@ def get_one_listing(listing_id):
     single_listing = listing.to_dict()
 
 ### Calculating and loading the average rating
-    avg = db.session.query(func.round(func.avg(Review.rating))).filter_by(listing_id=listing_id).first()
+    avg = db.session.query(func.avg(Review.rating)).filter_by(listing_id=listing_id).first()
     if list(avg)[0]:
         avg_rating = float(list(avg)[0])
         single_listing['avg_rating'] = avg_rating

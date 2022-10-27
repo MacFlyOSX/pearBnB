@@ -135,7 +135,6 @@ class Image(db.Model):
         return {
             "id": self.id,
             "listing_id": self.listing_id,
-            "review_id": self.review_id,
             "url": self.url
         }
 

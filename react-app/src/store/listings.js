@@ -251,13 +251,13 @@ const listingReducer = (state = initialState, action) => {
             return newState;
         }
         case DELETE:{
-            const newState = { ...state, allListings: { ...state.allListings }, singleListing: { ...state.singleListing } };
+            let newState = { ...state, allListings: { ...state.allListings }, singleListing: { ...state.singleListing } };
             delete newState.allListings[action.id];
             newState = { ...newState };
             return newState;
         }
         case REMOVE_IMG:{
-            const newState = { ...state, allListings: { ...state.allListings }, singleListing: { ...state.singleListing } };
+            let newState = { ...state, allListings: { ...state.allListings }, singleListing: { ...state.singleListing } };
             const listingImages = newState.allListings[action.payload.id].images;
             for (let i = 0; i < listingImages.length; i++) {
                 const img = listingImages[i];
