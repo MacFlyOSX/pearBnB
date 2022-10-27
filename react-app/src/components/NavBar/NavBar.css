@@ -6,6 +6,8 @@
     left: 0;
     width: 100%;
     height: 80px;
+    z-index: 2;
+    
 }
 
 .navbar-home {
@@ -37,7 +39,7 @@
 /*************************** NAVBAR SEARCH SECTION ****************************/
 
 .navbar-search-container {
-    padding: 0 24px 0;
+    padding: 0 24px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -48,13 +50,81 @@
 .search-container {
     width: 352px;
     height: 48px;
-    display: block;
+    display: flex;
     border-radius: 40px;
     align-items: center;
     border: 1px solid rgb(221, 221, 221);
     box-shadow: 0 1px 2px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 5%);
     /* transition: box-shadow 0.2s ease; */
     background-color: white;
+}
+
+.search-separator {
+    width: 1px;
+    height: 24px;
+    background-color: rgb(221, 221, 221);
+}
+
+.where-searchbutton {
+    margin: -1px;
+    border: none;
+    background-color: transparent;
+    padding-left: 8px;
+    height: 48px;
+    width: 107.383px;
+    border-radius: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 450;
+}
+
+.type-searchbutton {
+    margin: -1px;
+    border: none;
+    background-color: transparent;
+    width: 96.414px;
+    height: 48px;
+    font-size: 14px;
+    font-weight: 450;
+}
+
+.guests-searchbutton {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 144.391px;
+    height: 48px;
+    margin: -1px;
+    border: none;
+    background-color: transparent;
+    padding: 0 2px 0 0;
+}
+
+.add-guests {
+    width: 105.391px;
+    color: rgb(113, 113, 113);
+    font-size: 14px;
+    font-weight: 450;
+}
+
+.search-searchbutton {
+    background-color: #6e9e00;
+    width: 32px;
+    height: 32px;
+    padding: 10px;
+    /* margin: 7px 7px 7px 0; */
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-button {
+    height: 12px;
+    stroke: white;
 }
 
 /**************************** NAVBAR USER SECTION *****************************/
@@ -82,6 +152,11 @@
     height: 42px;
     font-size: 14px;
     font-weight: 700px;
+    border-radius: 21px;
+}
+
+.host-button:hover {
+    background-color: rgba(221, 221, 221, 0.3);
 }
 
 .user-button-section {
@@ -98,8 +173,12 @@
     padding: 5px 5px 5px 12px;
     background-color: white;
     display: flex;
-
+    transition: filter 0.3s;
     align-items: center;
+}
+
+.user-button:hover {
+    filter: drop-shadow(0 2px 2.5px rgb(221, 221, 221));
 }
 
 .burger-icon {

@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import logo from '../../icons/pearbnb.png';
 import burger from '../../icons/homepage/burger.svg';
 import userJohn from '../../icons/homepage/user.png';
+import search from '../../icons/homepage/search.svg';
 import './NavBar.css';
 
 const NavBar = () => {
@@ -17,7 +18,16 @@ const NavBar = () => {
       </div>
       <div className='navbar-search-container'>
         <div className='search-container'>
-
+            <button className='where-searchbutton'>Anywhere</button>
+            <span className='search-separator' />
+            <button className='type-searchbutton'>Any type</button>
+            <span className='search-separator' />
+            <button className='guests-searchbutton'>
+              <div className='add-guests'>Add guests</div>
+              <div className='search-searchbutton'>
+                <img src={search} alt='search' className='search-button' />
+              </div>
+            </button>
         </div>
       </div>
       <div className='navbar-user-side'>
