@@ -6,8 +6,8 @@
     left: 0;
     width: 100%;
     height: 80px;
-    z-index: 2;
-    
+    border-bottom: 1px solid rgb(221, 221, 221);
+    background-color: white;
 }
 
 .navbar-home {
@@ -195,11 +195,43 @@
 
 /**************************** BOTTOM TYPES SECTION ****************************/
 
+.navbar-types-section {
+    width: 100%;
+    padding: 0 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 80px;
+    position: fixed;
+    background-color: white;
+    filter: drop-shadow(0 2px 2.5px rgba(221, 221, 221, 0.3));
+}
+
+.types-section-inner {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+
 .type-button {
-    padding: 0;
-    margin: 0;
-    padding-top: 4px;
-    padding-bottom: 14px;
-    height: 48px;
-    margin-top: 12px;
+    margin: 12px 0 0;
+    padding: 4px 0 14px;
+    height: 66px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+    background-color: transparent;
+}
+
+.type-icon {
+    height: 24px;
+}
+
+.type-name {
+    font-size: 12px;
+    font-weight: 500;
 }
