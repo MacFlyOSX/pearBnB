@@ -1,4 +1,11 @@
 
+.main-homepage-container {
+    margin-top: 174px;
+    margin-bottom: 40px;
+    padding: 0 80px;
+    width: 100%;
+}
+
 .main-card-container {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -28,6 +35,65 @@
     height: 257.3px;
     border-radius: 12px;
     width: 100%;
+    background-size: cover;
+}
+
+
+.listing-image-inner {
+    padding: 12px 12px 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    height: 100%;
+    width: 100%;
+}
+
+.listing-image-top {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.listing-image-top-button {
+    height: 32px;
+    width: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: transparent;
+}
+
+.listing-image-middle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.arrow-button {
+    background-color: white;
+    height: 30px;
+    width: 30px;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    z-index: 1;
+    transition: opacity 0.3s;
+}
+
+.listing-image-inner:hover .arrow-button {
+    opacity: 0.5;
+}
+
+.arrow-button:hover {
+    opacity: 1;
+}
+
+.arrow {
+    height: 12px;
 }
 
 /**************** BOTTOM PORTION OF LISTING CARD ****************/
@@ -53,11 +119,13 @@
 }
 
 .listing-info-location {
-    font-weight: 600;
+    font-weight: 500;
+    font-size: 16px;
 }
 
 .listing-info-distance {
     color: rgb(113, 113, 113);
+    font-size: 16px;
 }
 
 .listing-info-cost {
@@ -66,6 +134,11 @@
 
 .cost-dollars {
     font-weight: 600;
+    font-size: 16px;
+}
+
+.cost-night {
+    font-size: 16px;
 }
 
 .listing-card-rating {
@@ -78,39 +151,12 @@
 .listing-rating-star {
     height: 12px;
     width: 12px;
+    display: flex;
     align-items: center;
 }
 
 .listing-rating-avg {
     height: 19px;
     margin-left: 4px;
-}
-
-.listing-image-inner {
-    padding: 12px 12px 0;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-}
-
-.listing-image-top {
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-}
-
-.listing-image-top-button {
-    height: 32px;
-    width: 32px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: none;
-    background-color: transparent;
-}
-
-.listing-image-middle {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    font-size: 16px;
 }

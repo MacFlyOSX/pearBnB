@@ -1,14 +1,21 @@
 /* TODO Add site wide styles */
-@import url('http://fonts.cdnfonts.com/css/circular-std');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap');
 
 * {
-    font-family: 'Circular Std', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 14px;
     box-sizing: border-box;
 }
 
 a:hover {
     text-decoration: none;
     cursor: pointer;
+    color: rgb(34, 34, 34);
+}
+a {
+    text-decoration: none;
+    cursor: pointer;
+    color: rgb(34, 34, 34);
 }
 
 body {

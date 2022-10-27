@@ -102,7 +102,9 @@ const NavBar = () => {
       </div>
       <div className='navbar-user-side'>
         <div className='left-of-user'>
-          <button className='host-button'>Become a Host</button>
+          <button className='host-button'>
+            <div className='become-a-host'>Become a Host</div>
+          </button>
         </div>
         <div className='user-button-section'>
           <ProfileButton />

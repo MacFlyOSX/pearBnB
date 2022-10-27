@@ -148,11 +148,14 @@
     border: none;
     background-color: transparent;
     padding: 12px;
-    width: 123px;
+    width: 130px;
     height: 42px;
-    font-size: 14px;
-    font-weight: 700px;
     border-radius: 21px;
+}
+
+.become-a-host {
+    font-size: 14px;
+    font-weight: 600px;
 }
 
 .host-button:hover {
