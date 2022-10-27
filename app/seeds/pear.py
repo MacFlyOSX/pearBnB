@@ -15,6 +15,23 @@ types = [
     { 'type': 'Camping', 'alias': 'camping' }
 ]
 
+amenities = [
+    { 'alias': 'ac', 'name': 'Air conditioning'},
+    { 'alias': 'bbq', 'name': 'BBQ grill'},
+    { 'alias': 'coffee', 'name': 'Coffee maker'},
+    { 'alias': 'firepit', 'name': 'Fire pit'},
+    { 'alias': 'fireplace', 'name': 'Indoor fireplace'},
+    { 'alias': 'heat', 'name': 'Heating'},
+    { 'alias': 'hottub', 'name': 'Private hot tub'},
+    { 'alias': 'kitchen', 'name': 'Kitchen'},
+    { 'alias': 'outdoor', 'name': 'Outdoor furniture'},
+    { 'alias': 'pets', 'name': 'Pets welcome'},
+    { 'alias': 'pool', 'name': 'Private pool'},
+    { 'alias': 'tv', 'name': 'TV'},
+    { 'alias': 'wifi', 'name': 'Wifi'},
+    { 'alias': 'workspace', 'name': 'Dedicated workspace'}
+]
+
 listings = [
         {
             "name": "EAGLE'S WATCH MALIBU- Architectural w/ Ocean View",
@@ -27,7 +44,7 @@ listings = [
             "description": "Eagle's Watch is one of Malibu's most famous houses, impossible to miss while driving the Pacific Coast Highway and designed by legendary architect Harry Gesner. Perched above the Pacific Ocean, Eagle’s Watch has the best unobstructed panoramic view in Malibu. Perfect for entertaining with dramatic outdoor and indoor spaces, the views from every location are simply stunning.",
             "price": 1175,
             "max_guests": 8,
-            "beds": 3,
+            "bed": 3,
             "bath": 4,
             "type": 'omg'
         },
@@ -277,8 +294,11 @@ reviews = [
 ]
 
 def seed_test():
-    for type in types:
-        db.session.add(Type(type))
+    type_dict = {}
+    for typey in types:
+        typey_type = Type(type=typey['type'], alias=typey['alias'])
+        db.session.add(typey_type)
+        type_dict[typey['alias']] = typey_type
     db.session.commit()
     for listing in listings:
         db.session.add(Listing(name=listing['name'],
@@ -293,12 +313,21 @@ def seed_test():
                                max_guests=listing['max_guests'],
                                bed=listing['bed'],
                                bath=listing['bath'],
-                               types=type_dict[listing['type']],
-                    )
+                               types=[type_dict[listing['type']]]
+                    ))
     for img in images:
-        db.session.add(Image(img))
+        db.session.add(Image(listing_id=img['listing_id'], url=img['url']))
     for rev in reviews:
-        db.session.add(Review(rev))
+        db.session.add(Review(user_id=rev['user_id'],
+                              listing_id=rev['listing_id'],
+                              review_body=rev['review_body'],
+                              rating=rev['rating'],
+                              clean=rev['clean'],
+                              comm=rev['comm'],
+                              check=rev['check'],
+                              acc=rev['acc'],
+                              loc=rev['loc'],
+                              val=rev['val']))
 
     db.session.commit()
 
