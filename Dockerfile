@@ -7,7 +7,7 @@ ENV SQLALCHEMY_ECHO=true
 
 WORKDIR /var/www
 COPY . .
-COPY /react-frontend/build/* app/static/
+COPY /react-app/build/* app/static/
 RUN pip install -r requirements.txt && pip install psycopg2
 
 CMD gunicorn app:app
