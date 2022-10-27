@@ -2,98 +2,70 @@ import Cookies from 'js-cookie';
 
 /******************************* ACTION TYPES: ********************************/
 
-const ADD = 'listings/ADD';
-const LOAD = 'listings/LOAD';
-const GET_ONE = 'listings/GET_ONE';
-const UPDATE = 'listings/UPDATE';
-const DELETE = 'listings/DELETE';
-const ADD_IMG = 'listings/ADD_IMG';
-const REMOVE_IMG = 'listings/REMOVE_IMG';
-const CLEAR_DATA = 'listings/CLEAR_DATA';
+const ADD = 'reviews/ADD';
+const LOAD = 'reviews/LOAD';
+const UPDATE = 'reviews/UPDATE';
+const DELETE = 'reviews/DELETE';
 
 /********************************** CREATE ************************************/
 
-// Add a listing
+// Add a review
 
-const _addListing = (listing) => ({
+const _addReview = (review, listing) => ({
     type: ADD,
-    payload: listing
+    review,
+    listing
 });
 
-export const addListing = (listing) => async dispatch => {
-    console.log(JSON.stringify(listing))
-    const response = await fetch('/api/listings/', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'XSRF-TOKEN': Cookies.get('XSRF-TOKEN')
-        },
-        body: JSON.stringify(listing)
-    });
+export const addReview = (review, listingId) => async dispatch => {
 
-    if (response.ok) {
-        const newListing = await response.json()
-
-        await dispatch(_addListing(newListing));
-        return newListing;
-    }
-};
-
-// Add an image to a listing
-
-const _addImg = (listing, img) => ({
-    type: ADD_IMG,
-    listing,
-    img
-});
-
-export const addImg = (id, image) => async dispatch => {
-    const response = await fetch(`/api/listings/${id}`);
+    const response = await fetch(`/api/listings/${listingId}`);
 
     if (response.ok) {
         const listing = await response.json();
 
-        const responseAddImg = await fetch(`/api/listings/${id}/images`, {
+        const reviewRes = await fetch(`/api/listings/${listingId}/reviews`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'XSRF-TOKEN': Cookies.get('XSRF-TOKEN')
             },
-            body: JSON.stringify(image)
+            body: JSON.stringify(review)
         });
 
-        if (responseAddImg.ok) {
-            const img = await responseAddImg.json();
-            await dispatch(_addImg(listing, img));
-            return img;
+        if (reviewRes.ok) {
+            const review = await reviewRes.json();
+            await dispatch(_addReview(review, listing));
+            return review;
         }
     }
+
 };
 
 
 /********************************** READ **************************************/
 
-// Get all listings
+// Get all review
 
-const _loadListings = payload => ({
+const _loadReviews = reviews => ({
     type: LOAD,
-    payload
+    payload: reviews
 });
 
-export const loadListings = (type, location, guests) => async dispatch => {
+export const loadReviews = id => async dispatch => {
 
-    const response = await fetch(`/api/listings/?type=${type ? type : ''}&location=${location ? location : ''}&guests=${guests ? guests : ''}`);
+    const response = await fetch(`/api/listings/${id}/reviews`);
 
         if (response.ok) {
             const list = await response.json();
-            dispatch(_loadListings(list));
+            dispatch(_loadReviews(list));
         }
 };
 
 
 // Get user's listings
 
-export const loadUsersListings = () => async dispatch => {
+export const loadUsersReviews = () => async dispatch => {
     const response = await fetch(`/api/listings/current`, {
         method: 'GET',
         headers: {
@@ -103,41 +75,27 @@ export const loadUsersListings = () => async dispatch => {
 
     if (response.ok) {
         const list = await response.json();
-        dispatch(_loadListings(list));
+        dispatch(_loadReviews(list));
 
         return list;
-    }
-};
-
-// Get a single listing
-
-const _getOne = payload => ({
-    type: GET_ONE,
-    payload
-});
-
-export const getOne = id => async dispatch => {
-    const response = await fetch(`/api/listings/${id}`);
-
-    if (response.ok) {
-        const listing = await response.json();
-
-        dispatch(_getOne(listing));
-        return listing;
     }
 };
 
 
 /********************************* UPDATE *************************************/
 
-// Update a listing
+// Update a review
 
-const _updateListing = payload => ({
+const _updateReview = (review, user, listing) => ({
     type: UPDATE,
-    payload
+    payload: {
+        review,
+        user,
+        listing
+    }
 });
 
-export const updateListing = (id, listing) => async dispatch => {
+export const updateReview = (id, listing) => async dispatch => {
     const response = await fetch(`/api/listings/${id}`, {
         method: 'PUT',
         headers: {
@@ -148,11 +106,11 @@ export const updateListing = (id, listing) => async dispatch => {
     });
 
     if (response.ok) {
-        const updatedListing = await response.json();
+        const updatedReview = await response.json();
 
-        dispatch(_updateListing(updatedListing));
+        dispatch(_updateReview(updatedReview));
 
-        return updatedListing;
+        return updatedReview;
     }
 };
 
@@ -161,12 +119,12 @@ export const updateListing = (id, listing) => async dispatch => {
 
 // Delete a listing
 
-const _deleteListing = id => ({
+const _deleteReview = id => ({
     type: DELETE,
     id
 });
 
-export const deleteListing = id => async dispatch => {
+export const deleteReview = id => async dispatch => {
     const response = await fetch(`/api/listings/${id}`, {
         method: 'DELETE',
         headers: {
@@ -177,34 +135,12 @@ export const deleteListing = id => async dispatch => {
     if (response.ok) {
         const cool = await response.json();
 
-        dispatch(_deleteListing(id));
+        dispatch(_deleteReview(id));
 
         return cool;
     }
 };
 
-
-// Delete a listing's image
-
-const _deleteImg = (id, imageId) => ({
-    type: REMOVE_IMG,
-    payload: {
-        id,
-        imageId
-    }
-});
-
-export const deleteImg = (id, imageId) => async dispatch => {
-    const response = await fetch(`/api/listings/images/${imageId}`, {
-        method: 'DELETE'
-    });
-
-    if (response.ok) {
-        const cool = await response.json();
-        dispatch(_deleteImg(id, imageId));
-        return cool;
-    }
-};
 
 /********************************** REDUCER ***********************************/
 
