@@ -1,0 +1,17 @@
+
+.footer-homepage {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    padding: 13px 40px 14px;
+    border-top: 1px solid rgb(221, 221, 221);
+    background-color: white;
+    height: 47px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hpfooter-left {
+    
+}

@@ -1,0 +1,42 @@
+
+.user-button {
+    width: 77px;
+    height: 42px;
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 21px;
+    padding: 5px 5px 5px 12px;
+    background-color: white;
+    display: flex;
+    transition: filter 0.3s;
+    align-items: center;
+}
+
+.user-button:hover {
+    filter: drop-shadow(0 2px 2.5px rgb(221, 221, 221));
+}
+
+.burger-icon {
+    margin-top: 2px;
+    height: 16px;
+}
+
+.user-image {
+    margin-top: 2px;
+    height: 30px;
+    border-radius: 50%;
+    margin-left: 12px;
+}
+
+.profile-dropdown {
+    position: absolute;
+    z-index: 100;
+    background-color: white;
+    height: 200px;
+    width: 240px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    top: 70px;
+    right: 80px;
+    border-radius: 12px;
+    border: 2px red solid;
+    padding: 16px;
+  }
