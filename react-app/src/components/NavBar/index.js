@@ -77,7 +77,7 @@ const NavBar = () => {
   )
 
   return (
-    <>
+    <div className='entire-header'>
     <div className='navbar-container navbar-home'>
       <div className='navbar-logo-side'>
         <NavLink className='logo' exact to="/">
@@ -118,9 +118,9 @@ const NavBar = () => {
           </button> */}
         </div>
       </div>
-    </div>
     {typesSection}
-    </>
+    </div>
+    </div>
   )
 }
 

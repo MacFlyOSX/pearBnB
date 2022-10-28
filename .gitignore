@@ -8,6 +8,8 @@ __pycache__/
 flask-backend/app/migrations/versions
 node_modules
 reset-db.sh
+seed-heroku.sh
+undo-seed-heroku.sh
 app/dev.db
 
 # dependencies

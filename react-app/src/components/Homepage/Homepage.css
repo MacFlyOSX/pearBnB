@@ -1,6 +1,7 @@
 
 .main-homepage-container {
     margin-top: 174px;
+    /* margin-top: 104px; */
     margin-bottom: 40px;
     padding: 0 80px;
     width: 100%;
@@ -85,11 +86,11 @@
 }
 
 .listing-image-inner:hover .arrow-button {
-    opacity: 0.5;
+    opacity: 0.6;
 }
 
-.arrow-button:hover {
-    opacity: 1;
+#arrow:hover {
+    opacity: 0.9;
 }
 
 .arrow {
@@ -119,13 +120,13 @@
 }
 
 .listing-info-location {
-    font-weight: 500;
-    font-size: 16px;
+    font-weight: 600;
+    font-size: 14px;
 }
 
 .listing-info-distance {
     color: rgb(113, 113, 113);
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .listing-info-cost {
@@ -134,11 +135,11 @@
 
 .cost-dollars {
     font-weight: 600;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .cost-night {
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .listing-card-rating {
@@ -158,5 +159,5 @@
 .listing-rating-avg {
     height: 19px;
     margin-left: 4px;
-    font-size: 16px;
+    font-size: 14px;
 }
