@@ -4,6 +4,8 @@
 * {
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 14px;
+    color: rgb(34, 34, 34);
+    /* letter-spacing: -0.5px; */
     box-sizing: border-box;
 }
 

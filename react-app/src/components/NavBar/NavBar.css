@@ -1,5 +1,6 @@
 
 /****************************** NAVBAR CONTAINER ******************************/
+
 .navbar-container {
     position: fixed;
     top: 0;
@@ -11,18 +12,23 @@
 }
 
 .navbar-home {
-    padding: 0 80px 0;
+    /* padding: 0 80px 0; */
     display: grid;
     grid-template-columns: 1fr 400px 1fr;
+    grid-template-rows: 80px 70px;
+    grid-template-areas: 'left mid right'
+                         'type type type';
 }
 
 /**************************** NAVBAR LOGO SECTION *****************************/
 .navbar-logo-side {
     display: flex;
     align-items: center;
+    padding-left: 80px;
     height: 80px;
     width: 100%;
     justify-content: flex-start;
+    grid-area: left;
 }
 
 .logo-container {
@@ -45,6 +51,7 @@
     justify-content: center;
     width: 400px;
     height: 80px;
+    grid-area: mid;
 }
 
 .search-container {
@@ -77,7 +84,7 @@
     justify-content: center;
     align-items: center;
     font-size: 14px;
-    font-weight: 450;
+    font-weight: 600;
 }
 
 .type-searchbutton {
@@ -87,7 +94,7 @@
     width: 96.414px;
     height: 48px;
     font-size: 14px;
-    font-weight: 450;
+    font-weight: 600;
 }
 
 .guests-searchbutton {
@@ -106,7 +113,7 @@
     width: 105.391px;
     color: rgb(113, 113, 113);
     font-size: 14px;
-    font-weight: 450;
+    font-weight: 400;
 }
 
 .search-searchbutton {
@@ -135,6 +142,8 @@
     grid-template-columns: 1fr 77px;
     align-items: center;
     height: 80px;
+    grid-area: right;
+    padding-right: 80px;
 }
 
 .left-of-user {
@@ -155,7 +164,7 @@
 
 .become-a-host {
     font-size: 14px;
-    font-weight: 600px;
+    font-weight: 600;
 }
 
 .host-button:hover {
@@ -202,12 +211,15 @@
     width: 100%;
     padding: 0 80px;
     display: flex;
+    /* float: left; */
     justify-content: center;
     align-items: center;
     top: 80px;
-    position: fixed;
+    /* position: fixed; */
     background-color: white;
     filter: drop-shadow(0 2px 2.5px rgba(221, 221, 221, 0.3));
+    /* border-bottom: 2px solid rgba(221, 221, 221, 0.3); */
+    grid-area: type;
 }
 
 .types-section-inner {
@@ -236,5 +248,5 @@
 
 .type-name {
     font-size: 12px;
-    font-weight: 500;
+    font-weight: 600;
 }

@@ -3,7 +3,7 @@
     width: 100%;
     position: fixed;
     bottom: 0;
-    padding: 13px 40px 14px;
+    padding: 13px 80px 14px;
     border-top: 1px solid rgb(221, 221, 221);
     background-color: white;
     height: 47px;
@@ -12,6 +12,82 @@
     align-items: center;
 }
 
-.hpfooter-left {
-    
+.footer-otherpages {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    height: 122px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(247, 247, 247);
+    border-top: 1px solid rgb(221, 221, 221);
+}
+
+.hpfooter-left,
+.hpfooter-right,
+.github,
+.linkedin {
+    display: flex;
+    align-items: center;
+}
+
+.hpfooter-right {
+    width: 180px;
+    justify-content: space-between;
+}
+
+.middot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.github-span,
+.linkedin-span {
+    padding-left: 5px;
+    font-weight: 600;
+}
+
+#github-path {
+    fill: #1B1F23;
+}
+
+.github:hover #github-path {
+    fill: #8d15a5;
+}
+
+#linkedin-g {
+    fill: #1B1F23;
+}
+
+.linkedin:hover #linkedin-g {
+    fill: #007ebb;
+}
+
+.footer-tag:hover {
+    text-decoration: underline;
+}
+
+.footer-top-icons,
+.footer-bottom-cp,
+.footer-bottom-brandon {
+    display: flex;
+    align-items: center;
+    color: rgb(34, 34, 34);
+}
+
+.footer-top-icons {
+    width: 80px;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.footer-bottom-cp {
+    margin-bottom: 3px;
 }
