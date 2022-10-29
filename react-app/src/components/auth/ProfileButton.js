@@ -3,8 +3,8 @@ import { useSelector } from 'react-redux';
 import { NavLink } from "react-router-dom";
 import burger from '../../icons/homepage/burger.svg';
 import userJohn from '../../icons/homepage/user.png';
-import './ProfileButton.css'
 import LogoutButton from './LogoutButton';
+import './ProfileButton.css'
 
 function ProfileButton() {
   const user = useSelector(state => state.session.user)

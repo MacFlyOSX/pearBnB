@@ -8,6 +8,7 @@ import Homepage from './components/Homepage';
 import Footer from './components/Footer';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
+import ListingDeets from './components/ListingDeets';
 import User from './components/User';
 import { authenticate } from './store/session';
 
@@ -29,7 +30,6 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar />
-      <Footer />
       <Switch>
         <Route path='/login' exact={true}>
           <LoginForm />
@@ -46,7 +46,11 @@ function App() {
         <Route path='/' exact={true} >
           <Homepage />
         </Route>
+        <Route path='/listings/:listingId' >
+          <ListingDeets />
+        </Route>
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 }

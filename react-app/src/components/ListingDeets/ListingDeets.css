@@ -1,0 +1,231 @@
+
+#hidden-toolbar {
+    width: 100%;
+    height: 80px;
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: center;
+}
+
+/****************************** COLUMN CONTAINER ******************************/
+
+.listing-details-container {
+    width: 1120px;
+}
+
+/************************* TITLE AND REVIEWS/LOCATION *************************/
+
+.listing-details-header {
+    margin-top: 24px;
+}
+
+.listing-title {
+    font-size: 26px;
+    font-weight: 600;
+    margin: 0 0 4px;
+}
+
+.review-location-save {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.heart {
+    height: 16px;
+}
+
+.save-span {
+    margin-left: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.listing-star {
+    height: 14px;
+}
+
+.rev-loc-span {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.rev-location {
+    display: flex;
+    align-items: center;
+}
+
+#middot {
+    padding: 0 4px;
+    font-weight: 700;
+}
+
+.review-listing{
+    margin-left: 4px;
+}
+
+.save-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 71px;
+    height: 34px;
+    border: none;
+    background-color: transparent;
+    border-radius: 8px;
+}
+
+.save-button:hover {
+    background-color: rgba(221, 221, 221, 0.3);
+}
+
+/******************************* PHOTOS SECTION *******************************/
+
+.listing-photos-outer-grid {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.listing-details-photos {
+    margin-top: 24px;
+    width: 100%;
+    height: 300px;
+}
+
+.main-listing-image {
+    height: 300px;
+    width: 556px;
+    object-fit: cover;
+    border-top-left-radius: 16px;
+    border-bottom-left-radius: 16px;
+}
+
+.right-listing-image-grid {
+    height: 300px;
+    width: 556px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-column-gap: 8px;
+    grid-row-gap: 8px;
+}
+
+.listing-image {
+    height: 146px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.listing-image-righttop {
+    border-top-right-radius: 16px;
+}
+
+.listing-image-rightbottom {
+    border-bottom-right-radius: 16px;
+}
+
+/********************** TITLE TO AMENITIES AND BOOKINGS ***********************/
+
+.listing-details-middle-container {
+    display: grid;
+    grid-template-columns: 653.328px 1fr;
+}
+
+.mid-left {
+    border-bottom: 1px solid rgb(221, 221, 221);
+}
+
+.listing-details-middle-left {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/******************************* TITLE SECTION *******************************/
+
+.middle-title-section {
+    padding: 48px 0 24px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.title-below-pictures {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 26px;
+    margin: 0 0 8px;
+}
+
+.user-icon-image {
+    height: 56px;
+    border-radius: 50%;
+}
+
+.bed-bath-span {
+    font-size: 16px;
+}
+
+/******************************* PERKS SECTION ********************************/
+
+.middle-perks-section {
+    padding: 32px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.perk-icon {
+    height: 24px;
+}
+
+.perk-details {
+    display: flex;
+    flex-direction: column;
+    margin-left: 16px;
+}
+
+.each-perk {
+    display: flex;
+}
+
+.perk-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    /* line-height: 20px; */
+}
+
+.perk-description {
+    line-height: 20px;
+    color: rgb(113, 113, 113);
+}
+
+.upper-perk {
+    margin-bottom: 24px;
+}
+
+/***************************** PEARCOVER SECTION ******************************/
+
+.middle-pearcover-section {
+    padding: 32px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+#pearcover {
+    height: 40px;
+    width: 179.47px;
+    margin-bottom: 16px;
+}
+
+.pearcover-description {
+    font-size: 16px;
+}
+
+.middle-description-section {
+    padding: 32px 0;
+    font-size: 16px;
+}
