@@ -1,0 +1,33 @@
+
+.login-button-dropdown {
+    margin-top: 8px;
+}
+
+.signup-button-dropdown {
+    margin-bottom: 8px;
+}
+
+.login-button-dropdown,
+.signup-button-dropdown {
+    height: 40px;
+    background-color: transparent;
+    border: none;
+}
+
+.login-span-dropdown,
+.signup-span-dropdown {
+    display: flex;
+    margin-left: 5px;
+}
+
+.login-span-dropdown {
+    font-weight: 600;
+}
+
+.login-button-dropdown:hover {
+    background-color: rgb(247, 247, 247);
+}
+
+.signup-button-dropdown:hover {
+    background-color: rgb(247, 247, 247);
+}
