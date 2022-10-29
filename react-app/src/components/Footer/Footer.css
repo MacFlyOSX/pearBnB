@@ -14,8 +14,7 @@
 
 .footer-otherpages {
     width: 100%;
-    position: absolute;
-    bottom: 0;
+    position: relative;
     height: 122px;
     padding: 24px;
     display: flex;

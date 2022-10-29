@@ -35,5 +35,6 @@ class User(db.Model, UserMixin):
             'email': self.email,
             'first_name': self.first_name,
             'last_name': self.last_name,
-            'region': self.region
+            'lat': self.lat,
+            'lng': self.lng
         }
