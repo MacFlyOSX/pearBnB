@@ -184,8 +184,6 @@
 
 .user-button-section {
     height: 80px;
-    /* display: flex;
-    align-items: center; */
     display: inline-block;
     float: right;
     position: relative;
@@ -235,11 +233,13 @@
     top: 70px;
     right: 0;
     border-radius: 12px;
-    border: 2px red solid;
+    /* border: 2px red solid; */
+    display: flex;
+    flex-direction: column;
   }
 
 .logged-out-dropdown {
-    height: 96px;
+    display: flex;
 }
 
 

@@ -20,6 +20,7 @@ import userJohn from '../../icons/homepage/user.png';
 import LogoutButton from '../auth/LogoutButton';
 import './NavBar.css';
 import ProfileButton from '../auth/ProfileButton';
+import LoginSignupModal from '../auth/LoginSignupModal';
 
 const NavBar = () => {
   const user = useSelector(state => state.session.user)
@@ -169,12 +170,7 @@ const NavBar = () => {
           )}
           {showMenu && !user && (
             <div className="profile-dropdown logged-out-dropdown">
-                <div className="login-button">
-                    Log in
-                </div>
-                <div className="signup-button">
-                    Sign up
-                </div>
+                <LoginSignupModal />
             </div>
           )}
         </div>
