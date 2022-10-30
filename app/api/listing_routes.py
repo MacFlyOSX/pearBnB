@@ -17,7 +17,7 @@ def validation_errors_to_error_messages(validation_errors):
 
 ###################################### READ ####################################
 
-######## LOAD ALL LISTINGS
+######## LOAD ALL LISTINGS ########
 @listing_routes.route('/')
 def get_all_listings():
     # type = request.args.get('type')
@@ -43,7 +43,8 @@ def get_all_listings():
 
     return jsonify({ 'Listings': all_listings})
 
-######## LOAD USER'S LISTINGS
+
+######## LOAD USER'S LISTINGS #########
 @listing_routes.route('/current')
 @login_required
 def user_listings():
@@ -65,7 +66,27 @@ def user_listings():
 
     return jsonify({ 'Listings': user_listings })
 
-######## LOAD SINGLE LISTING
+
+
+######## LOAD SINGLE LISTING'S REVIEWS ##########
+@listing_routes.route('/<int:listing_id>/reviews')
+def get_listing_reviews(listing_id):
+    listing = Listing.query.get(listing_id)
+    if not listing:
+        return jsonify({ "message": "Listing couldn't be found",
+                        "status_code": 404}), 404
+
+    revs = Review.query.all()
+    reviews = [rev.to_dict() for rev in revs]
+
+    for review in reviews:
+        user = User.query.filter_by(id=review['user_id']).first().to_dict()
+        review['user'] = user
+
+    return jsonify({ 'Reviews': reviews })
+
+
+######## LOAD SINGLE LISTING #########
 @listing_routes.route('/<int:listing_id>')
 def get_one_listing(listing_id):
     listing = Listing.query.get(listing_id)

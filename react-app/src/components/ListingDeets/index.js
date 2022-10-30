@@ -16,8 +16,60 @@ const ListingDeets = () => {
     const history = useHistory();
     const dispatch = useDispatch();
 
+    let acc = 0;
+    let clean = 0;
+    let check = 0;
+    let comm = 0;
+    let loc = 0;
+    let val = 0;
+    let numReviews;
+
+    let accStyle;
+    let cleanStyle;
+    let checkStyle;
+    let commStyle;
+    let locStyle;
+    let valStyle;
+
+    // if (reviews) {
+    //     numReviews = reviews.length;
+    //     reviews.forEach(review => {
+    //         acc += review.acc;
+    //         clean += review.clean;
+    //         check += review.check;
+    //         comm += review.comm;
+    //         loc += review.loc;
+    //         val += review.val;
+    //     });
+
+    //     accStyle = {
+    //         width: `${acc / numReviews * 100}%`
+    //     }
+    //     cleanStyle = {
+    //         width: `${clean / numReviews * 100}%`
+    //     }
+    //     checkStyle = {
+    //         width: `${check / numReviews * 100}%`
+    //     }
+    //     commStyle = {
+    //         width: `${comm / numReviews * 100}%`
+    //     }
+    //     locStyle = {
+    //         width: `${loc / numReviews * 100}%`
+    //     }
+    //     valStyle = {
+    //         width: `${val / numReviews * 100}%`
+    //     }
+    // }
+
     const listing = useSelector(state => state.listings.singleListing);
     console.log('this is the listing',listing);
+
+    /*
+    if (reviews) {
+
+    }
+    */
 
     useEffect(() => {
         dispatch(getOne(listingId));
@@ -119,7 +171,7 @@ const ListingDeets = () => {
                 <div className='middle-description-section mid-left'>
                     {listing.description}
                 </div>
-                <div className='middle-amenities-section mid-left'>
+                <div className='middle-amenities-section'>
                     <h1 id='amenities'>What this place offers</h1>
                     <img src={construction} alt='construction' className='construction' />
                 </div>
@@ -158,7 +210,22 @@ const ListingDeets = () => {
                 </div>
             </div>
         </div>
-        <div className='listing-details-reviews'></div>
+        <div className='listing-details-reviews'>
+            <h1 id='reviews' >
+                <img src={star} className='review-section-star' alt='star' />
+                <span className='review-section-avg'>{listing.avg_rating}</span>
+                <span id='rev-middot'>&middot;</span>
+                <span className='review-section-avg'>{numReviews} reviews</span>
+            </h1>
+            <div className='review-breakdown-section'>
+                <div className='specific-review-stat'>
+                    <div className='specific-stat-title'></div>
+                    <div className='specfic-stat-breakdown'>
+
+                    </div>
+                </div>
+            </div>
+        </div>
         <div className='listing-details-where'></div>
     </div></div>
   )

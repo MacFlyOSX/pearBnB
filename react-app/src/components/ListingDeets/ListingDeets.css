@@ -246,7 +246,7 @@
 /***************************** AMENITIES SECTION ******************************/
 
 .middle-amenities-section {
-    padding: 48px 0;
+    padding: 48px 0 0;
 }
 
 #amenities {
@@ -369,4 +369,46 @@
     color: white;
     font-size: 16px;
     font-weight: 600;
+}
+
+
+/****************************** REVIEWS SECTION *******************************/
+
+.listing-details-reviews {
+    padding: 48px 0;
+    border-top: 1px solid rgb(221, 221, 221);
+    border-bottom: 1px solid rgb(221, 221, 221);
+}
+
+.review-section-star {
+    height: 16px;
+    margin-right: 8px;
+}
+
+.review-section-avg {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+#rev-middot {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0 6px;
+}
+
+#reviews {
+    margin: 0 0 32px;
+}
+
+.review-breakdown-section {
+    margin-bottom: 24px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+/******************************* WHERE SECTION ********************************/
+
+.listing-details-where {
+    padding: 48px 0;
 }
