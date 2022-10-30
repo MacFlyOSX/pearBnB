@@ -6,6 +6,10 @@
     top: 0;
     display: flex;
     justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 1px 0;
+    background-color: white;
+    z-index: 3;
+    visibility: hidden;
 }
 
 /****************************** COLUMN CONTAINER ******************************/
@@ -131,24 +135,33 @@
 /********************** TITLE TO AMENITIES AND BOOKINGS ***********************/
 
 .listing-details-middle-container {
-    display: grid;
-    grid-template-columns: 653.328px 1fr;
+    /* display: table; */
+    display: flex;
+    width: 100%;
+    padding: 48px 0;
+}
+
+.listing-details-middle-left {
+    width: 653.328px;
+    /* border: 2px red solid; */
+    display: flex;
+    flex-direction: column;
+}
+
+.listing-details-booking-right {
+    width: 466.656px;
+    /* border: 2px red solid; */
+    /* display: table-cell; */
 }
 
 .mid-left {
     border-bottom: 1px solid rgb(221, 221, 221);
 }
 
-.listing-details-middle-left {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
 /******************************* TITLE SECTION *******************************/
 
 .middle-title-section {
-    padding: 48px 0 24px;
+    padding-bottom: 24px;
     display: flex;
     justify-content: space-between;
 }
@@ -228,4 +241,132 @@
 .middle-description-section {
     padding: 32px 0;
     font-size: 16px;
+}
+
+/***************************** AMENITIES SECTION ******************************/
+
+.middle-amenities-section {
+    padding: 48px 0;
+}
+
+#amenities {
+    padding: 0 0 24px;
+    margin: 0;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.construction {
+    width: 400px;
+    margin-left: 125px;
+}
+
+
+/****************************** BOOKINGS SECTION ******************************/
+
+
+.sticky-booking-container {
+    margin-left: 93.328px;
+    width: 371.328px;
+    height: 226px;
+    border: 1px solid rgb(221, 221, 221);
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+    border-radius: 12px;
+    position: sticky;
+    top: 128px;
+    padding: 24px;
+}
+
+.booking-container {
+    width: 100%;
+    height: 100%;
+}
+
+.booking-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 24px;
+}
+
+#cost-booking {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+#night-booking {
+    margin-left: 3px;
+    font-size: 16px;
+}
+
+#booking-star {
+    height: 12px;
+}
+
+#booking-review-avg {
+    margin-left: 4px;
+    font-weight: 600;
+}
+
+#booking-num-reviews {
+    color: rgb(113, 113, 113);
+    font-weight: 600;
+}
+
+.booking-calendar {
+    width: 100%;
+    border: 1px solid rgb(221, 221, 221);
+    margin-bottom: 16px;
+    border-radius: 8px;
+    display: flex;
+}
+
+.booking-form {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.calendar-inner {
+    width: 50%;
+    display: block;
+    position: relative;
+}
+
+.left-inner-calendar {
+    border-right: 1px solid rgb(221, 221, 221);
+}
+
+#booking-checkin {
+    width: 100%;
+    height: 55px;
+    border: none;
+    padding: 26px 12px 10px;
+    background-color: transparent;
+}
+
+#booking-checkin:focus {
+    outline: solid rgb(34, 34, 34);
+    border-radius: 8px;
+}
+
+.checkin-upper-text {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    margin: 0;
+    padding: 0;
+    font-weight: 800;
+    font-size: 10px;
+}
+
+#submit-booking {
+    width: 100%;
+    padding: 14px 24px;
+    border-radius: 8px;
+    border: none;
+    background-color: #6e9e00;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
 }
