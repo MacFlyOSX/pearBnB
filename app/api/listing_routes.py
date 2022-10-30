@@ -76,7 +76,7 @@ def get_listing_reviews(listing_id):
         return jsonify({ "message": "Listing couldn't be found",
                         "status_code": 404}), 404
 
-    revs = Review.query.all()
+    revs = Review.query.filter_by(listing_id=listing_id).all()
     reviews = [rev.to_dict() for rev in revs]
 
     for review in reviews:
