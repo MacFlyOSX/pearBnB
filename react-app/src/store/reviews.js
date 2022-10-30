@@ -45,7 +45,7 @@ export const addReview = (review, listingId) => async dispatch => {
 
 /********************************** READ **************************************/
 
-// Get all review
+// Get all reviews
 
 const _loadReviews = reviews => ({
     type: LOAD,
@@ -88,21 +88,17 @@ export const loadUsersReviews = () => async dispatch => {
 
 const _updateReview = (review, user, listing) => ({
     type: UPDATE,
-    payload: {
-        review,
-        user,
-        listing
-    }
+    payload: review
 });
 
-export const updateReview = (id, listing) => async dispatch => {
-    const response = await fetch(`/api/listings/${id}`, {
+export const updateReview = (reviewId, review, listingId) => async dispatch => {
+    const response = await fetch(`/api/listings/${listingId}/reviews/${reviewId}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
             'XSRF-TOKEN': Cookies.get('XSRF-TOKEN')
         },
-        body: JSON.stringify(listing)
+        body: JSON.stringify(review)
     });
 
     if (response.ok) {
@@ -144,69 +140,40 @@ export const deleteReview = id => async dispatch => {
 
 /********************************** REDUCER ***********************************/
 
-export const clearData = () => ({
-    type: CLEAR_DATA
-});
+
+const initialState = { allReviews: {} };
 
 
-const initialState = { allListings: {}, singleListing: {} };
-
-
-const listingReducer = (state = initialState, action) => {
+const reviewReducer = (state = initialState, action) => {
     switch (action.type) {
         case LOAD:{
-            const newState = { ...state, allListings: { ...state.allListings }, singleListing: { ...state.singleListing } };
-            const allListings = {};
-            action.payload.Listings.forEach(listing => allListings[listing.id] = listing);
-            newState.allListings = allListings;
-            return newState;
-        }
-        case GET_ONE:{
-            const newState = { ...state, allListings: { ...state.allListings }, singleListing: { ...state.singleListing } };
-            const singleListing = { ...action.payload };
-            newState.singleListing = singleListing;
+            const newState = { ...state, allReviews: { ...state.allReviews } };
+            const allReviews = {};
+            action.payload.Reviews.forEach(review => allReviews[review.id] = review);
+            newState.allReviews = allReviews;
             return newState;
         }
         case ADD:{
-            const newState = { ...state, allListings: { ...state.allListings }, singleListing: { ...state.singleListing } };
-            const newListing = { ...action.payload };
-            newState.allListings[action.payload.id] = newListing;
-            newState.singleListing = newListing;
-            return newState;
-        }
-        case ADD_IMG:{
-            const newState = { ...state, allListings: { ...state.allListings }, singleListing: { ...state.singleListing } };
-            newState.singleListing = action.business;
-            newState.singleListing.images.push(action.img);
+            const newState = { ...state, allReviews: { ...state.allReviews } };
+            const newReview = { ...action.payload };
+            newState.allReviews[action.payload.id] = newReview;
             return newState;
         }
         case UPDATE:{
-            const newState = { ...state, allListings: { ...state.allListings }, singleListing: { ...state.singleListing } };
-            const updatedListing = { ...action.payload };
-            newState.allListings[action.payload.id] = updatedListing;
+            const newState = { ...state, allReviews: { ...state.allReviews } };
+            const updatedReview = { ...action.payload };
+            newState.allReviews[action.payload.id] = updatedReview;
             return newState;
         }
         case DELETE:{
-            const newState = { ...state, allListings: { ...state.allListings }, singleListing: { ...state.singleListing } };
-            delete newState.allListings[action.id];
+            let newState = { ...state, allReviews: { ...state.allReviews } };
+            delete newState.allReviews[action.id];
             newState = { ...newState };
             return newState;
         }
-        case REMOVE_IMG:{
-            const newState = { ...state, allListings: { ...state.allListings }, singleListing: { ...state.singleListing } };
-            const listingImages = newState.allListings[action.payload.id].images;
-            for (let i = 0; i < listingImages.length; i++) {
-                const img = listingImages[i];
-                if (img === action.payload.url) listingImages.splice(i, 1);
-            }
-            newState = { ...newState };
-            return newState;
-        }
-        case CLEAR_DATA:
-            return initialState;
         default:
             return state;
     }
 };
 
-export default listingReducer;
+export default reviewReducer;

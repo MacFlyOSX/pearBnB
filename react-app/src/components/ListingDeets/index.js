@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import { getOne } from '../../store/listings';
+import { loadReviews } from '../../store/reviews';
 import heart from '../../icons/homepage/saveheart.svg';
 import star from '../../icons/listing/revstar.svg';
 import door from '../../icons/listing/selfcheckin.svg';
@@ -15,12 +16,74 @@ const ListingDeets = () => {
     const { listingId } = useParams();
     const history = useHistory();
     const dispatch = useDispatch();
+    const reviewObj = useSelector(state => state.reviews.allReviews);
+    const reviews = Object.values(reviewObj);
+
+    let acc = 0;
+    let clean = 0;
+    let check = 0;
+    let comm = 0;
+    let loc = 0;
+    let val = 0;
+    let numReviews;
+
+    let accStyle;
+    let cleanStyle;
+    let checkStyle;
+    let commStyle;
+    let locStyle;
+    let valStyle;
+
+    if (reviews) {
+        numReviews = reviews.length;
+        reviews.forEach(review => {
+            acc += review.acc;
+            clean += review.clean;
+            check += review.check;
+            comm += review.comm;
+            loc += review.loc;
+            val += review.val;
+        });
+
+        acc /= numReviews;
+        clean /= numReviews;
+        check /= numReviews;
+        comm /= numReviews;
+        loc /= numReviews;
+        val /= numReviews;
+
+        accStyle = {
+            width: `${acc / 5 * 100}%`
+        }
+        cleanStyle = {
+            width: `${clean / 5 * 100}%`
+        }
+        checkStyle = {
+            width: `${check / 5 * 100}%`
+        }
+        commStyle = {
+            width: `${comm / 5 * 100}%`
+        }
+        locStyle = {
+            width: `${loc / 5 * 100}%`
+        }
+        valStyle = {
+            width: `${val / 5 * 100}%`
+        }
+    }
 
     const listing = useSelector(state => state.listings.singleListing);
     console.log('this is the listing',listing);
 
+    /*
+    if (reviews) {
+
+    }
+    */
+
     useEffect(() => {
         dispatch(getOne(listingId));
+        dispatch(loadReviews(listingId));
     }, [dispatch]);
 
     const toolbar = document.getElementById('hidden-toolbar');
@@ -51,7 +114,7 @@ const ListingDeets = () => {
                     <img className='listing-star' src={star} alt='star' />
                     <span className='review-listing rev-loc-span'>{listing.avg_rating}</span>
                     <span id='middot'>&middot;</span>
-                    <span className='num-reviews rev-loc-span'>num reviews</span>
+                    <span className='num-reviews rev-loc-span'>{numReviews} reviews</span>
                     <span id='middot'>&middot;</span>
                     <span className='listing-location rev-loc-span'>{listing.city}, {listing.state}, United States</span>
                 </div>
@@ -119,7 +182,7 @@ const ListingDeets = () => {
                 <div className='middle-description-section mid-left'>
                     {listing.description}
                 </div>
-                <div className='middle-amenities-section mid-left'>
+                <div className='middle-amenities-section'>
                     <h1 id='amenities'>What this place offers</h1>
                     <img src={construction} alt='construction' className='construction' />
                 </div>
@@ -136,7 +199,7 @@ const ListingDeets = () => {
                                 <img src={star} alt='star' id='booking-star' />
                                 <span id='booking-review-avg'>{listing.avg_rating}</span>
                                 <span id='middot'>&middot;</span>
-                                <span id='booking-num-reviews'>num reviews</span>
+                                <span id='booking-num-reviews'>{numReviews} reviews</span>
                             </div>
                         </div>
                         <div className='booking-form-container'>
@@ -158,7 +221,86 @@ const ListingDeets = () => {
                 </div>
             </div>
         </div>
-        <div className='listing-details-reviews'></div>
+        <div className='listing-details-reviews'>
+            <h1 id='reviews' >
+                <img src={star} className='review-section-star' alt='star' />
+                <span className='review-section-avg'>{listing.avg_rating}</span>
+                <span id='rev-middot'>&middot;</span>
+                <span className='review-section-avg'>{numReviews} reviews</span>
+            </h1>
+            <div className='review-breakdown-section'>
+                <div className='specific-review-stat'>
+                    <div className='specific-stat-title'>Cleanliness</div>
+                    <div className='specfic-stat-breakdown'>
+                        <div className='stat-container'>
+                            <div className='stat-distribution' style={cleanStyle} ></div>
+                        </div>
+                        <span className='stat-number'>{clean}</span>
+                    </div>
+                </div>
+                <div className='specific-review-stat'>
+                    <div className='specific-stat-title'>Accuracy</div>
+                    <div className='specfic-stat-breakdown'>
+                        <div className='stat-container'>
+                            <div className='stat-distribution' style={accStyle} ></div>
+                        </div>
+                        <span className='stat-number'>{acc}</span>
+                    </div>
+                </div>
+                <div className='specific-review-stat'>
+                    <div className='specific-stat-title'>Communication</div>
+                    <div className='specfic-stat-breakdown'>
+                        <div className='stat-container'>
+                            <div className='stat-distribution' style={commStyle} ></div>
+                        </div>
+                        <span className='stat-number'>{comm}</span>
+                    </div>
+                </div>
+                <div className='specific-review-stat'>
+                    <div className='specific-stat-title'>Location</div>
+                    <div className='specfic-stat-breakdown'>
+                        <div className='stat-container'>
+                            <div className='stat-distribution' style={locStyle} ></div>
+                        </div>
+                        <span className='stat-number'>{loc}</span>
+                    </div>
+                </div>
+                <div className='specific-review-stat'>
+                    <div className='specific-stat-title'>Check-in</div>
+                    <div className='specfic-stat-breakdown'>
+                        <div className='stat-container'>
+                            <div className='stat-distribution' style={checkStyle} ></div>
+                        </div>
+                        <span className='stat-number'>{check}</span>
+                    </div>
+                </div>
+                <div className='specific-review-stat'>
+                    <div className='specific-stat-title'>Value</div>
+                    <div className='specfic-stat-breakdown'>
+                        <div className='stat-container'>
+                            <div className='stat-distribution' style={valStyle} ></div>
+                        </div>
+                        <span className='stat-number'>{val}</span>
+                    </div>
+                </div>
+            </div>
+            <div className='reviews-container'>
+                {reviews.map((review, i) =>
+                    (
+                        <div className='single-review-container' key={i}>
+                            <div className='single-review-title'>
+                                <img src='https://i.imgur.com/xrTfdN1.png' alt='user' className='user-icon-single-review' />
+                                <div className='single-review-user'>
+                                    <span className='single-review-name'>{review?.user?.first_name}</span>
+                                    <span className='single-review-date'>{review?.created_at?.slice(5,7) === '01' ? `January ${review?.created_at?.slice(0,4)}` : review?.created_at?.slice(5,7) === '02' ? `February ${review?.created_at?.slice(0,4)}` : review?.created_at?.slice(5,7) === '03' ? `March ${review?.created_at?.slice(0,4)}` : review?.created_at?.slice(5,7) === '04' ? `April ${review?.created_at?.slice(0,4)}` : review?.created_at?.slice(5,7) === '05' ? `May ${review?.created_at?.slice(0,4)}` : review?.created_at?.slice(5,7) === '06' ? `June ${review?.created_at?.slice(0,4)}` : review?.created_at?.slice(5,7) === '07' ? `July ${review?.created_at?.slice(0,4)}` : review?.created_at?.slice(5,7) === '08' ? `August ${review?.created_at?.slice(0,4)}` : review?.created_at?.slice(5,7) === '09' ? `September ${review?.created_at?.slice(0,4)}` : review?.created_at?.slice(5,7) === '10' ? `October ${review?.created_at?.slice(0,4)}` : review?.created_at?.slice(5,7) === '11' ? `November ${review?.created_at?.slice(0,4)}` : `December ${review?.created_at?.slice(0,4)}`}</span>
+                                </div>
+                            </div>
+                            <div className='single-review-body'>{review.review_body}</div>
+                        </div>
+                    )
+                )}
+            </div>
+        </div>
         <div className='listing-details-where'></div>
     </div></div>
   )

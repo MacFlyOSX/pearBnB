@@ -246,7 +246,7 @@
 /***************************** AMENITIES SECTION ******************************/
 
 .middle-amenities-section {
-    padding: 48px 0;
+    padding: 48px 0 0;
 }
 
 #amenities {
@@ -369,4 +369,130 @@
     color: white;
     font-size: 16px;
     font-weight: 600;
+}
+
+
+/****************************** REVIEWS SECTION *******************************/
+
+.listing-details-reviews {
+    padding: 48px 0;
+    border-top: 1px solid rgb(221, 221, 221);
+    border-bottom: 1px solid rgb(221, 221, 221);
+}
+
+.review-section-star {
+    height: 16px;
+    margin-right: 8px;
+}
+
+.review-section-avg {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+#rev-middot {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0 6px;
+}
+
+#reviews {
+    margin: 0 0 32px;
+}
+
+.review-breakdown-section {
+    margin-bottom: 24px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.specific-review-stat {
+    display: flex;
+    margin-bottom: 16px;
+}
+
+.specfic-stat-breakdown {
+    display: flex;
+    align-items: center;
+}
+
+.specific-stat-title {
+    width: 296.9px;
+    margin-right: 12px;
+    font-size: 16px;
+}
+
+.stat-container {
+    margin-right: 10px;
+    width: 121.2px;
+    height: 4px;
+    background-color: rgb(221, 221, 221);
+    border-radius: 2px;
+}
+
+.stat-distribution {
+    background-color: rgb(34, 34, 34);
+    height: 4px;
+    border-radius: 2px;
+}
+
+.stat-number {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.reviews-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    row-gap: 40px;
+    margin-top: 24px;
+}
+
+.single-review-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-right: 94.656px;
+}
+
+.single-review-title {
+    display: flex;
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+.user-icon-single-review {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.single-review-user {
+    margin-left: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+.single-review-name {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+
+.single-review-date {
+    font-size: 14px;
+    color: rgb(113, 113, 113);
+}
+
+.single-review-body {
+    font-size: 16px;
+    line-height: 24px;
+}
+
+/******************************* WHERE SECTION ********************************/
+
+.listing-details-where {
+    padding: 48px 0;
 }
