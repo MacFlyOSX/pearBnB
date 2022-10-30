@@ -8,6 +8,7 @@ import door from '../../icons/listing/selfcheckin.svg';
 import superhost from '../../icons/listing/superhost.svg';
 import parking from '../../icons/listing/parkforfree.svg';
 import pearcover from '../../icons/listing/pearcover.png';
+import construction from '../../icons/construction.png';
 import './ListingDeets.css';
 
 const ListingDeets = () => {
@@ -118,10 +119,43 @@ const ListingDeets = () => {
                 <div className='middle-description-section mid-left'>
                     {listing.description}
                 </div>
-                <div className='middle-amenities-section mid-left'></div>
+                <div className='middle-amenities-section mid-left'>
+                    <h1 id='amenities'>What this place offers</h1>
+                    <img src={construction} alt='construction' className='construction' />
+                </div>
             </div>
             <div className='listing-details-booking-right'>
-                <div className='sticky-booking-container'></div>
+                <div className='sticky-booking-container'>
+                    <div className='booking-container'>
+                        <div className='booking-title'>
+                            <div className='booking-cost-per'>
+                                <span id='cost-booking'>${listing.price}</span>
+                                <span id='night-booking'>night</span>
+                            </div>
+                            <div className='booking-reviews'>
+                                <img src={star} alt='star' id='booking-star' />
+                                <span id='booking-review-avg'>{listing.avg_rating}</span>
+                                <span id='middot'>&middot;</span>
+                                <span id='booking-num-reviews'>num reviews</span>
+                            </div>
+                        </div>
+                        <div className='booking-form-container'>
+                            <form class='booking-form'>
+                                <div className='booking-calendar'>
+                                <div className='calendar-inner left-inner-calendar'>
+                                    <span className='checkin-upper-text'>CHECK-IN</span>
+                                    <input type='date' id='booking-checkin' />
+                                </div>
+                                <div className='calendar-inner'>
+                                    <span className='checkin-upper-text'>CHECKOUT</span>
+                                    <input type='date' id='booking-checkin' />
+                                </div>
+                                </div>
+                                <button id='submit-booking' type='submit' >Reserve</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div className='listing-details-reviews'></div>
