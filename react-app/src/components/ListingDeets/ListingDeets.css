@@ -377,7 +377,7 @@
 .listing-details-reviews {
     padding: 48px 0;
     border-top: 1px solid rgb(221, 221, 221);
-    border-bottom: 1px solid rgb(221, 221, 221);
+    /* border-bottom: 1px solid rgb(221, 221, 221); */
 }
 
 .review-section-star {
