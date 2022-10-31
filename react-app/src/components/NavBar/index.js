@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink, useLocation } from 'react-router-dom';
 import logo from '../../icons/pearbnb.png';
+import pear from '../../icons/pear.png';
 import search from '../../icons/homepage/search.svg';
 import omg from '../../icons/types/1-omg.svg';
 import luxe from '../../icons/types/2-luxe.svg';
@@ -106,12 +107,12 @@ const NavBar = () => {
       <div className='navbar-logo-side'>
         <NavLink className='logo' exact to="/">
           <div className='logo-container'>
-            <img src={logo} alt='logo' id='navbar-logo' />
+            <img src={url.includes('new') ? pear : logo} alt='logo' id='navbar-logo' />
           </div>
         </NavLink>
       </div>
       <div className='navbar-search-container'>
-        <div className='search-container'>
+        {url.includes('new') ? null : <div className='search-container'>
             <button className='where-searchbutton'>Anywhere</button>
             <span className='search-separator' />
             <button className='type-searchbutton'>Any type</button>
@@ -122,13 +123,13 @@ const NavBar = () => {
                 <img src={search} alt='search' className='search-button' />
               </div>
             </button>
-        </div>
+        </div>}
       </div>
       <div className='navbar-user-side'>
         <div className='left-of-user'>
-          <button className='host-button'>
+          {url.includes('new') ? null : <button className='host-button'>
             <div className='become-a-host'>Become a Host</div>
-          </button>
+          </button>}
         </div>
         <div className='user-button-section'>
           <button className='user-button' onClick={openMenu}>
