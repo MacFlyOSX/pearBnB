@@ -1,0 +1,187 @@
+.listing-form-page {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.listing-form-container {
+    display: flex;
+    flex-direction: column;
+    width: 1120px;
+    padding: 28px 0;
+}
+
+#form-title {
+    font-size: 32px;
+    margin: 0;
+}
+
+#listing-create-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.listing-form-section {
+    width: 100%;
+    display: flex;
+}
+
+.listing-form-section-title {
+    font-size: 22px;
+}
+
+.lform-left {
+    width: 65%;
+}
+
+.input-container {
+    display: block;
+    position: relative;
+}
+
+.full-input-container {
+    width: 100%;
+}
+
+.split-left-input-container {
+    width: 64.75%;
+    margin-right: 0.25%;
+}
+
+.split-right-input-container {
+    width: 35%;
+    /* margin-left: -1px; */
+}
+
+#listing-city {
+    border-top-right-radius: none;
+    border-bottom-right-radius: none;
+}
+
+#listing-state {
+    border-top-left-radius: none;
+    border-bottom-left-radius: none;
+}
+
+.form-input-title {
+    position: absolute;
+    top: -6px;
+    left: 8px;
+    margin: 0;
+    padding: 0 2px;
+    font-weight: 800;
+    font-size: 12px;
+    background-color: white;
+    cursor: default;
+}
+
+.form-input-dollar {
+    position: absolute;
+    top: 9px;
+    left: 10px;
+    font-weight: 600;
+}
+
+.container-for-price {
+    display: flex;
+    align-items: center;
+}
+
+.price-advice {
+    height: 100%;
+    padding-bottom: 20px;
+    margin-left: 15px;
+    font-weight: 600;
+}
+
+.form-field {
+    height: 36px;
+    padding: 5px 8px;
+    margin-bottom: 15px;
+    width: 100%;
+    font-weight: 600;
+}
+
+#listing-price {
+    padding-left: 20px;
+    width: 35%;
+}
+
+.form-field:focus {
+    outline-color: #6e9e00;
+}
+
+.edge-form-field {
+    width: 100%;
+}
+
+.combined-input-container {
+    display: flex;
+}
+
+#listing-description {
+    height: 200px;
+    padding: 12px 8px;
+    margin-bottom: 0;
+}
+
+.full-select-container {
+    width: 100%;
+    border: 2px solid black;
+    height: 180px;
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 25px 8px 0px;
+    margin-bottom: 15px;
+}
+
+.full-amenity-container {
+    width: 100%;
+    border: 2px solid black;
+    height: 250px;
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 25px 8px 0px;
+    margin-bottom: 15px;
+}
+
+.listing-checkbox-label {
+    font-weight: 700;
+}
+
+.listing-checkbox {
+    margin-right: 8px;
+}
+
+.single-type-input {
+    margin: 0;
+    padding: 0;
+}
+
+select {
+    border-radius: 8px;
+    border: 2px solid;
+}
+
+.equal-split-input-container {
+    width: 33%;
+}
+
+#middle-bath-container {
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+}
+
+#create-listing-button {
+    width: 100%;
+    padding: 14px 24px;
+    border-radius: 8px;
+    border: none;
+    background-color: #6e9e00;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+}

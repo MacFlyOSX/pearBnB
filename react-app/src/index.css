@@ -9,6 +9,20 @@
     box-sizing: border-box;
 }
 
+input, textarea {
+    border-radius: 8px;
+    border: 2px solid;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 a:hover {
     text-decoration: none;
     cursor: pointer;
