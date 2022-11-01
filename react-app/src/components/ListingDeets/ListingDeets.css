@@ -371,6 +371,18 @@
     font-weight: 600;
 }
 
+#under-construction {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 14px 24px;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: not-allowed;
+    background-color: rgb(220, 220, 220);
+}
 
 /****************************** REVIEWS SECTION *******************************/
 

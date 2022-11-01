@@ -24,6 +24,14 @@ const Homepage = () => {
     const listingList = useSelector(state => state.listings.allListings);
     const listings = listingList ? Object.values(listingList) : null;
 
+    const puns = [
+        'PrePEAR for fun',
+        'With room to sPEAR',
+        'Nothing else comPEARs',
+        'The perfect PEARing for your trip',
+        'Comfort PEARed with lots of fun'
+    ]
+
     const typesSection = (
         <div className='navbar-types-section'>
           <div className='types-section-inner'>
@@ -98,17 +106,17 @@ const Homepage = () => {
                     <div className='listing-card-innertop' style={{backgroundImage: `url(${listing.images[0]})`}}>
                         <div className='listing-image-inner'>
                             <div className='listing-image-top'>
-                                <button className='listing-image-top-button'>
+                                {/* <button className='listing-image-top-button'>
                                     <img className='save-heart' src={saveheart} alt='heart' />
-                                </button>
+                                </button> */}
                             </div>
                             <div className='listing-image-middle'>
-                                <button id='arrow' className='arrow-button'>
+                                {/* <button id='arrow' className='arrow-button'>
                                     <img src={leftarrow} alt='left' id='' className='arrow' />
                                 </button>
                                 <button id='arrow' className='arrow-button'>
                                     <img src={rightarrow} alt='right' className='arrow' />
-                                </button>
+                                </button> */}
                             </div>
                             <div className='listing-image-bottom'>
                                 {/* <div class="_1b2klj3" style="transform: translateX(0px);">
@@ -127,7 +135,7 @@ const Homepage = () => {
                                 {listing.city}, {listing.state}
                             </div>
                             <div className='listing-info-distance listing-info'>
-                                num miles away
+                                {puns[Math.floor(Math.random() * puns.length)]}
                             </div>
                             <div className='listing-info-cost'>
                                 <span className='cost-dollars'>${listing.price} </span>

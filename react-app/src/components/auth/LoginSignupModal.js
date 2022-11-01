@@ -16,6 +16,8 @@ const LoginSignupModal = () => {
     const [showLogModal, setShowLogModal] = useState(false);
     const [showSignModal, setShowSignModal] = useState(false);
 
+    console.log('this is the showLogModal boolean:', showLogModal);
+
     const emailTest = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
 
     const handleSignUp = async (e) => {
@@ -49,7 +51,7 @@ const LoginSignupModal = () => {
             <button className='login-button-dropdown'
                 onClick={() => {
                     setShowLogModal(true)
-                    setShowSignModal(false)
+                    // setShowSignModal(false)
             }}>
                 <span className='login-span-dropdown'>
                     Log in
@@ -65,10 +67,41 @@ const LoginSignupModal = () => {
                 </span>
             </button>
             {showLogModal && (
-                <Modal id='border-modal' onClose={() => {
+                <Modal id='border-modal'
+                onClose={() => {
                     setShowLogModal(false);
-                }}>
-                    
+                }}
+                >
+                    <div className='modal-body'>
+                        <h1 id='modal-header'>Welcome to Pearbnb</h1>
+                        <form id='login-form'>
+                            <div className='input-container login-container'>
+                                <span className='login-input-title'>Email</span>
+                                <input
+                                    id='form-email'
+                                    type='text'
+                                    value={email}
+                                    required
+                                    className='login-form-field'
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    />
+                            </div>
+                            <div className='input-container login-container'>
+                                <span className='login-input-title'>Password</span>
+                                <input
+                                    id='form-password'
+                                    type='text'
+                                    value={password}
+                                    required
+                                    className='login-form-field'
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    />
+                            </div>
+                            <div className='login-button-section'>
+                                <button type='submit' id='login-button'>Log in</button>
+                            </div>
+                        </form>
+                    </div>
                 </Modal>
             )}
         </>

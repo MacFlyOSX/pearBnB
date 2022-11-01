@@ -112,7 +112,7 @@ const NavBar = () => {
         </NavLink>
       </div>
       <div className='navbar-search-container'>
-        {url.includes('new') ? null : <div className='search-container'>
+        {/* {url.includes('new') ? null : <div className='search-container'>
             <button className='where-searchbutton'>Anywhere</button>
             <span className='search-separator' />
             <button className='type-searchbutton'>Any type</button>
@@ -123,7 +123,7 @@ const NavBar = () => {
                 <img src={search} alt='search' className='search-button' />
               </div>
             </button>
-        </div>}
+        </div>} */}
       </div>
       <div className='navbar-user-side'>
         <div className='left-of-user'>
@@ -142,8 +142,8 @@ const NavBar = () => {
               </div>
             </div>
           </button>
-          {showMenu && user && (
-            <div className="profile-dropdown logged-in-dropdown">
+          {user && (
+            <div className={showMenu ? "profile-dropdown visible-dropdown logged-in-dropdown" : "profile-dropdown invisible-dropdown logged-in-dropdown"}>
               <div>
                 <NavLink className='dropdown-text' to='/listings/current'>
                   Listings
@@ -169,8 +169,8 @@ const NavBar = () => {
               </div>
             </div>
           )}
-          {showMenu && !user && (
-            <div className="profile-dropdown logged-out-dropdown">
+          {!user && (
+            <div className={showMenu ? "profile-dropdown visible-dropdown logged-out-dropdown" : "profile-dropdown invisible-dropdown logged-out-dropdown"}>
                 <LoginSignupModal />
             </div>
           )}
