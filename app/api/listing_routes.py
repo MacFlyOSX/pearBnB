@@ -2,6 +2,7 @@ from flask import Blueprint, jsonify, session, request
 from app.forms.listing_add_form import AddListingForm
 from app.forms.listing_delete_form import DeleteListingForm
 from app.forms.listing_update_form import UpdateListingForm
+from app.forms.image_add_form import AddImageForm
 from app.models import db, User, Listing, Review, Booking, Wishlist, Image, Type
 from flask_login import current_user, login_required
 from sqlalchemy import func
@@ -227,6 +228,42 @@ def add_listing():
 def add_review(listing_id):
     pass
 
+
+######## ADD IMAGE TO LISTING ########
+
+@listing_routes.route('/<int:listing_id>/images', methods=['POST'])
+@login_required
+def add_image(listing_id):
+    user = current_user.to_dict()
+    user_id = user['id']
+    form = AddImageForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    listing = Listing.query.get(listing_id)
+
+    if not listing:
+        return {
+            "message": "Listing could not be found",
+            "status_code": 404
+        }, 404
+
+    owner_id = listing.to_dict()['owner_id']
+
+    if user_id != owner_id:
+        return {
+            "message": "Forbidden",
+            "status_code": 403
+        }, 403
+
+    if form.validate_on_submit():
+        image = Image(listing_id=listing_id, url=form.data['url'])
+
+        db.session.add(image)
+        db.session.commit()
+
+        img = image.to_dict()
+
+        return jsonify(img)
 
 #################################### UPDATE ####################################
 

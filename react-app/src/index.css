@@ -9,6 +9,10 @@
     box-sizing: border-box;
 }
 
+ul {
+    list-style-type: none;
+}
+
 input, textarea {
     border-radius: 8px;
     border: 2px solid;
