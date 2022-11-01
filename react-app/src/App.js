@@ -9,6 +9,7 @@ import Footer from './components/Footer';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import ListingDeets from './components/ListingDeets';
+import CreateListing from './components/ListingForms/CreateListing';
 import User from './components/User';
 import { authenticate } from './store/session';
 
@@ -45,6 +46,9 @@ function App() {
         </ProtectedRoute>
         <Route path='/' exact={true} >
           <Homepage />
+        </Route>
+        <Route path='/listings/new' >
+          <CreateListing />
         </Route>
         <Route path='/listings/:listingId' >
           <ListingDeets />

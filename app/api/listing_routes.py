@@ -1,4 +1,8 @@
 from flask import Blueprint, jsonify, session, request
+from app.forms.listing_add_form import AddListingForm
+from app.forms.listing_delete_form import DeleteListingForm
+from app.forms.listing_update_form import UpdateListingForm
+from app.forms.image_add_form import AddImageForm
 from app.models import db, User, Listing, Review, Booking, Wishlist, Image, Type
 from flask_login import current_user, login_required
 from sqlalchemy import func
@@ -122,3 +126,295 @@ def get_one_listing(listing_id):
 
 #################################### CREATE ####################################
 
+######## CREATE NEW LISTING #########
+
+@listing_routes.route('/', methods=['POST'])
+@login_required
+def add_listing():
+    user = current_user.to_dict()
+    user_id = user['id']
+    form = AddListingForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    validation_errors = {
+        "message": "Validation error",
+        "status_code": 400,
+        "errors": {}
+    }
+
+    if not form.data['name']:
+        validation_errors["errors"]["name"] = "Name of listing is required."
+    if not form.data['address']:
+        validation_errors["errors"]["address"] = "Address is required."
+    if not form.data['city']:
+        validation_errors["errors"]["city"] = "City is required."
+    if not form.data['state']:
+        validation_errors["errors"]["state"] = "State is required."
+    # if not form.data['country']:
+    #     validation_errors["errors"]["country"] = "Country is required."
+    if len(str(form.data['latitude'])) == 0:
+        validation_errors["errors"]["latitude"] = "Latitude is required."
+    if len(str(form.data['longitude'])) == 0:
+        validation_errors["errors"]["longitude"] = "Longitude is required."
+    if form.data['latitude'] < -90 or form.data['latitude'] > 90 :
+        validation_errors["errors"]["latitude"] = "Latitude must be between -90 and 90."
+    if form.data['longitude'] < -180 or form.data['longitude'] > 180 :
+        validation_errors["errors"]["longitude"] = "Longitude must be between -180 and 180."
+    if not form.data['description']:
+        validation_errors["errors"]["description"] = "Listing description is required."
+    if not form.data['price']:
+        validation_errors["errors"]["price"] = "Price is required."
+    if not form.data['max_guests']:
+        validation_errors["errors"]["max_guests"] = "Max number of guests is required."
+    if not form.data['bed']:
+        validation_errors["errors"]["bed"] = "Number of beds is required."
+    if not form.data['bath']:
+        validation_errors["errors"]["bath"] = "Number of bathrooms is required."
+    if not form.data['types']:
+        validation_errors["errors"]["types"] = "Type(s) of listing is/are required."
+    if not form.data['amenities']:
+        validation_errors["errors"]["amenities"] = "Listing amenities are required."
+    if len(validation_errors["errors"]) > 0:
+        return jsonify(validation_errors), 400
+
+    if form.validate_on_submit():
+        type_list = []
+        for alias in form.data['types']:
+            ty = Type.query.filter_by(alias=alias).first()
+            type_list.append(ty)
+
+        # amenity_list = []
+        # for alias in form.data['amenities']:
+        #     amen = Amenity.query.filter_by(alias=alias).first()
+        #     amenity_list.append(amen)
+
+        listing = Listing(
+            name=form.data['name'],
+            owner_id=user_id,
+            address=form.data['address'],
+            city=form.data['city'],
+            state=form.data['state'],
+            description=form.data['description'],
+            # country=form.data['country'],
+            latitude=form.data['latitude'],
+            longitude=form.data['longitude'],
+            price=form.data['price'],
+            max_guests=form.data['max_guests'],
+            bed=form.data['bed'],
+            bath=form.data['bath'],
+            types=type_list,
+            # amenities=amenity_list
+        )
+
+        db.session.add(listing)
+        db.session.commit()
+
+        types_list = [type.to_dict() for type in listing.types]
+        # amenities_list = [amenity.to_dict() for amenity in listing.amenities]
+
+        list = listing.to_dict()
+        list['types'] = types_list
+        # list['amenities'] = amenities_list
+
+        return jsonify(list)
+
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+
+######## CREATE NEW REVIEW #########
+
+@listing_routes.route('/<int:listing_id>/reviews', methods=['POST'])
+@login_required
+def add_review(listing_id):
+    pass
+
+
+######## ADD IMAGE TO LISTING ########
+
+@listing_routes.route('/<int:listing_id>/images', methods=['POST'])
+@login_required
+def add_image(listing_id):
+    user = current_user.to_dict()
+    user_id = user['id']
+    form = AddImageForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    listing = Listing.query.get(listing_id)
+
+    if not listing:
+        return {
+            "message": "Listing could not be found",
+            "status_code": 404
+        }, 404
+
+    owner_id = listing.to_dict()['owner_id']
+
+    if user_id != owner_id:
+        return {
+            "message": "Forbidden",
+            "status_code": 403
+        }, 403
+
+    if form.validate_on_submit():
+        image = Image(listing_id=listing_id, url=form.data['url'])
+
+        db.session.add(image)
+        db.session.commit()
+
+        img = image.to_dict()
+
+        return jsonify(img)
+
+#################################### UPDATE ####################################
+
+######## UPDATE A LISTING #########
+
+@listing_routes.route('/<int:listing_id>', methods=['PUT'])
+@login_required
+def update_listing(listing_id):
+    user = current_user.to_dict()
+    user_id = user['id']
+    form = UpdateListingForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    listing = Listing.query.get(listing_id)
+
+    if not listing:
+        return jsonify({
+            "message": "Listing could not be found",
+            "status_code": 404
+        })
+
+    owner_id = listing.to_dict()['owner_id']
+
+    if user_id != owner_id:
+        return {"message": "Forbidden", "status_code": 403}, 403
+
+    validation_errors = {
+        "message": "Validation error",
+        "status_code": 400,
+        "errors": {}
+    }
+
+    if not form.data['name']:
+        validation_errors["errors"]["name"] = "Name of listing is required."
+    if not form.data['address']:
+        validation_errors["errors"]["address"] = "Address is required."
+    if not form.data['city']:
+        validation_errors["errors"]["city"] = "City is required."
+    if not form.data['state']:
+        validation_errors["errors"]["state"] = "State is required."
+    # if not form.data['country']:
+    #     validation_errors["errors"]["country"] = "Country is required."
+    if len(str(form.data['latitude'])) == 0:
+        validation_errors["errors"]["latitude"] = "Latitude is required."
+    if len(str(form.data['longitude'])) == 0:
+        validation_errors["errors"]["longitude"] = "Longitude is required."
+    if form.data['latitude'] < -90 or form.data['latitude'] > 90 :
+        validation_errors["errors"]["latitude"] = "Latitude must be between -90 and 90."
+    if form.data['longitude'] < -180 or form.data['longitude'] > 180 :
+        validation_errors["errors"]["longitude"] = "Longitude must be between -180 and 180."
+    if not form.data['description']:
+        validation_errors["errors"]["description"] = "Listing description is required."
+    if not form.data['price']:
+        validation_errors["errors"]["price"] = "Price is required."
+    if not form.data['max_guests']:
+        validation_errors["errors"]["max_guests"] = "Max number of guests is required."
+    if not form.data['bed']:
+        validation_errors["errors"]["bed"] = "Number of beds is required."
+    if not form.data['bath']:
+        validation_errors["errors"]["bath"] = "Number of bathrooms is required."
+    if not form.data['types']:
+        validation_errors["errors"]["types"] = "Type(s) of listing is/are required."
+    if not form.data['amenities']:
+        validation_errors["errors"]["amenities"] = "Listing amenities are required."
+    if len(validation_errors["errors"]) > 0:
+        return jsonify(validation_errors), 400
+
+    if form.validate_on_submit():
+        type_list = []
+        for alias in form.data['types']:
+            ty = Type.query.filter_by(alias=alias).first()
+            type_list.append(ty)
+
+        # amenity_list = []
+        # for alias in form.data['amenities']:
+        #     amen = Amenity.query.filter_by(alias=alias).first()
+        #     amenity_list.append(amen)
+
+        listing['name'] = form.data['name'],
+        listing['owner_id'] = user_id,
+        listing['address'] = form.data['address'],
+        listing['city'] = form.data['city'],
+        listing['state'] = form.data['state'],
+        # listing['country'] = form.data['country'],
+        listing['latitude'] = form.data['latitude'],
+        listing['longitude'] = form.data['longitude'],
+        listing['price'] = form.data['price'],
+        listing['max_guests'] = form.data['max_guests'],
+        listing['bed'] = form.data['bed'],
+        listing['bath'] = form.data['bath'],
+        listing['types'] = type_list,
+        # listing['amenities'] = amenity_list
+
+        db.session.commit()
+
+        types_list = [type.to_dict() for type in listing.types]
+        # amenities_list = [amenity.to_dict() for amenity in listing.amenities]
+
+        list = listing.to_dict()
+        list['types'] = types_list
+        # list['amenities'] = amenities_list
+
+        return jsonify(list)
+
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+
+######## UPDATE A REVIEW #########
+
+@listing_routes.route('/<int:listing_id>/reviews/<int:review_id>', methods=['PUT'])
+@login_required
+def update_review(listing_id, review_id):
+    pass
+
+
+#################################### DELETE ####################################
+
+######## DELETE A LISTING #########
+
+@listing_routes.route('/<int:listing_id>', methods=['DELETE'])
+@login_required
+def delete_listing(listing_id):
+    user = current_user.to_dict()
+    user_id = user['id']
+
+    form = DeleteListingForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    listing = Listing.query.get(listing_id)
+
+    if not listing:
+        return jsonify({
+            "message": "Listing could not be found",
+            "status_code": 404
+        })
+
+    owner_id = listing.to_dict()['owner_id']
+
+    if user_id != owner_id:
+        return {"message": "Forbidden", "status_code": 403}, 403
+
+    if form.validate_on_submit():
+        db.session.delete(listing)
+        db.session.commit()
+
+        return { "message": "Successfully deleted", "status_code": 200 }
+
+
+######## DELETE A REVIEW #########
+
+@listing_routes.route('/<int:listing_id>/reviews/<int:review_id>', methods=['PUT'])
+@login_required
+def delete_review(listing_id, review_id):
+    pass

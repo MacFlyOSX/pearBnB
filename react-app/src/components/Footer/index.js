@@ -7,7 +7,7 @@ const Footer = () => {
 
     let footerCode;
 
-    if (url === '/') {
+    if (url === '/' || url.includes('new')) {
         footerCode = (
             <div className='footer-homepage'>
                 <div className='hpfooter-left'>

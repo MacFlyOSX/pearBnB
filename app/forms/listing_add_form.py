@@ -45,6 +45,6 @@ class AddListingForm(FlaskForm):
     bed = IntegerField('Number of beds', validators=[DataRequired()])
     bath = IntegerField('Number of bathrooms', validators=[DataRequired()])
     types = SelectMultipleField('Listing Type', choices=_TYPES)
-    amenities = SelectMultipleField('Customer Transaction Options', choices=_AMENITIES)
+    amenities = SelectMultipleField('Amenities offered', choices=_AMENITIES)
 
     submit = SubmitField('Submit')

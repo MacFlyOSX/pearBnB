@@ -112,7 +112,7 @@ const ListingDeets = () => {
             <div className='review-location-save'>
                 <div className='rev-location'>
                     <img className='listing-star' src={star} alt='star' />
-                    <span className='review-listing rev-loc-span'>{listing.avg_rating}</span>
+                    <span className='review-listing rev-loc-span'>{listing?.avg_rating?.toFixed(1)}</span>
                     <span id='middot'>&middot;</span>
                     <span className='num-reviews rev-loc-span'>{numReviews} reviews</span>
                     <span id='middot'>&middot;</span>
@@ -197,7 +197,7 @@ const ListingDeets = () => {
                             </div>
                             <div className='booking-reviews'>
                                 <img src={star} alt='star' id='booking-star' />
-                                <span id='booking-review-avg'>{listing.avg_rating}</span>
+                                <span id='booking-review-avg'>{listing?.avg_rating?.toFixed(1)}</span>
                                 <span id='middot'>&middot;</span>
                                 <span id='booking-num-reviews'>{numReviews} reviews</span>
                             </div>
@@ -224,7 +224,7 @@ const ListingDeets = () => {
         <div className='listing-details-reviews'>
             <h1 id='reviews' >
                 <img src={star} className='review-section-star' alt='star' />
-                <span className='review-section-avg'>{listing.avg_rating}</span>
+                <span className='review-section-avg'>{listing?.avg_rating?.toFixed(1)}</span>
                 <span id='rev-middot'>&middot;</span>
                 <span className='review-section-avg'>{numReviews} reviews</span>
             </h1>
@@ -235,7 +235,7 @@ const ListingDeets = () => {
                         <div className='stat-container'>
                             <div className='stat-distribution' style={cleanStyle} ></div>
                         </div>
-                        <span className='stat-number'>{clean}</span>
+                        <span className='stat-number'>{clean.toFixed(1)}</span>
                     </div>
                 </div>
                 <div className='specific-review-stat'>
@@ -244,7 +244,7 @@ const ListingDeets = () => {
                         <div className='stat-container'>
                             <div className='stat-distribution' style={accStyle} ></div>
                         </div>
-                        <span className='stat-number'>{acc}</span>
+                        <span className='stat-number'>{acc.toFixed(1)}</span>
                     </div>
                 </div>
                 <div className='specific-review-stat'>
@@ -253,7 +253,7 @@ const ListingDeets = () => {
                         <div className='stat-container'>
                             <div className='stat-distribution' style={commStyle} ></div>
                         </div>
-                        <span className='stat-number'>{comm}</span>
+                        <span className='stat-number'>{comm.toFixed(1)}</span>
                     </div>
                 </div>
                 <div className='specific-review-stat'>
@@ -262,7 +262,7 @@ const ListingDeets = () => {
                         <div className='stat-container'>
                             <div className='stat-distribution' style={locStyle} ></div>
                         </div>
-                        <span className='stat-number'>{loc}</span>
+                        <span className='stat-number'>{loc.toFixed(1)}</span>
                     </div>
                 </div>
                 <div className='specific-review-stat'>
@@ -271,7 +271,7 @@ const ListingDeets = () => {
                         <div className='stat-container'>
                             <div className='stat-distribution' style={checkStyle} ></div>
                         </div>
-                        <span className='stat-number'>{check}</span>
+                        <span className='stat-number'>{check.toFixed(1)}</span>
                     </div>
                 </div>
                 <div className='specific-review-stat'>
@@ -280,7 +280,7 @@ const ListingDeets = () => {
                         <div className='stat-container'>
                             <div className='stat-distribution' style={valStyle} ></div>
                         </div>
-                        <span className='stat-number'>{val}</span>
+                        <span className='stat-number'>{val.toFixed(1)}</span>
                     </div>
                 </div>
             </div>

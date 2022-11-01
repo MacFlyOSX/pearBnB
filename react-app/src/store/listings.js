@@ -20,7 +20,7 @@ const _addListing = (listing) => ({
     payload: listing
 });
 
-export const addListing = (listing) => async dispatch => {
+export const addListing = (listing, images) => async dispatch => {
     console.log(JSON.stringify(listing))
     const response = await fetch('/api/listings/', {
         method: 'POST',
@@ -32,7 +32,25 @@ export const addListing = (listing) => async dispatch => {
     });
 
     if (response.ok) {
-        const newListing = await response.json()
+        const newListing = await response.json();
+
+        newListing.images = [];
+
+        for (let i = 0; i < images.length; i++) {
+            const res = await fetch(`/api/listings/${newListing.id}/images`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'XSRF-TOKEN': Cookies.get('XSRF-TOKEN')
+                },
+                body: JSON.stringify({url: images[i]})
+            });
+
+            if (res.ok) {
+                const image = await res.json();
+                newListing.images.push(image.url);
+            }
+        }
 
         await dispatch(_addListing(newListing));
         return newListing;
