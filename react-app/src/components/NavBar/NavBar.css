@@ -250,6 +250,34 @@
     display: flex;
 }
 
+.dropdown-text,
+.user-dropdown-buttons {
+    width: 100%;
+}
+
+.user-dropdown-buttons {
+    height: 40px;
+    background-color: transparent;
+    border: none;
+}
+
+.user-dropdown-buttons:hover {
+    background-color: rgba(110, 158, 0, 0.2);
+}
+
+.logout-button {
+    color: #6e9e00;
+}
+
+.user-button-inner-span {
+    display: flex;
+    margin-left: 5px;
+    font-weight: 600;
+}
+
+.logged-in-dropdown {
+    padding: 8px 0;
+}
 
 /**************************** BOTTOM TYPES SECTION ****************************/
 

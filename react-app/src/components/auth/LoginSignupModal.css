@@ -4,10 +4,21 @@
 }
 
 .signup-button-dropdown {
+    margin: 0;
+}
+
+.demo-span-dropdown {
+    color: #6e9e00;
+}
+
+.demo-button-dropdown {
+    margin: 0;
     margin-bottom: 8px;
 }
 
+.logout-button-dropdown,
 .login-button-dropdown,
+.demo-button-dropdown,
 .signup-button-dropdown {
     height: 40px;
     background-color: transparent;
@@ -15,21 +26,23 @@
 }
 
 .login-span-dropdown,
-.signup-span-dropdown {
+.signup-span-dropdown,
+.demo-span-dropdown {
     display: flex;
     margin-left: 5px;
-}
-
-.login-span-dropdown {
     font-weight: 600;
 }
 
+.demo-button-dropdown:hover {
+    background-color: rgba(110, 158, 0, 0.2);
+}
+
 .login-button-dropdown:hover {
-    background-color: rgb(247, 247, 247);
+    background-color: rgba(110, 158, 0, 0.2);
 }
 
 .signup-button-dropdown:hover {
-    background-color: rgb(247, 247, 247);
+    background-color: rgba(110, 158, 0, 0.2);
 }
 
 #border-modal {

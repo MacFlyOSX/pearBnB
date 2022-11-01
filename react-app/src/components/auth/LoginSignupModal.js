@@ -46,6 +46,14 @@ const LoginSignupModal = () => {
         })
     };
 
+    const demoLogin = () => {
+        return dispatch(login('demo@user.io', 'password')).catch(
+          async (res) => {
+            const data = await res.json();
+          }
+        )
+      }
+
     return (
         <>
             <button className='login-button-dropdown'
@@ -64,6 +72,12 @@ const LoginSignupModal = () => {
             }}>
                 <span className='signup-span-dropdown'>
                     Sign up
+                </span>
+            </button>
+            <button className='demo-button-dropdown'
+                onClick={demoLogin}>
+                <span className='demo-span-dropdown'>
+                    Demo User Login
                 </span>
             </button>
             {showLogModal && (

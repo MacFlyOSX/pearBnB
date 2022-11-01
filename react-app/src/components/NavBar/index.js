@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { NavLink, useLocation } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { NavLink, useHistory, useLocation } from 'react-router-dom';
 import logo from '../../icons/pearbnb.png';
 import pear from '../../icons/pear.png';
+import pearout from '../../icons/pearout.png';
 import search from '../../icons/homepage/search.svg';
 import omg from '../../icons/types/1-omg.svg';
 import luxe from '../../icons/types/2-luxe.svg';
@@ -19,6 +20,7 @@ import camp from '../../icons/types/12-camping.svg';
 import burger from '../../icons/homepage/burger.svg';
 import userJohn from '../../icons/homepage/user.png';
 import LogoutButton from '../auth/LogoutButton';
+import { logout } from '../../store/session';
 import './NavBar.css';
 import ProfileButton from '../auth/ProfileButton';
 import LoginSignupModal from '../auth/LoginSignupModal';
@@ -27,11 +29,26 @@ const NavBar = () => {
   const user = useSelector(state => state.session.user)
 
   const url = useLocation().pathname;
+  const dispatch = useDispatch();
+  const history =  useHistory();
   const [showMenu, setShowMenu] = useState(false);
   const openMenu = () => {
     if (showMenu) return;
     setShowMenu(true);
   };
+
+  const onLogout = async (e) => {
+    await dispatch(logout());
+  };
+
+  const handleHost = () => {
+    if (!user) {
+        alert("Please log in or create an account to host a listing.");
+        // history.push("/");
+    } else {
+      history.push('/listings/new');
+    }
+  }
 
   useEffect(() => {
     if (!showMenu) return;
@@ -127,7 +144,7 @@ const NavBar = () => {
       </div>
       <div className='navbar-user-side'>
         <div className='left-of-user'>
-          {url.includes('new') ? null : <button className='host-button'>
+          {url.includes('new') ? null : <button className='host-button' onClick={handleHost}>
             <div className='become-a-host'>Become a Host</div>
           </button>}
         </div>
@@ -138,21 +155,36 @@ const NavBar = () => {
                 <img src={burger} alt='burger' className='burger-icon' />
               </div>
               <div className='user-icon'>
-                <img src={userJohn} alt='user' className='user-image' />
+                <img src={user ? userJohn : pearout} alt='user' className='user-image' />
               </div>
             </div>
           </button>
           {user && (
             <div className={showMenu ? "profile-dropdown visible-dropdown logged-in-dropdown" : "profile-dropdown invisible-dropdown logged-in-dropdown"}>
               <div>
-                <NavLink className='dropdown-text' to='/listings/current'>
-                  Listings
+                <NavLink id='listings-button' className='dropdown-text' to='/listings/current'>
+                  <button className='user-dropdown-buttons'>
+                    <span className='user-button-inner-span'>
+                      Listings
+                    </span>
+                  </button>
                 </NavLink>
               </div>
               <div>
-                <NavLink className='dropdown-text' to='/reviews/current'>
-                  Reviews
+                <NavLink id='listings-button' className='dropdown-text' to='/reviews/current'>
+                  <button className='user-dropdown-buttons'>
+                    <span className='user-button-inner-span'>
+                    Reviews
+                    </span>
+                  </button>
                 </NavLink>
+              </div>
+              <div>
+                  <button className='user-dropdown-buttons' onClick={onLogout}>
+                    <span className='user-button-inner-span logout-button'>
+                    Log out
+                    </span>
+                  </button>
               </div>
               {/* <div >
                 <NavLink className='dropdown-text' to='/bookings/current'>
@@ -164,9 +196,6 @@ const NavBar = () => {
                   Wishlists
                 </NavLink>
               </div> */}
-              <div id='logout'>
-                <LogoutButton />
-              </div>
             </div>
           )}
           {!user && (

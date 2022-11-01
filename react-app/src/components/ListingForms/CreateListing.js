@@ -32,6 +32,11 @@ const CreateListing = () => {
     const [ char, setChar ] = useState(600);
     const [ validationErrors, setValidationErrors ] = useState([]);
 
+    if (!user) {
+        alert("Please log in or create an account to host a listing.");
+        history.push("/");
+    }
+
     useEffect(() => {
         setChar(600 - description.length);
     }, [description]);
