@@ -119,10 +119,10 @@ const ListingDeets = () => {
                     <span className='listing-location rev-loc-span'>{listing.city}, {listing.state}, United States</span>
                 </div>
                 <div className='save'>
-                    <button className='save-button'>
+                    {/* <button className='save-button'>
                         <img src={heart} alt='heart' className='heart' />
                         <span className='save-span'>Save</span>
-                    </button>
+                    </button> */}
                 </div>
             </div>
         </div>
@@ -214,7 +214,8 @@ const ListingDeets = () => {
                                     <input type='date' id='booking-checkin' />
                                 </div>
                                 </div>
-                                <button id='submit-booking' type='submit' >Reserve</button>
+                                {/* <button id='submit-booking' type='submit' >Reserve</button> */}
+                                <div id='under-construction' onClick={() => undefined} >🚧 Under Construction 🚧</div>
                             </form>
                         </div>
                     </div>

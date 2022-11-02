@@ -24,13 +24,17 @@ def validation_errors_to_error_messages(validation_errors):
 ######## LOAD ALL LISTINGS ########
 @listing_routes.route('/')
 def get_all_listings():
-    # type = request.args.get('type')
+    type = request.args.get('type')
     # location = request.args.get('location)
     # guests = request.args.get('guests')
-    # listings = None
-    # if (type):
-    #     listings = Listing.query.filter()
-    listings = Listing.query.all()
+    listings = None
+    # test = Type.query.filter_by(alias=type).listings.all()
+    # print('this is the outcome', test)
+    if (type):
+        listings = Listing.query.join(Listing.types).filter_by(alias=type).all()
+    else:
+        listings = Listing.query.all()
+    # listings = Listing.query.join(Listing.types).filter_by(alias=type).all()
     all_listings = [listing.to_dict() for listing in listings]
 
     for listing in all_listings:

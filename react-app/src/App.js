@@ -10,8 +10,10 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import ListingDeets from './components/ListingDeets';
 import CreateListing from './components/ListingForms/CreateListing';
+import UpdateListing from './components/ListingForms/UpdateListing';
 import User from './components/User';
 import { authenticate } from './store/session';
+import Listings from './components/UserPages/Listings';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -32,7 +34,7 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
-        <Route path='/login' exact={true}>
+        {/* <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
         <Route path='/sign-up' exact={true}>
@@ -43,15 +45,21 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
-        </ProtectedRoute>
+        </ProtectedRoute> */}
         <Route path='/' exact={true} >
           <Homepage />
         </Route>
         <Route path='/listings/new' >
           <CreateListing />
         </Route>
-        <Route path='/listings/:listingId' >
+        <Route path='/listings/current' >
+          <Listings />
+        </Route>
+        <Route exact path='/listings/:listingId' >
           <ListingDeets />
+        </Route>
+        <Route path='/listings/:listingId/update' >
+          <UpdateListing />
         </Route>
       </Switch>
       <Footer />

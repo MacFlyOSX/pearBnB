@@ -16,6 +16,8 @@ const LoginSignupModal = () => {
     const [showLogModal, setShowLogModal] = useState(false);
     const [showSignModal, setShowSignModal] = useState(false);
 
+    console.log('this is the showLogModal boolean:', showLogModal);
+
     const emailTest = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
 
     const handleSignUp = async (e) => {
@@ -38,18 +40,26 @@ const LoginSignupModal = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
         setErrors([]);
-        return dispatch(login({ email, password })).catch(async (res) => {
+        return dispatch(login(email, password )).catch(async (res) => {
             const data = await res.json();
             if (data && data.message) setErrors(data.message);
         })
     };
+
+    const demoLogin = () => {
+        return dispatch(login('demo@user.io', 'password')).catch(
+          async (res) => {
+            const data = await res.json();
+          }
+        )
+      }
 
     return (
         <>
             <button className='login-button-dropdown'
                 onClick={() => {
                     setShowLogModal(true)
-                    setShowSignModal(false)
+                    // setShowSignModal(false)
             }}>
                 <span className='login-span-dropdown'>
                     Log in
@@ -64,11 +74,48 @@ const LoginSignupModal = () => {
                     Sign up
                 </span>
             </button>
+            <button className='demo-button-dropdown'
+                onClick={demoLogin}>
+                <span className='demo-span-dropdown'>
+                    Demo User Login
+                </span>
+            </button>
             {showLogModal && (
-                <Modal id='border-modal' onClose={() => {
+                <Modal id='border-modal'
+                onClose={() => {
                     setShowLogModal(false);
-                }}>
-                    
+                }}
+                >
+                    <div className='modal-body'>
+                        <h1 id='modal-header'>Welcome to Pearbnb</h1>
+                        <form id='login-form' onSubmit={handleLogin}>
+                            <div className='input-container login-container'>
+                                <span className='login-input-title'>Email</span>
+                                <input
+                                    id='form-email'
+                                    type='text'
+                                    value={email}
+                                    required
+                                    className='login-form-field'
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    />
+                            </div>
+                            <div className='input-container login-container'>
+                                <span className='login-input-title'>Password</span>
+                                <input
+                                    id='form-password'
+                                    type='password'
+                                    value={password}
+                                    required
+                                    className='login-form-field'
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    />
+                            </div>
+                            <div className='login-button-section'>
+                                <button type='submit' id='login-button'>Log in</button>
+                            </div>
+                        </form>
+                    </div>
                 </Modal>
             )}
         </>

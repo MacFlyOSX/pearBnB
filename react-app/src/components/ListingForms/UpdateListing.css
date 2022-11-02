@@ -1,0 +1,116 @@
+
+.update-listing-container {
+    width: 100%;
+    margin: 24px 0 48px;
+    display: flex;
+    justify-content: center;
+}
+
+.update-listing-inner {
+    width: 1120px;
+    display: flex;
+    flex-direction: column;
+}
+
+#listing-update-form {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.name-input-container,
+.addy-input-container {
+    width: 53.5%;
+    margin-right: 0.5%;
+}
+
+.bed-input-container,
+.bath-input-container,
+.guests-input-container {
+    width: 15%;
+}
+
+.price-input-container {
+    margin-left: 0.5%;
+    width: 15%;
+}
+
+.city-input-container {
+    width: 21%;
+    margin-right: .5%;
+}
+
+.state-input-container {
+    width: 9%;
+}
+
+.update-field {
+    height: 50px;
+    padding: 5px 8px;
+    margin-bottom: 15px;
+    width: 100%;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.update-field:focus {
+    outline-color: #6e9e00;
+}
+
+#update-price {
+    padding: 10px 19px 11px;
+}
+
+.form-input-title {
+    position: absolute;
+    top: -6px;
+    left: 8px;
+    margin: 0;
+    padding: 0 2px;
+    font-weight: 800;
+    font-size: 12px;
+    background-color: white;
+    cursor: default;
+}
+
+.form-input-limit {
+    position: absolute;
+    top: -6px;
+    right: 8px;
+    margin: 0;
+    padding: 0 2px;
+    font-weight: 800;
+    font-size: 12px;
+    background-color: white;
+    cursor: default;
+}
+
+.update-input-dollar {
+    position: absolute;
+    top: 14px;
+    left: 10px;
+    font-weight: 600;
+}
+
+.update-button-section {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#update-listing-button-one {
+    margin-top: 10px;
+    width: 200px;
+    padding: 14px 24px;
+    border-radius: 8px;
+    border: none;
+    background-color: #6e9e00;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+#update-listing-title {
+    font-size: 28px;
+    margin: 0 0 24px;
+}

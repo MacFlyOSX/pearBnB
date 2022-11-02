@@ -13,6 +13,7 @@
 .navbar-inner {
     height: 80px;
     display: grid;
+    background-color: white;
     grid-template-columns: 1fr 400px 1fr;
 }
 
@@ -238,10 +239,46 @@
     flex-direction: column;
   }
 
+  .visible-dropdown {
+    visibility: visible;
+  }
+
+  .invisible-dropdown {
+    visibility: hidden;
+  }
+
 .logged-out-dropdown {
     display: flex;
 }
 
+.dropdown-text,
+.user-dropdown-buttons {
+    width: 100%;
+}
+
+.user-dropdown-buttons {
+    height: 40px;
+    background-color: transparent;
+    border: none;
+}
+
+.user-dropdown-buttons:hover {
+    background-color: rgba(110, 158, 0, 0.2);
+}
+
+.logout-button {
+    color: #6e9e00;
+}
+
+.user-button-inner-span {
+    display: flex;
+    margin-left: 5px;
+    font-weight: 600;
+}
+
+.logged-in-dropdown {
+    padding: 8px 0;
+}
 
 /**************************** BOTTOM TYPES SECTION ****************************/
 
@@ -278,13 +315,28 @@
     align-items: center;
     border: none;
     background-color: transparent;
+    border-bottom: 2px solid transparent;
+}
+
+.type-button-black {
+    border-bottom: 2px solid black;
+}
+
+.type-button:hover {
+    border-bottom: 2px solid #717171;
 }
 
 .type-icon {
     height: 24px;
+    width: 24px;
+    color: grey;
 }
 
 .type-name {
     font-size: 12px;
     font-weight: 600;
+}
+
+.type-name-grey {
+    color: #717171;
 }

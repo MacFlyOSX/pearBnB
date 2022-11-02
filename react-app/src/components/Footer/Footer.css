@@ -1,12 +1,26 @@
 
-.footer-homepage {
-    width: 100%;
+.footer {
     position: fixed;
     bottom: 0;
-    padding: 13px 80px 14px;
     border-top: 1px solid rgb(221, 221, 221);
     background-color: white;
     height: 47px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 13px 80px 14px;
+}
+
+.footer-homepage {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-awaypage {
+    width: 1120px;
     display: flex;
     justify-content: space-between;
     align-items: center;

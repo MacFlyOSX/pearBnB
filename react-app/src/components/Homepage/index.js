@@ -2,88 +2,86 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { loadListings, clearData } from '../../store/listings';
 import './Homepage.css';
-import saveheart from '../../icons/homepage/saveheart.svg';
-import leftarrow from '../../icons/homepage/arrowleft.svg';
-import rightarrow from '../../icons/homepage/arrowright.svg';
+// import saveheart from '../../icons/homepage/saveheart.svg';
+// import leftarrow from '../../icons/homepage/arrowleft.svg';
+// import rightarrow from '../../icons/homepage/arrowright.svg';
 import star from '../../icons/homepage/cardstar.svg';
-import omg from '../../icons/types/1-omg.svg';
-import luxe from '../../icons/types/2-luxe.svg';
-import bf from '../../icons/types/3-beachfront.svg';
-import man from '../../icons/types/4-mansions.svg';
-import cab from '../../icons/types/5-cabins.svg';
-import ryo from '../../icons/types/6-ryokans.svg';
-import des from '../../icons/types/7-desert.svg';
-import lake from '../../icons/types/8-lakefront.svg';
-import tiny from '../../icons/types/9-tinyhomes.svg';
-import cast from '../../icons/types/10-castles.svg';
-import con from '../../icons/types/11-containers.svg';
-import camp from '../../icons/types/12-camping.svg';
 
 const Homepage = () => {
     const dispatch = useDispatch();
     const listingList = useSelector(state => state.listings.allListings);
     const listings = listingList ? Object.values(listingList) : null;
+    const type = useSelector(state => state.listings.type);
+    console.log('this is the type', type);
 
-    const typesSection = (
-        <div className='navbar-types-section'>
-          <div className='types-section-inner'>
-            <button className='type-button'>
-              <img src={omg} alt='omg' className='type-icon' />
-              <span className='type-name'>OMG!</span>
-            </button>
-            <button className='type-button'>
-              <img src={luxe} alt='luxe' className='type-icon' />
-              <span className='type-name'>Luxe</span>
-            </button>
-            <button className='type-button'>
-              <img src={bf} alt='bf' className='type-icon' />
-              <span className='type-name'>Beachfront</span>
-            </button>
-            <button className='type-button'>
-              <img src={man} alt='man' className='type-icon' />
-              <span className='type-name'>Mansions</span>
-            </button>
-            <button className='type-button'>
-              <img src={cab} alt='cab' className='type-icon' />
-              <span className='type-name'>Cabins</span>
-            </button>
-            <button className='type-button'>
-              <img src={ryo} alt='ryo' className='type-icon' />
-              <span className='type-name'>Ryokans</span>
-            </button>
-            <button className='type-button'>
-              <img src={des} alt='des' className='type-icon' />
-              <span className='type-name'>Desert</span>
-            </button>
-            <button className='type-button'>
-              <img src={lake} alt='lake' className='type-icon' />
-              <span className='type-name'>Lakefront</span>
-            </button>
-            <button className='type-button'>
-              <img src={tiny} alt='tiny' className='type-icon' />
-              <span className='type-name'>Tiny homes</span>
-            </button>
-            <button className='type-button'>
-              <img src={cast} alt='cast' className='type-icon' />
-              <span className='type-name'>Castles</span>
-            </button>
-            <button className='type-button'>
-              <img src={con} alt='con' className='type-icon' />
-              <span className='type-name'>Containers</span>
-            </button>
-            <button className='type-button'>
-              <img src={camp} alt='camp' className='type-icon' />
-              <span className='type-name'>Camping</span>
-            </button>
-          </div>
-        </div>
-      )
+    const puns = [
+        'PrePEAR for fun',
+        'With room to sPEAR',
+        'Nothing else comPEARs',
+        'The perfect PEARing for your trip',
+        'Comfort PEARed with lots of fun'
+    ]
+
+    // const typesSection = (
+    //     <div className='navbar-types-section'>
+    //       <div className='types-section-inner'>
+    //         <button className='type-button'>
+    //           <img src={omg} alt='omg' className='type-icon' />
+    //           <span className='type-name'>OMG!</span>
+    //         </button>
+    //         <button className='type-button'>
+    //           <img src={luxe} alt='luxe' className='type-icon' />
+    //           <span className='type-name'>Luxe</span>
+    //         </button>
+    //         <button className='type-button'>
+    //           <img src={bf} alt='bf' className='type-icon' />
+    //           <span className='type-name'>Beachfront</span>
+    //         </button>
+    //         <button className='type-button'>
+    //           <img src={man} alt='man' className='type-icon' />
+    //           <span className='type-name'>Mansions</span>
+    //         </button>
+    //         <button className='type-button'>
+    //           <img src={cab} alt='cab' className='type-icon' />
+    //           <span className='type-name'>Cabins</span>
+    //         </button>
+    //         <button className='type-button'>
+    //           <img src={ryo} alt='ryo' className='type-icon' />
+    //           <span className='type-name'>Ryokans</span>
+    //         </button>
+    //         <button className='type-button'>
+    //           <img src={des} alt='des' className='type-icon' />
+    //           <span className='type-name'>Desert</span>
+    //         </button>
+    //         <button className='type-button'>
+    //           <img src={lake} alt='lake' className='type-icon' />
+    //           <span className='type-name'>Lakefront</span>
+    //         </button>
+    //         <button className='type-button'>
+    //           <img src={tiny} alt='tiny' className='type-icon' />
+    //           <span className='type-name'>Tiny homes</span>
+    //         </button>
+    //         <button className='type-button'>
+    //           <img src={cast} alt='cast' className='type-icon' />
+    //           <span className='type-name'>Castles</span>
+    //         </button>
+    //         <button className='type-button'>
+    //           <img src={con} alt='con' className='type-icon' />
+    //           <span className='type-name'>Containers</span>
+    //         </button>
+    //         <button className='type-button'>
+    //           <img src={camp} alt='camp' className='type-icon' />
+    //           <span className='type-name'>Camping</span>
+    //         </button>
+    //       </div>
+    //     </div>
+    //   )
 
     useEffect(() => {
-        dispatch(loadListings());
+        dispatch(loadListings(type));
 
-        return () => dispatch(clearData());
-    }, [dispatch]);
+        // return () => dispatch(clearData());
+    }, [type, dispatch]);
 
 
 
@@ -98,17 +96,17 @@ const Homepage = () => {
                     <div className='listing-card-innertop' style={{backgroundImage: `url(${listing.images[0]})`}}>
                         <div className='listing-image-inner'>
                             <div className='listing-image-top'>
-                                <button className='listing-image-top-button'>
+                                {/* <button className='listing-image-top-button'>
                                     <img className='save-heart' src={saveheart} alt='heart' />
-                                </button>
+                                </button> */}
                             </div>
                             <div className='listing-image-middle'>
-                                <button id='arrow' className='arrow-button'>
+                                {/* <button id='arrow' className='arrow-button'>
                                     <img src={leftarrow} alt='left' id='' className='arrow' />
                                 </button>
                                 <button id='arrow' className='arrow-button'>
                                     <img src={rightarrow} alt='right' className='arrow' />
-                                </button>
+                                </button> */}
                             </div>
                             <div className='listing-image-bottom'>
                                 {/* <div class="_1b2klj3" style="transform: translateX(0px);">
@@ -127,7 +125,7 @@ const Homepage = () => {
                                 {listing.city}, {listing.state}
                             </div>
                             <div className='listing-info-distance listing-info'>
-                                num miles away
+                                {puns[Math.floor(Math.random() * puns.length)]}
                             </div>
                             <div className='listing-info-cost'>
                                 <span className='cost-dollars'>${listing.price} </span>
@@ -139,7 +137,7 @@ const Homepage = () => {
                                 <img src={star} alt='star' />
                             </span>
                             <span className='listing-rating-avg'>
-                                {listing.avg_rating.toFixed(2)}
+                                {listing.avg_rating.toFixed(1)}
                             </span>
                         </div>
                     </div>

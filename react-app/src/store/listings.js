@@ -10,8 +10,15 @@ const DELETE = 'listings/DELETE';
 const ADD_IMG = 'listings/ADD_IMG';
 const REMOVE_IMG = 'listings/REMOVE_IMG';
 const CLEAR_DATA = 'listings/CLEAR_DATA';
+const SET_TYPE = 'listings/SET_TYPE';
 
 /********************************** CREATE ************************************/
+
+
+export const queryType = (query) => ({
+    type: SET_TYPE,
+    query
+});
 
 // Add a listing
 
@@ -231,7 +238,7 @@ export const clearData = () => ({
 });
 
 
-const initialState = { allListings: {}, singleListing: {} };
+const initialState = { allListings: {}, singleListing: {}, type: '' };
 
 
 const listingReducer = (state = initialState, action) => {
@@ -282,6 +289,11 @@ const listingReducer = (state = initialState, action) => {
                 if (img === action.payload.url) listingImages.splice(i, 1);
             }
             newState = { ...newState };
+            return newState;
+        }
+        case SET_TYPE: {
+            const newState = { ...state, allListings: { ...state.allListings }, singleListing: { ...state.singleListing } };
+            newState.type = action.query;
             return newState;
         }
         case CLEAR_DATA:

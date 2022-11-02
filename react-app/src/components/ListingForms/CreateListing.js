@@ -32,12 +32,17 @@ const CreateListing = () => {
     const [ char, setChar ] = useState(600);
     const [ validationErrors, setValidationErrors ] = useState([]);
 
+    if (!user) {
+        alert("Please log in or create an account to host a listing.");
+        history.push("/");
+    }
+
     useEffect(() => {
         setChar(600 - description.length);
     }, [description]);
-    const [ nameLimit, setNameLimit ] = useState(50);
+    const [ nameLimit, setNameLimit ] = useState(60);
     useEffect(() => {
-      setNameLimit(50-name.length);
+      setNameLimit(60-name.length);
     }, [name]);
 
     console.log('these are the selected types:',types);
@@ -85,7 +90,10 @@ const CreateListing = () => {
         }
         if(errors.length > 0) return setValidationErrors(errors);
 
-        else setPage(2);
+        else {
+            setValidationErrors([]);
+            setPage(2);
+        }
     }
 
     const turnPage2 = () => {
@@ -135,7 +143,10 @@ const CreateListing = () => {
         if (imageUrls.length) setImages(imageUrls);
         if(errors.length > 0) return setValidationErrors(errors);
 
-        else setPage(3);
+        else {
+            setValidationErrors([]);
+            setPage(3);
+        }
 
     }
 

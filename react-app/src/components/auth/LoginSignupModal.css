@@ -4,10 +4,21 @@
 }
 
 .signup-button-dropdown {
+    margin: 0;
+}
+
+.demo-span-dropdown {
+    color: #6e9e00;
+}
+
+.demo-button-dropdown {
+    margin: 0;
     margin-bottom: 8px;
 }
 
+.logout-button-dropdown,
 .login-button-dropdown,
+.demo-button-dropdown,
 .signup-button-dropdown {
     height: 40px;
     background-color: transparent;
@@ -15,19 +26,99 @@
 }
 
 .login-span-dropdown,
-.signup-span-dropdown {
+.signup-span-dropdown,
+.demo-span-dropdown {
     display: flex;
     margin-left: 5px;
-}
-
-.login-span-dropdown {
     font-weight: 600;
 }
 
+.demo-button-dropdown:hover {
+    background-color: rgba(110, 158, 0, 0.2);
+}
+
 .login-button-dropdown:hover {
-    background-color: rgb(247, 247, 247);
+    background-color: rgba(110, 158, 0, 0.2);
 }
 
 .signup-button-dropdown:hover {
-    background-color: rgb(247, 247, 247);
+    background-color: rgba(110, 158, 0, 0.2);
+}
+
+#border-modal {
+    height: 100px;
+    width: 100px;
+}
+
+.modal-body {
+    height: 270px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 -20px;
+}
+
+#modal-header {
+    width: 100%;
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0;
+    padding: 0 0 20px;
+    border-bottom: 1px solid rgb(221, 221, 221);
+    display: flex;
+    color: #6e9e00;
+    justify-content: center;
+}
+
+#login-form {
+    width: 100%;
+    padding: 20px 20px 0;
+}
+
+.login-container {
+    width: 100%;
+}
+
+.input-container {
+    display: block;
+    position: relative;
+}
+
+.login-input-title {
+    position: absolute;
+    top: -10px;
+    left: 8px;
+    margin: 0;
+    padding: 0 2px;
+    font-weight: 800;
+    font-size: 15px;
+    background-color: white;
+    cursor: default;
+}
+
+.login-form-field {
+    height: 50px;
+    padding: 5px 8px;
+    margin-bottom: 15px;
+    width: 100%;
+    font-weight: 400;
+    font-size: 18px;
+    z-index: 100;
+    background-color: transparent;
+}
+
+.login-form-field:focus {
+    outline-color: #6e9e00;
+}
+
+#login-button {
+    width: 100%;
+    padding: 14px 24px;
+    border-radius: 8px;
+    border: none;
+    background-color: #6e9e00;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
 }

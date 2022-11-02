@@ -1,16 +1,18 @@
 #modal {
     position: fixed;
-    top: 0;
-    right: 20vw;
-    left: 20vw;
+    top: 0%;
+    left: 50%;
+    margin-right: -175px;
     bottom: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 50;
 }
 
 #modal-background {
     position: fixed;
+    /* height: 100px; */
     top: 0;
     right: 0;
     left: 0;
@@ -21,9 +23,8 @@
 #modal-content {
     position: absolute;
     background-color: white;
+    /* background-color: red; */
     border-radius: 12px;
-    width: 100%;
-    max-width: 920px;
-    min-width: 700px;
+    width: 350px;
     padding: 20px;
 }
