@@ -387,11 +387,38 @@
 /****************************** REVIEWS SECTION *******************************/
 
 .listing-details-reviews {
-    padding: 48px 0;
+    padding: 48px 0 0;
     border-top: 1px solid rgb(221, 221, 221);
     /* border-bottom: 1px solid rgb(221, 221, 221); */
 }
 
+.listing-details-review-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+#add-review-button {
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 16px;
+    margin: 0;
+    border-radius: 8px;
+    border: none;
+    background-color: transparent;
+    transition: 1s background-color ease;
+}
+
+#add-review-button:hover {
+    background-color: rgba(110, 158, 0, 0.3);
+}
+
+#add-review-svg,
 .review-section-star {
     height: 16px;
     margin-right: 8px;
@@ -406,10 +433,6 @@
     font-size: 22px;
     font-weight: 600;
     margin: 0 6px;
-}
-
-#reviews {
-    margin: 0 0 32px;
 }
 
 .review-breakdown-section {

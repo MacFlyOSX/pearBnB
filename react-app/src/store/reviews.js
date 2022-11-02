@@ -11,10 +11,9 @@ const DELETE = 'reviews/DELETE';
 
 // Add a review
 
-const _addReview = (review, listing) => ({
+const _addReview = (review) => ({
     type: ADD,
-    review,
-    listing
+    review
 });
 
 export const addReview = (review, listingId) => async dispatch => {
@@ -35,7 +34,7 @@ export const addReview = (review, listingId) => async dispatch => {
 
         if (reviewRes.ok) {
             const review = await reviewRes.json();
-            await dispatch(_addReview(review, listing));
+            await dispatch(_addReview(review));
             return review;
         }
     }

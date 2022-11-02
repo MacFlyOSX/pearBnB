@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import LoginForm from './components/auth/LoginForm';
-import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
 import Homepage from './components/Homepage';
 import Footer from './components/Footer';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import UsersList from './components/UsersList';
 import ListingDeets from './components/ListingDeets';
 import CreateListing from './components/ListingForms/CreateListing';
 import UpdateListing from './components/ListingForms/UpdateListing';
-import User from './components/User';
+import CreateReview from './components/ReviewForms/CreateReview';
+import UpdateReview from './components/ReviewForms/UpdateReview';
 import { authenticate } from './store/session';
 import Listings from './components/UserPages/Listings';
 
@@ -34,33 +32,27 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
-        {/* <Route path='/login' exact={true}>
-          <LoginForm />
-        </Route>
-        <Route path='/sign-up' exact={true}>
-          <SignUpForm />
-        </Route>
-        <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
-        </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
-        </ProtectedRoute> */}
         <Route path='/' exact={true} >
           <Homepage />
         </Route>
-        <Route path='/listings/new' >
+        <ProtectedRoute exact path='/listings/new' >
           <CreateListing />
-        </Route>
-        <Route path='/listings/current' >
+        </ProtectedRoute>
+        <ProtectedRoute exact path='/listings/current' >
           <Listings />
-        </Route>
+        </ProtectedRoute>
         <Route exact path='/listings/:listingId' >
           <ListingDeets />
         </Route>
-        <Route path='/listings/:listingId/update' >
+        <ProtectedRoute exact path='/listings/:listingId/update' >
           <UpdateListing />
-        </Route>
+        </ProtectedRoute>
+        <ProtectedRoute exact path='/reviews/new'>
+          <CreateReview />
+        </ProtectedRoute>
+        <ProtectedRoute exact path='/reviews/:reviewId/update'>
+          <UpdateReview />
+        </ProtectedRoute>
       </Switch>
       <Footer />
     </BrowserRouter>

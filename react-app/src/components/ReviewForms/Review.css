@@ -1,0 +1,68 @@
+
+.create-review-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 16px;
+}
+
+.create-review-inner-container {
+    width: 1120px;
+    display: flex;
+    flex-direction: column;
+}
+
+.create-review-breakdown-section {
+    margin-bottom: 24px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.create-specific-review-stat {
+    display: flex;
+    margin-bottom: 16px;
+}
+
+.create-specific-stat-breakdown {
+    display: flex;
+    align-items: center;
+}
+
+.create-specific-stat-title {
+    width: 296.9px;
+    margin-right: 12px;
+    font-size: 16px;
+}
+
+/********************************* STAR LOGIC *********************************/
+
+.edamame,
+#one {
+    fill: rgba(110, 158, 0, 0.53);
+}
+
+.lima-bean,
+#two {
+    fill: rgba(110, 158, 0, 0.68);
+}
+
+.green-bean,
+#three {
+    fill: rgba(110, 158, 0, 0.77);
+}
+
+.green-goblin,
+#four {
+    fill: rgba(110, 158, 0, 0.87);
+}
+
+.green-machine,
+#five {
+    fill: #6e9e00;
+}
+
+.grey-bean,
+#grey {
+    fill: rgba(187, 186, 192, 0.7);
+}

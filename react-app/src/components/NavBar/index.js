@@ -467,7 +467,7 @@ const NavBar = () => {
       <div className='navbar-logo-side'>
         <NavLink className='logo' exact to="/">
           <div className='logo-container'>
-            <img src={url.includes('new') ? pear : logo} alt='logo' id='navbar-logo' />
+            <img src={url.includes('new') || url.includes('update') ? pear : logo} alt='logo' id='navbar-logo' />
           </div>
         </NavLink>
       </div>
@@ -487,7 +487,7 @@ const NavBar = () => {
       </div>
       <div className='navbar-user-side'>
         <div className='left-of-user'>
-          {url.includes('new') ? null : <button className='host-button' onClick={handleHost}>
+          {url.includes('new') || url.includes('update') ? null : <button className='host-button' onClick={handleHost}>
             <div className='become-a-host'>Become a Host</div>
           </button>}
         </div>

@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, useParams } from 'react-router-dom';
+import { NavLink, useHistory, useParams } from 'react-router-dom';
 import { getOne } from '../../store/listings';
 import { loadReviews } from '../../store/reviews';
-import heart from '../../icons/homepage/saveheart.svg';
+// import heart from '../../icons/homepage/saveheart.svg';
+import add from '../../icons/listing/add.svg';
 import star from '../../icons/listing/revstar.svg';
 import door from '../../icons/listing/selfcheckin.svg';
 import superhost from '../../icons/listing/superhost.svg';
@@ -223,12 +224,20 @@ const ListingDeets = () => {
             </div>
         </div>
         <div className='listing-details-reviews'>
-            <h1 id='reviews' >
-                <img src={star} className='review-section-star' alt='star' />
-                <span className='review-section-avg'>{listing?.avg_rating?.toFixed(1)}</span>
-                <span id='rev-middot'>&middot;</span>
-                <span className='review-section-avg'>{numReviews} reviews</span>
-            </h1>
+            <div className='listing-details-review-header'>
+                <h1 id='reviews' >
+                    <img src={star} className='review-section-star' alt='star' />
+                    <span className='review-section-avg'>{listing?.avg_rating?.toFixed(1)}</span>
+                    <span id='rev-middot'>&middot;</span>
+                    <span className='review-section-avg'>{numReviews} reviews</span>
+                </h1>
+                <NavLink to='/reviews/new'>
+                    <button id='add-review-button'>
+                        <img src={add} alt='add' id='add-review-svg' />
+                        Add review
+                    </button>
+                </NavLink>
+            </div>
             <div className='review-breakdown-section'>
                 <div className='specific-review-stat'>
                     <div className='specific-stat-title'>Cleanliness</div>

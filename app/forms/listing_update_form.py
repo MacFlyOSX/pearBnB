@@ -44,7 +44,7 @@ class UpdateListingForm(FlaskForm):
     max_guests = IntegerField('Max Guests', validators=[DataRequired()])
     bed = IntegerField('Number of beds', validators=[DataRequired()])
     bath = IntegerField('Number of bathrooms', validators=[DataRequired()])
-    types = SelectMultipleField('Listing Type', choices=_TYPES)
-    amenities = SelectMultipleField('Customer Transaction Options', choices=_AMENITIES)
+    # types = SelectMultipleField('Listing Type', choices=_TYPES)
+    # amenities = SelectMultipleField('Customer Transaction Options', choices=_AMENITIES)
 
     submit = SubmitField('Submit')
