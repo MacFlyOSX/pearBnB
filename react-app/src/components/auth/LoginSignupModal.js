@@ -40,7 +40,7 @@ const LoginSignupModal = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
         setErrors([]);
-        return dispatch(login({ email, password })).catch(async (res) => {
+        return dispatch(login(email, password )).catch(async (res) => {
             const data = await res.json();
             if (data && data.message) setErrors(data.message);
         })
@@ -88,7 +88,7 @@ const LoginSignupModal = () => {
                 >
                     <div className='modal-body'>
                         <h1 id='modal-header'>Welcome to Pearbnb</h1>
-                        <form id='login-form'>
+                        <form id='login-form' onSubmit={handleLogin}>
                             <div className='input-container login-container'>
                                 <span className='login-input-title'>Email</span>
                                 <input
@@ -104,7 +104,7 @@ const LoginSignupModal = () => {
                                 <span className='login-input-title'>Password</span>
                                 <input
                                     id='form-password'
-                                    type='text'
+                                    type='password'
                                     value={password}
                                     required
                                     className='login-form-field'

@@ -12,6 +12,7 @@ import ListingDeets from './components/ListingDeets';
 import CreateListing from './components/ListingForms/CreateListing';
 import User from './components/User';
 import { authenticate } from './store/session';
+import Listings from './components/UserPages/Listings';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -49,6 +50,9 @@ function App() {
         </Route>
         <Route path='/listings/new' >
           <CreateListing />
+        </Route>
+        <Route path='/listings/current' >
+          <Listings />
         </Route>
         <Route path='/listings/:listingId' >
           <ListingDeets />

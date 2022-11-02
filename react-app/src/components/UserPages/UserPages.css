@@ -1,0 +1,50 @@
+.user-listings-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8px;
+    min-height: 100%;
+}
+
+.user-listings-inner {
+    width: 1120px;
+    display: flex;
+    flex-direction: column;
+}
+
+.user-listings-title {
+    font-size: 30px;
+    margin: 24px 0;
+}
+
+.indiv-listing-container {
+    width: 100%;
+    padding: 16px;
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+
+.indiv-rev-star {
+    height: 14px;
+    margin-right: 5px;
+}
+
+.indiv-listing-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.listing-title-user {
+    font-size: 20px;
+}
+
+.indiv-rev-header {
+    display: flex;
+    align-items: center;
+}
+
+.indiv-avg-rev {
+    font-size: 18px;
+}
