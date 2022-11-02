@@ -7,9 +7,10 @@ const Footer = () => {
 
     let footerCode;
 
-    if (url === '/' || url.includes('new')) {
+    if (url === '/' || url.includes('new') || url.includes('current') || url.includes('update')) {
         footerCode = (
-            <div className='footer-homepage'>
+            <div className='footer'>
+                <div className={url === '/' ? 'footer-homepage' : 'footer-awaypage'}>
                 <div className='hpfooter-left'>
                     <span className='pearbnb-footer'>
                     © 2022 Pearbnb, Inc.
@@ -71,6 +72,7 @@ const Footer = () => {
                         </span>
                     </div>
                     </a>
+                </div>
                 </div>
             </div>
         )

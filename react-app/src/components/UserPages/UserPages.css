@@ -10,6 +10,7 @@
     width: 1120px;
     display: flex;
     flex-direction: column;
+    margin-bottom: 52px;
 }
 
 .user-listings-title {
@@ -23,11 +24,31 @@
     border: 1px solid rgb(221, 221, 221);
     border-radius: 8px;
     margin-bottom: 16px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.indiv-listing-container:hover {
+    box-shadow: 0 1px 2px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 5%);
 }
 
 .indiv-rev-star {
-    height: 14px;
+    height: 16px;
     margin-right: 5px;
+}
+
+.indiv-listing-buttons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.indiv-listing-body {
+    margin-left: 32px;
+    width: 801px;
+    height: 253px;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
 }
 
 .indiv-listing-header {
@@ -38,6 +59,7 @@
 
 .listing-title-user {
     font-size: 20px;
+    margin: 0;
 }
 
 .indiv-rev-header {
@@ -46,5 +68,93 @@
 }
 
 .indiv-avg-rev {
-    font-size: 18px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.user-listing-buttons {
+    padding: 5px;
+    padding-left: 8px;
+    padding-top: 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: transparent;
+    transition: 1s background-color ease;
+}
+
+#edit-listing-button:hover {
+    background-color: rgb(221, 221, 221);
+}
+
+#delete-listing-button:hover {
+    background-color: rgb(221, 221, 221);
+}
+
+#edit-listing-button {
+    margin-right: 8px;
+}
+
+#change-listing-image {
+    height: 32px;
+}
+
+#indiv-listing-pictures {
+    height: 250px;
+    width: 250px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.indiv-listing-rooms-such {
+    margin: 8px 0;
+}
+
+.indiv-listing-description,
+.bed-bath-span {
+    font-size: 16px;
+    line-height: 24px;
+}
+
+#delete-modal-header {
+    width: 100%;
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0;
+    padding: 0 0 10px;
+    border-bottom: 1px solid rgb(221, 221, 221);
+    display: flex;
+    color: #6e9e00;
+    justify-content: center;
+}
+
+.modal-body-delete {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.delete-listing-buttons {
+    width: 100%;
+}
+
+.user-delete-buttons {
+    padding: 14px 24px;
+    width: 49%;
+    border-radius: 8px;
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+#delete-indiv-listing-button {
+    margin-right: 2%;
+    background-color: #6e9e00;
+}
+
+#cancel-indiv-listing-button {
+    background-color: rgb(196, 196, 196);
+    color: black;
 }
