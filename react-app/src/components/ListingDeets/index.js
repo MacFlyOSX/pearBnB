@@ -20,6 +20,8 @@ const ListingDeets = () => {
     const reviewObj = useSelector(state => state.reviews.allReviews);
     const reviews = Object.values(reviewObj);
 
+    const user = useSelector(state => state.session.user);
+
     let acc = 0;
     let clean = 0;
     let check = 0;
@@ -149,7 +151,7 @@ const ListingDeets = () => {
                         <span id='middot'>&middot;</span>
                         <span className='bed-bath-span'>{listing.bath} {listing.bath > 1 ? 'baths' : 'bath'}</span>
                     </div>
-                    <div className='user-icon'><img className='user-icon-image' src='https://i.imgur.com/xrTfdN1.png' alt='user' /></div>
+                    <div className='user-icon'><img className='user-icon-image' src={listing?.owner?.profile_pic} alt='user' /></div>
                 </div>
                 <div className='middle-perks-section mid-left'>
                     <div className='each-perk upper-perk'>
@@ -231,12 +233,13 @@ const ListingDeets = () => {
                     <span id='rev-middot'>&middot;</span>
                     <span className='review-section-avg'>{numReviews} reviews</span>
                 </h1>
-                <NavLink to='/reviews/new'>
+                {user?.id === listing?.owner_id ? null : !user ? null : reviews?.filter(rev => rev.user_id === user.id)?.length ? null :
+                <NavLink to={`/listings/${listingId}/reviews/new`}>
                     <button id='add-review-button'>
                         <img src={add} alt='add' id='add-review-svg' />
                         Add review
                     </button>
-                </NavLink>
+                </NavLink>}
             </div>
             <div className='review-breakdown-section'>
                 <div className='specific-review-stat'>
@@ -299,7 +302,7 @@ const ListingDeets = () => {
                     (
                         <div className='single-review-container' key={i}>
                             <div className='single-review-title'>
-                                <img src='https://i.imgur.com/xrTfdN1.png' alt='user' className='user-icon-single-review' />
+                                <img src={review?.user?.profile_pic} alt='user' className='user-icon-single-review' />
                                 <div className='single-review-user'>
                                     <span className='single-review-name'>{review?.user?.first_name}</span>
                                     <span className='single-review-date'>{review?.created_at?.slice(5,7) === '01' ? `January ${review?.created_at?.slice(0,4)}` : review?.created_at?.slice(5,7) === '02' ? `February ${review?.created_at?.slice(0,4)}` : review?.created_at?.slice(5,7) === '03' ? `March ${review?.created_at?.slice(0,4)}` : review?.created_at?.slice(5,7) === '04' ? `April ${review?.created_at?.slice(0,4)}` : review?.created_at?.slice(5,7) === '05' ? `May ${review?.created_at?.slice(0,4)}` : review?.created_at?.slice(5,7) === '06' ? `June ${review?.created_at?.slice(0,4)}` : review?.created_at?.slice(5,7) === '07' ? `July ${review?.created_at?.slice(0,4)}` : review?.created_at?.slice(5,7) === '08' ? `August ${review?.created_at?.slice(0,4)}` : review?.created_at?.slice(5,7) === '09' ? `September ${review?.created_at?.slice(0,4)}` : review?.created_at?.slice(5,7) === '10' ? `October ${review?.created_at?.slice(0,4)}` : review?.created_at?.slice(5,7) === '11' ? `November ${review?.created_at?.slice(0,4)}` : `December ${review?.created_at?.slice(0,4)}`}</span>

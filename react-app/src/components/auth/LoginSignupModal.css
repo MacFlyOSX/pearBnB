@@ -59,6 +59,15 @@
     margin: 0 -20px;
 }
 
+.signup-modal-body {
+    height: 400px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 -20px;
+}
+
 #modal-header {
     width: 100%;
     font-size: 28px;
@@ -97,6 +106,23 @@
     cursor: default;
 }
 
+.invisible-errors {
+    visibility: hidden;
+}
+
+.login-input-error {
+    position: absolute;
+    top: -7px;
+    right: 8px;
+    margin: 0;
+    padding: 0 2px;
+    font-weight: 800;
+    font-size: 12px;
+    background-color: white;
+    cursor: default;
+    color: rgb(228, 0, 0);
+}
+
 .login-form-field {
     height: 50px;
     padding: 5px 8px;
@@ -120,5 +146,14 @@
     background-color: #6e9e00;
     color: white;
     font-size: 16px;
+    font-weight: 600;
+}
+
+.errors-div-login {
+    margin-top: 6px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: rgb(213, 0, 0);
     font-weight: 600;
 }

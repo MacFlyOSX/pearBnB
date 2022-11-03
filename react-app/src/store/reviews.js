@@ -62,10 +62,10 @@ export const loadReviews = id => async dispatch => {
 };
 
 
-// Get user's listings
+// Get user's reviews
 
 export const loadUsersReviews = () => async dispatch => {
-    const response = await fetch(`/api/listings/current`, {
+    const response = await fetch(`/api/reviews/current`, {
         method: 'GET',
         headers: {
             'XSRF-TOKEN': Cookies.get('XSRF-TOKEN')
@@ -85,9 +85,9 @@ export const loadUsersReviews = () => async dispatch => {
 
 // Update a review
 
-const _updateReview = (review, user, listing) => ({
+const _updateReview = (review) => ({
     type: UPDATE,
-    payload: review
+    review
 });
 
 export const updateReview = (reviewId, review, listingId) => async dispatch => {
@@ -112,7 +112,7 @@ export const updateReview = (reviewId, review, listingId) => async dispatch => {
 
 /********************************* DELETE *************************************/
 
-// Delete a listing
+// Delete a review
 
 const _deleteReview = id => ({
     type: DELETE,
@@ -154,14 +154,14 @@ const reviewReducer = (state = initialState, action) => {
         }
         case ADD:{
             const newState = { ...state, allReviews: { ...state.allReviews } };
-            const newReview = { ...action.payload };
-            newState.allReviews[action.payload.id] = newReview;
+            const newReview = { ...action.review };
+            newState.allReviews[action.review.id] = newReview;
             return newState;
         }
         case UPDATE:{
             const newState = { ...state, allReviews: { ...state.allReviews } };
-            const updatedReview = { ...action.payload };
-            newState.allReviews[action.payload.id] = updatedReview;
+            const updatedReview = { ...action.review };
+            newState.allReviews[action.review.id] = updatedReview;
             return newState;
         }
         case DELETE:{

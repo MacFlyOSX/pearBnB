@@ -158,3 +158,44 @@
     background-color: rgb(196, 196, 196);
     color: black;
 }
+
+.indiv-review-header-title {
+    font-size: 28px;
+    margin: 0 0 16px;
+}
+
+.indiv-review-container {
+    width: 100%;
+    padding: 24px 36px 36px;
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 8px;
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.indiv-review-container:hover {
+    box-shadow: 0 1px 2px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 5%);
+}
+
+.indiv-review-breakdown-section {
+    margin-bottom: 16px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.review-specific-review-stat {
+    display: flex;
+    margin-bottom: 16px;
+}
+
+.review-specific-stat-title {
+    width: 200px;
+    margin-right: 12px;
+    font-size: 16px;
+}
+
+.container-for-review-body {
+    font-size: 16px;
+}

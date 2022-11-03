@@ -3,7 +3,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    margin: 16px;
+    margin: 24px 0 71px;
 }
 
 .create-review-inner-container {
@@ -17,6 +17,10 @@
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
+}
+
+.create-stat-container {
+    display: flex;
 }
 
 .create-specific-review-stat {
@@ -33,6 +37,93 @@
     width: 296.9px;
     margin-right: 12px;
     font-size: 16px;
+}
+
+.create-review-header-title {
+    font-size: 24px;
+    margin: 0 0 24px;
+}
+
+.create-body-container {
+    display: block;
+    position: relative;
+    width: 100%;
+}
+
+.create-input-title {
+    position: absolute;
+    top: -12px;
+    left: 8px;
+    margin: 0;
+    padding: 0 2px;
+    font-weight: 800;
+    font-size: 22px;
+    background-color: white;
+    cursor: default;
+}
+
+.create-input-limit {
+    position: absolute;
+    top: -12px;
+    right: 10px;
+    margin: 0;
+    padding: 0 2px;
+    font-weight: 800;
+    font-size: 22px;
+    background-color: white;
+    cursor: default;
+}
+
+#review-body {
+    width: 100%;
+    height: 240px;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.required-span {
+    font-size: 13px;
+    color: rgb(198, 0, 0);
+    margin: 0 20px;
+}
+
+.invisible-span {
+    visibility: hidden;
+}
+
+.create-review-field {
+    padding: 18px 8px;
+    margin-bottom: 15px;
+    width: 100%;
+    font-weight: 600;
+}
+
+.create-review-field:focus {
+    outline-color: #6e9e00;
+}
+
+.create-review-svg {
+    cursor: pointer;
+}
+
+.create-review-submit-button-section {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#create-review-submit {
+    padding: 14px 24px;
+    border-radius: 8px;
+    border: none;
+    background-color: #6e9e00;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    width: 240px;
+}
+
+.red-limit {
+    color: rgb(198, 0, 0);
 }
 
 /********************************* STAR LOGIC *********************************/

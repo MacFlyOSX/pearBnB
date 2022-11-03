@@ -12,6 +12,7 @@ import CreateReview from './components/ReviewForms/CreateReview';
 import UpdateReview from './components/ReviewForms/UpdateReview';
 import { authenticate } from './store/session';
 import Listings from './components/UserPages/Listings';
+import Reviews from './components/UserPages/Reviews';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -41,13 +42,16 @@ function App() {
         <ProtectedRoute exact path='/listings/current' >
           <Listings />
         </ProtectedRoute>
+        <ProtectedRoute exact path='/reviews/current' >
+          <Reviews />
+        </ProtectedRoute>
         <Route exact path='/listings/:listingId' >
           <ListingDeets />
         </Route>
         <ProtectedRoute exact path='/listings/:listingId/update' >
           <UpdateListing />
         </ProtectedRoute>
-        <ProtectedRoute exact path='/reviews/new'>
+        <ProtectedRoute exact path='/listings/:listingId/reviews/new'>
           <CreateReview />
         </ProtectedRoute>
         <ProtectedRoute exact path='/reviews/:reviewId/update'>

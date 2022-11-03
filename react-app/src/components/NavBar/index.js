@@ -498,7 +498,7 @@ const NavBar = () => {
                 <img src={burger} alt='burger' className='burger-icon' />
               </div>
               <div className='user-icon'>
-                <img src={user ? userJohn : pearout} alt='user' className='user-image' />
+                <img src={user ? user.profile_pic : pearout} alt='user' className='user-image' />
               </div>
             </div>
           </button>

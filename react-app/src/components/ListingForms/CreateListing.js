@@ -45,9 +45,6 @@ const CreateListing = () => {
       setNameLimit(60-name.length);
     }, [name]);
 
-    console.log('these are the selected types:',types);
-    console.log('these are the selected amenities:',amenities);
-
     const handleSubmit = async (e) => {
         e.preventDefault();
 
