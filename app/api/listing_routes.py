@@ -179,8 +179,8 @@ def add_listing():
         validation_errors["errors"]["bath"] = "Number of bathrooms is required."
     if not form.data['types']:
         validation_errors["errors"]["types"] = "Type(s) of listing is/are required."
-    if not form.data['amenities']:
-        validation_errors["errors"]["amenities"] = "Listing amenities are required."
+    # if not form.data['amenities']:
+    #     validation_errors["errors"]["amenities"] = "Listing amenities are required."
     if len(validation_errors["errors"]) > 0:
         return jsonify(validation_errors), 400
 
