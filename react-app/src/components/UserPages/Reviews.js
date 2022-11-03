@@ -41,10 +41,10 @@ const Reviews = () => {
   return (
     <div className='user-listings-container'>
         <div className='user-listings-inner'>
-          <h1 className='user-listings-title'>Hey {user.first_name}! Here are your reviews:</h1>
+          <h1 className='user-listings-title'>Hey {user?.first_name}! Here are your reviews:</h1>
           {reviews.map((review, i) => (
             <div className='indiv-review-container' key={i}>
-            <h1 className='indiv-review-header-title'>{review.listing.name}</h1>
+            <h1 className='indiv-review-header-title'>{review?.listing?.name}</h1>
             <div className='container-for-indiv-reviews'>
             <div className='indiv-review-breakdown-section'>
                 <div className='review-specific-review-stat'>
@@ -364,9 +364,42 @@ const Reviews = () => {
             <div className='container-for-review-body'>
               {review.review_body}
             </div>
+            <div className='indiv-listing-buttons'>
+                            <button className='user-listing-buttons' id='edit-listing-button'
+                            onClick={() => history.push(`/reviews/${review.id}/update`)}
+                            >
+                                <img src={updateList} alt='update' id='change-listing-image' />
+                            </button>
+                            <button className='user-listing-buttons' id='delete-listing-button'
+                            onClick={() => handleDeleteButton(review.id)}
+                            >
+                                <img src={deleteList} alt='delete' id='change-listing-image' />
+                            </button>
+                        </div>
             </div>
           ))}
         </div>
+        {showDelModal && (
+                <Modal id='border-modal'
+                onClose={() => {
+                    setShowDelModal(false);
+                }}
+                >
+                    <div className='delete-modal-interior'>
+                        <h1 id='delete-modal-header'>Confirm delete</h1>
+                        <div className='modal-body-delete'>
+                            Are you sure you want to delete this review? <br />This process cannot be undone.
+                        </div>
+                        <div className='delete-listing-buttons'>
+                            <button className='user-delete-buttons' id='delete-indiv-listing-button' onClick={handleDelete}>
+                                Delete
+                            </button>
+                            <button className='user-delete-buttons' id='cancel-indiv-listing-button' onClick={() => setShowDelModal(false)}>
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+                </Modal>)}
     </div>
   )
 }

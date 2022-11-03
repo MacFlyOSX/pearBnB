@@ -403,14 +403,14 @@ def update_listing(listing_id):
         #     amen = Amenity.query.filter_by(alias=alias).first()
         #     amenity_list.append(amen)
 
-        listing['name'] = form.data['name'],
-        listing['address'] = form.data['address'],
-        listing['city'] = form.data['city'],
-        listing['state'] = form.data['state'],
-        listing['price'] = form.data['price'],
-        listing['max_guests'] = form.data['max_guests'],
-        listing['bed'] = form.data['bed'],
-        listing['bath'] = form.data['bath']
+        listing.name = form.data['name'],
+        listing.address = form.data['address'],
+        listing.city = form.data['city'],
+        listing.state = form.data['state'],
+        listing.price = form.data['price'],
+        listing.max_guests = form.data['max_guests'],
+        listing.bed = form.data['bed'],
+        listing.bath = form.data['bath']
         # listing['types'] = type_list,
         # listing['amenities'] = amenity_list
 
@@ -427,13 +427,6 @@ def update_listing(listing_id):
 
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
-
-######## UPDATE A REVIEW #########
-
-@listing_routes.route('/<int:listing_id>/reviews/<int:review_id>', methods=['PUT'])
-@login_required
-def update_review(listing_id, review_id):
-    pass
 
 
 #################################### DELETE ####################################
@@ -467,11 +460,3 @@ def delete_listing(listing_id):
         db.session.commit()
 
         return { "message": "Successfully deleted", "status_code": 200 }
-
-
-######## DELETE A REVIEW #########
-
-@listing_routes.route('/<int:listing_id>/reviews/<int:review_id>', methods=['PUT'])
-@login_required
-def delete_review(listing_id, review_id):
-    pass
