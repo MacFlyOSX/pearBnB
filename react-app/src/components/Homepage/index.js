@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { loadListings, clearData } from '../../store/listings';
 import './Homepage.css';
@@ -6,6 +6,7 @@ import './Homepage.css';
 // import leftarrow from '../../icons/homepage/arrowleft.svg';
 // import rightarrow from '../../icons/homepage/arrowright.svg';
 import star from '../../icons/homepage/cardstar.svg';
+import disPear from '../../icons/homepage/disappointed-pear.gif';
 
 const Homepage = () => {
     const dispatch = useDispatch();
@@ -84,6 +85,16 @@ const Homepage = () => {
     }, [type, dispatch]);
 
 
+    if (!Object.keys(listingList).length) {
+        return (
+            <div className='main-homepage-container'>
+                <div className='empty-list-container'>
+                    <h1 className='empty-list-title'>It appears that there are no listings that match your selection(s).<br /></h1>
+                    <img src={disPear} alt='sadpear' id='dispear' />
+                </div>
+            </div>
+        )
+    }
 
     return (
         <>
