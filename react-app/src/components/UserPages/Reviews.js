@@ -17,7 +17,6 @@ const Reviews = () => {
   const history = useHistory();
   const [ revId, setRevId ] = useState(null);
   const [ showDelModal, setShowDelModal ] = useState(false);
-  const [ emptyList, setEmptyList ] = useState(false);
 
   const handleDeleteButton = (id) => {
     setRevId(id);
@@ -37,10 +36,9 @@ const Reviews = () => {
 
   useEffect(() => {
     dispatch(loadUsersReviews());
-    if (!Object.keys(reviewObj).length) setEmptyList(true);
-  }, [dispatch, reviewObj])
+  }, [dispatch])
 
-  if (emptyList) {
+  if (!Object.keys(reviewObj).length) {
     return (
         <div className='user-listings-container'>
             <div className='user-listings-inner'>
