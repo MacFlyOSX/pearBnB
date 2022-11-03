@@ -97,38 +97,39 @@ const Homepage = () => {
     }
 
     return (
-        <>
+    <div className='main-homepage-container-outer'>
         {/* {typesSection} */}
       <div className='main-homepage-container'>
           <div className='main-card-container'>
           {listings.map((listing, i) => (
             <a key={i} className='listing-card-link' href={`/listings/${listing.id}`}>
                 <div className='listing-card'>
-                    <div className='listing-card-innertop' style={{backgroundImage: `url(${listing.images[0]})`}}>
-                        <div className='listing-image-inner'>
+                    <div className='listing-card-innertop'>
+                        <img src={listing.images[0]} alt='listing' className='listing-image-preview' onError={e => e.currentTarget.src = 'https://i.imgur.com/DsVjt4A.png'}/>
+                        {/* <div className='listing-image-inner'>
                             <div className='listing-image-top'>
-                                {/* <button className='listing-image-top-button'>
+                                <button className='listing-image-top-button'>
                                     <img className='save-heart' src={saveheart} alt='heart' />
-                                </button> */}
+                                </button>
                             </div>
                             <div className='listing-image-middle'>
-                                {/* <button id='arrow' className='arrow-button'>
+                                <button id='arrow' className='arrow-button'>
                                     <img src={leftarrow} alt='left' id='' className='arrow' />
                                 </button>
                                 <button id='arrow' className='arrow-button'>
                                     <img src={rightarrow} alt='right' className='arrow' />
-                                </button> */}
+                                </button>
                             </div>
                             <div className='listing-image-bottom'>
-                                {/* <div class="_1b2klj3" style="transform: translateX(0px);">
+                                <div class="_1b2klj3" style="transform: translateX(0px);">
                                     <span class="_4o74ccl" style="transform: scale(1);"></span>
                                     <span class="_1k9ksvh" style="transform: scale(1);"></span>
                                     <span class="_1k9ksvh" style="transform: scale(1);"></span>
                                     <span class="_1k9ksvh" style="transform: scale(0.833333);"></span>
                                     <span class="_1k9ksvh" style="transform: scale(0.666667);"></span>
-                                </div> */}
+                                </div>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                     <div className='listing-card-innerbottom'>
                         <div className='listing-card-info'>
@@ -148,7 +149,7 @@ const Homepage = () => {
                                 <img src={star} alt='star' />
                             </span>
                             <span className='listing-rating-avg'>
-                                {listing.avg_rating.toFixed(1)}
+                                {listing?.avg_rating > 0 ? listing.avg_rating.toFixed(1) : 'New'}
                             </span>
                         </div>
                     </div>
@@ -157,7 +158,7 @@ const Homepage = () => {
           ))}
           </div>
       </div>
-      </>
+      </div>
     )
 }
 

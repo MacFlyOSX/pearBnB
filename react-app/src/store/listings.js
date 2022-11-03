@@ -44,6 +44,7 @@ export const addListing = (listing, images) => async dispatch => {
         newListing.images = [];
 
         for (let i = 0; i < images.length; i++) {
+            console.log('here is the FOR loop for your images', images[i]);
             const res = await fetch(`/api/listings/${newListing.id}/images`, {
                 method: 'POST',
                 headers: {

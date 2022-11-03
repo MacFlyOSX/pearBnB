@@ -3,15 +3,35 @@
 
 .navbar-container {
     width: 100%;
-    border-bottom: 1px solid rgb(221, 221, 221);
+    filter: drop-shadow(0 2px 2.5px rgba(221, 221, 221, 0.3));
     background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.navbar-container-set {
+    z-index: 10;
+    width: 100%;
+    filter: drop-shadow(0 2px 2.5px rgba(221, 221, 221, 0.3));
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
 .navbar-inner {
     height: 80px;
+    display: grid;
+    background-color: white;
+    grid-template-columns: 1fr 400px 1fr;
+}
+
+.navbar-inner-home {
+    height: 150px;
     display: grid;
     background-color: white;
     grid-template-columns: 1fr 400px 1fr;
@@ -24,9 +44,7 @@
 
 .navbar-home {
     width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
+    max-width: 1905px;
     grid-template-rows: 80px 70px;
     grid-template-areas: 'left mid right'
                          'type type type';
@@ -292,7 +310,6 @@
     top: 80px;
     /* position: fixed; */
     background-color: white;
-    filter: drop-shadow(0 2px 2.5px rgba(221, 221, 221, 0.3));
     /* border-bottom: 2px solid rgba(221, 221, 221, 0.3); */
     grid-area: type;
 }

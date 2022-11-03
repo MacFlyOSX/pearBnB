@@ -16,9 +16,9 @@ const CreateListing = () => {
     const [ state, setState ] = useState("");
     const [ description, setDescription ] = useState("");
     // const [country, setCountry] = useState("United States");
-    const [ max_guests, setMaxGuests ] = useState(0);
-    const [ bed, setBed ] = useState(0);
-    const [ bath, setBath ] = useState(0);
+    const [ max_guests, setMaxGuests ] = useState(1);
+    const [ bed, setBed ] = useState(1);
+    const [ bath, setBath ] = useState(1);
     const [ price, setPrice ] = useState('');
     const [ types, setTypes ] = useState([]);
     const [ amenities, setAmenities ] = useState([]);
@@ -47,6 +47,8 @@ const CreateListing = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        console.log('here are your images', images)
 
         const payload = {
             name, address, city, state, description, price, max_guests, bed, bath, types, amenities
@@ -212,57 +214,57 @@ const CreateListing = () => {
                               required
                             >
                               <option disabled value=''></option>
-                              <option value='Alabama'>AL</option>
-                              <option value='Alaska'>AK</option>
-                              <option value='Arkansas'>AR</option>
-                              <option value='Arizona'>AZ</option>
-                              <option value='California'>CA</option>
-                              <option value='Colorado'>CO</option>
-                              <option value='Connecticut'>CT</option>
-                              <option value='District of Columbia'>DC</option>
-                              <option value='Delaware'>DE</option>
-                              <option value='Florida'>FL</option>
-                              <option value='Georgia'>GA</option>
-                              <option value='Hawaii'>HI</option>
-                              <option value='Iowa'>IA</option>
-                              <option value='Idaho'>ID</option>
-                              <option value='Illinois'>IL</option>
-                              <option value='Indiana'>IN</option>
-                              <option value='Kansas'>KS</option>
-                              <option value='Kentucky'>KY</option>
-                              <option value='Louisiana'>LA</option>
-                              <option value='Massachusetts'>MA</option>
-                              <option value='Maryland'>MD</option>
-                              <option value='Maine'>ME</option>
-                              <option value='Michigan'>MI</option>
-                              <option value='Minnesota'>MN</option>
-                              <option value='Missouri'>MO</option>
-                              <option value='Mississippi'>MS</option>
-                              <option value='Montana'>MT</option>
-                              <option value='North Carolina'>NC</option>
-                              <option value='North Dakota'>ND</option>
-                              <option value='Nebraska'>NE</option>
-                              <option value='New Hampshire'>NH</option>
-                              <option value='New Jersey'>NJ</option>
-                              <option value='New Mexico'>NM</option>
-                              <option value='Nevada'>NV</option>
-                              <option value='New York'>NY</option>
-                              <option value='Ohio'>OH</option>
-                              <option value='Oklahoma'>OK</option>
-                              <option value='Oregon'>OR</option>
-                              <option value='Pennsylvania'>PA</option>
-                              <option value='Rhode Island'>RI</option>
-                              <option value='South Carolina'>SC</option>
-                              <option value='South Dakota'>SD</option>
-                              <option value='Tennessee'>TN</option>
-                              <option value='Texas'>TX</option>
-                              <option value='Utah'>UT</option>
-                              <option value='Virginia'>VA</option>
-                              <option value='Vermont'>VT</option>
-                              <option value='Washington'>WA</option>
-                              <option value='Wisconsin'>WI</option>
-                              <option value='West Virginia'>WV</option>
-                              <option value='Wyoming'>WY</option>
+                              <option value='AL'>AL</option>
+                              <option value='AK'>AK</option>
+                              <option value='AR'>AR</option>
+                              <option value='AZ'>AZ</option>
+                              <option value='CA'>CA</option>
+                              <option value='CO'>CO</option>
+                              <option value='CT'>CT</option>
+                              <option value='DC'>DC</option>
+                              <option value='DE'>DE</option>
+                              <option value='FL'>FL</option>
+                              <option value='GA'>GA</option>
+                              <option value='HI'>HI</option>
+                              <option value='IA'>IA</option>
+                              <option value='ID'>ID</option>
+                              <option value='IL'>IL</option>
+                              <option value='IN'>IN</option>
+                              <option value='KS'>KS</option>
+                              <option value='KY'>KY</option>
+                              <option value='LA'>LA</option>
+                              <option value='MA'>MA</option>
+                              <option value='MD'>MD</option>
+                              <option value='ME'>ME</option>
+                              <option value='MI'>MI</option>
+                              <option value='MN'>MN</option>
+                              <option value='MO'>MO</option>
+                              <option value='MS'>MS</option>
+                              <option value='MT'>MT</option>
+                              <option value='NC'>NC</option>
+                              <option value='ND'>ND</option>
+                              <option value='NE'>NE</option>
+                              <option value='NH'>NH</option>
+                              <option value='NJ'>NJ</option>
+                              <option value='NM'>NM</option>
+                              <option value='NV'>NV</option>
+                              <option value='NY'>NY</option>
+                              <option value='OH'>OH</option>
+                              <option value='OK'>OK</option>
+                              <option value='OR'>OR</option>
+                              <option value='PA'>PA</option>
+                              <option value='RI'>RI</option>
+                              <option value='SC'>SC</option>
+                              <option value='SD'>SD</option>
+                              <option value='TN'>TN</option>
+                              <option value='TX'>TX</option>
+                              <option value='UT'>UT</option>
+                              <option value='VA'>VA</option>
+                              <option value='VT'>VT</option>
+                              <option value='WA'>WA</option>
+                              <option value='WI'>WI</option>
+                              <option value='WV'>WV</option>
+                              <option value='WY'>WY</option>
                             </select>
                         </div>
                     </div>

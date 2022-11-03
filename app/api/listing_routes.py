@@ -159,14 +159,14 @@ def add_listing():
         validation_errors["errors"]["state"] = "State is required."
     # if not form.data['country']:
     #     validation_errors["errors"]["country"] = "Country is required."
-    if len(str(form.data['latitude'])) == 0:
-        validation_errors["errors"]["latitude"] = "Latitude is required."
-    if len(str(form.data['longitude'])) == 0:
-        validation_errors["errors"]["longitude"] = "Longitude is required."
-    if form.data['latitude'] < -90 or form.data['latitude'] > 90 :
-        validation_errors["errors"]["latitude"] = "Latitude must be between -90 and 90."
-    if form.data['longitude'] < -180 or form.data['longitude'] > 180 :
-        validation_errors["errors"]["longitude"] = "Longitude must be between -180 and 180."
+    # if len(str(form.data['latitude'])) == 0:
+    #     validation_errors["errors"]["latitude"] = "Latitude is required."
+    # if len(str(form.data['longitude'])) == 0:
+    #     validation_errors["errors"]["longitude"] = "Longitude is required."
+    # if form.data['latitude'] < -90 or form.data['latitude'] > 90 :
+    #     validation_errors["errors"]["latitude"] = "Latitude must be between -90 and 90."
+    # if form.data['longitude'] < -180 or form.data['longitude'] > 180 :
+    #     validation_errors["errors"]["longitude"] = "Longitude must be between -180 and 180."
     if not form.data['description']:
         validation_errors["errors"]["description"] = "Listing description is required."
     if not form.data['price']:
@@ -203,8 +203,8 @@ def add_listing():
             state=form.data['state'],
             description=form.data['description'],
             # country=form.data['country'],
-            latitude=form.data['latitude'],
-            longitude=form.data['longitude'],
+            # latitude=form.data['latitude'],
+            # longitude=form.data['longitude'],
             price=form.data['price'],
             max_guests=form.data['max_guests'],
             bed=form.data['bed'],
@@ -300,6 +300,7 @@ def add_image(listing_id):
     form = AddImageForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
+
     listing = Listing.query.get(listing_id)
 
     if not listing:
@@ -325,6 +326,8 @@ def add_image(listing_id):
         img = image.to_dict()
 
         return jsonify(img)
+
+    return jsonify({'funguy': 'This is not it'})
 
 #################################### UPDATE ####################################
 

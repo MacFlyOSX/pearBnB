@@ -462,8 +462,8 @@ const NavBar = () => {
 
   return (
     <div className='entire-header'>
-    <div className='navbar-container'>
-      <div className={url === '/' ? 'navbar-inner navbar-home' : 'navbar-inner navbar-else'}>
+    <div className={url === '/' ? 'navbar-container-set' : 'navbar-container'}>
+      <div className={url === '/' ? 'navbar-inner-home navbar-home' : 'navbar-inner navbar-else'}>
       <div className='navbar-logo-side'>
         <NavLink className='logo' exact to="/">
           <div className='logo-container'>
