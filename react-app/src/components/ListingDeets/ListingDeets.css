@@ -94,6 +94,45 @@
     justify-content: space-between;
 }
 
+.listing-photos-single-photo {
+    width: 100%;
+}
+
+.two-listing-images {
+    width: 556px;
+    height: 300px;
+}
+
+#left-image {
+    border-top-left-radius: 16px;
+    border-bottom-left-radius: 16px;
+}
+
+#right-image {
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+}
+
+.top-bottom-split {
+    width: 556px;
+    height: 146px;
+}
+
+#top-image {
+    border-top-right-radius: 16px;
+}
+
+#bottom-image {
+    border-bottom-right-radius: 16px;
+}
+
+#single-image {
+    width: 100%;
+    height: 300px;
+    border-radius: 16px;
+    object-fit: cover;
+}
+
 .listing-details-photos {
     margin-top: 24px;
     width: 100%;
@@ -107,6 +146,44 @@
     border-top-left-radius: 16px;
     border-bottom-left-radius: 16px;
 }
+
+.right-triple-image-grid {
+    height: 300px;
+    width: 556px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 'top top'
+                         'left right';
+    grid-column-gap: 8px;
+    grid-row-gap: 8px;
+}
+
+.image {
+    object-fit: cover;
+}
+
+#top-trip {
+    grid-area: top;
+    width: 100%;
+    height: 146px;
+    border-top-right-radius: 16px;
+}
+
+.quad-split-images {
+    width: 274px;
+    height: 146px;
+}
+
+#left-trip {
+    grid-area: left;
+}
+
+#right-trip {
+    grid-area: right;
+    border-bottom-right-radius: 16px;
+}
+
 
 .right-listing-image-grid {
     height: 300px;
@@ -387,11 +464,38 @@
 /****************************** REVIEWS SECTION *******************************/
 
 .listing-details-reviews {
-    padding: 48px 0;
+    padding: 48px 0 0;
     border-top: 1px solid rgb(221, 221, 221);
     /* border-bottom: 1px solid rgb(221, 221, 221); */
 }
 
+.listing-details-review-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+#add-review-button {
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 16px;
+    margin: 0;
+    border-radius: 8px;
+    border: none;
+    background-color: transparent;
+    transition: 1s background-color ease;
+}
+
+#add-review-button:hover {
+    background-color: rgba(110, 158, 0, 0.3);
+}
+
+#add-review-svg,
 .review-section-star {
     height: 16px;
     margin-right: 8px;
@@ -406,10 +510,6 @@
     font-size: 22px;
     font-weight: 600;
     margin: 0 6px;
-}
-
-#reviews {
-    margin: 0 0 32px;
 }
 
 .review-breakdown-section {
@@ -444,7 +544,7 @@
 }
 
 .stat-distribution {
-    background-color: rgb(34, 34, 34);
+    background-color: #6e9e00;
     height: 4px;
     border-radius: 2px;
 }

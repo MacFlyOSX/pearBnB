@@ -3,6 +3,7 @@ from app.models import User, db
 from app.forms import LoginForm
 from app.forms import SignUpForm
 from flask_login import current_user, login_user, logout_user, login_required
+import random
 
 auth_routes = Blueprint('auth', __name__)
 
@@ -67,6 +68,11 @@ def logout():
     logout_user()
     return {'message': 'User logged out'}
 
+profile_pictures = ['https://i.imgur.com/WhWHh0n.png', 'https://i.imgur.com/fLHOV60.png',
+                    'https://i.imgur.com/NXuXQXr.png', 'https://i.imgur.com/n22XD2U.png',
+                    'https://i.imgur.com/oORAZBS.png', 'https://i.imgur.com/3ygq2Zk.png',
+                    'https://i.imgur.com/BE1bV8K.png', 'https://i.imgur.com/zIACz8c.png',
+                    'https://i.imgur.com/rgjDNRB.png', 'https://i.imgur.com/xrTfdN1.png']
 
 @auth_routes.route('/signup', methods=['POST'])
 def sign_up():
@@ -96,8 +102,7 @@ def sign_up():
         user = User(
             first_name=form.data['first_name'].title(),
             last_name=form.data['last_name'].title(),
-            profile_pic=form.data['profile_pic'],
-            username=form.data['username'].lower(),
+            profile_pic=profile_pictures[random.randrange(len(profile_pictures))],
             email=form.data['email'].lower(),
             password=form.data['password']
         )

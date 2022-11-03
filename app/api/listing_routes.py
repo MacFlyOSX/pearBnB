@@ -2,6 +2,9 @@ from flask import Blueprint, jsonify, session, request
 from app.forms.listing_add_form import AddListingForm
 from app.forms.listing_delete_form import DeleteListingForm
 from app.forms.listing_update_form import UpdateListingForm
+from app.forms.review_add_form import AddReviewForm
+from app.forms.review_delete_form import DeleteReviewForm
+from app.forms.review_update_form import UpdateReviewForm
 from app.forms.image_add_form import AddImageForm
 from app.models import db, User, Listing, Review, Booking, Wishlist, Image, Type
 from flask_login import current_user, login_required
@@ -122,9 +125,9 @@ def get_one_listing(listing_id):
     single_listing['owner'] = owner
 
 ### Loading reviews
-    revs = Review.query.filter_by(listing_id=listing_id).all()
-    reviews = [ rev.to_dict() for rev in revs]
-    single_listing['reviews'] = reviews
+    # revs = Review.query.filter_by(listing_id=listing_id).all()
+    # reviews = [ rev.to_dict() for rev in revs]
+    # single_listing['reviews'] = reviews
 
     return single_listing
 
@@ -156,14 +159,14 @@ def add_listing():
         validation_errors["errors"]["state"] = "State is required."
     # if not form.data['country']:
     #     validation_errors["errors"]["country"] = "Country is required."
-    if len(str(form.data['latitude'])) == 0:
-        validation_errors["errors"]["latitude"] = "Latitude is required."
-    if len(str(form.data['longitude'])) == 0:
-        validation_errors["errors"]["longitude"] = "Longitude is required."
-    if form.data['latitude'] < -90 or form.data['latitude'] > 90 :
-        validation_errors["errors"]["latitude"] = "Latitude must be between -90 and 90."
-    if form.data['longitude'] < -180 or form.data['longitude'] > 180 :
-        validation_errors["errors"]["longitude"] = "Longitude must be between -180 and 180."
+    # if len(str(form.data['latitude'])) == 0:
+    #     validation_errors["errors"]["latitude"] = "Latitude is required."
+    # if len(str(form.data['longitude'])) == 0:
+    #     validation_errors["errors"]["longitude"] = "Longitude is required."
+    # if form.data['latitude'] < -90 or form.data['latitude'] > 90 :
+    #     validation_errors["errors"]["latitude"] = "Latitude must be between -90 and 90."
+    # if form.data['longitude'] < -180 or form.data['longitude'] > 180 :
+    #     validation_errors["errors"]["longitude"] = "Longitude must be between -180 and 180."
     if not form.data['description']:
         validation_errors["errors"]["description"] = "Listing description is required."
     if not form.data['price']:
@@ -200,8 +203,8 @@ def add_listing():
             state=form.data['state'],
             description=form.data['description'],
             # country=form.data['country'],
-            latitude=form.data['latitude'],
-            longitude=form.data['longitude'],
+            # latitude=form.data['latitude'],
+            # longitude=form.data['longitude'],
             price=form.data['price'],
             max_guests=form.data['max_guests'],
             bed=form.data['bed'],
@@ -230,7 +233,61 @@ def add_listing():
 @listing_routes.route('/<int:listing_id>/reviews', methods=['POST'])
 @login_required
 def add_review(listing_id):
-    pass
+    user = current_user.to_dict()
+    user_id = user['id']
+    form = AddReviewForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    validation_errors = {
+        "message": "Validation error",
+        "status_code": 400,
+        "errors": {}
+    }
+
+    if not form.data['review_body']:
+        validation_errors["errors"]["review_body"] = "Review body is required."
+    if not form.data['rating']:
+        validation_errors["errors"]["rating"] = "Rating is required."
+    if not form.data['clean']:
+        validation_errors["errors"]["clean"] = "Cleanliness is required."
+    if not form.data['comm']:
+        validation_errors["errors"]["comm"] = "Communication is required."
+    if not form.data['check']:
+        validation_errors["errors"]["check"] = "Check-in is required."
+    if not form.data['acc']:
+        validation_errors["errors"]["acc"] = "Accuracy is required."
+    if not form.data['loc']:
+        validation_errors["errors"]["loc"] = "Location is required."
+    if not form.data['val']:
+        validation_errors["errors"]["val"] = "Value is required."
+    if len(validation_errors["errors"]) > 0:
+        return jsonify(validation_errors), 400
+
+    if form.validate_on_submit():
+        review = Review(
+            user_id=user_id,
+            listing_id=listing_id,
+            review_body=form.data['review_body'],
+            rating=form.data['rating'],
+            clean=form.data['clean'],
+            comm=form.data['comm'],
+            check=form.data['check'],
+            acc=form.data['acc'],
+            loc=form.data['loc'],
+            val=form.data['val']
+        )
+
+        db.session.add(review)
+        db.session.commit()
+
+        rev = review.to_dict()
+
+        user = User.query.filter_by(id=rev['user_id']).first().to_dict()
+        rev['user'] = user
+
+        return jsonify(rev)
+
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
 ######## ADD IMAGE TO LISTING ########
@@ -242,6 +299,7 @@ def add_image(listing_id):
     user_id = user['id']
     form = AddImageForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+
 
     listing = Listing.query.get(listing_id)
 
@@ -268,6 +326,8 @@ def add_image(listing_id):
         img = image.to_dict()
 
         return jsonify(img)
+
+    return jsonify({'funguy': 'This is not it'})
 
 #################################### UPDATE ####################################
 
@@ -310,14 +370,14 @@ def update_listing(listing_id):
         validation_errors["errors"]["state"] = "State is required."
     # if not form.data['country']:
     #     validation_errors["errors"]["country"] = "Country is required."
-    if len(str(form.data['latitude'])) == 0:
-        validation_errors["errors"]["latitude"] = "Latitude is required."
-    if len(str(form.data['longitude'])) == 0:
-        validation_errors["errors"]["longitude"] = "Longitude is required."
-    if form.data['latitude'] < -90 or form.data['latitude'] > 90 :
-        validation_errors["errors"]["latitude"] = "Latitude must be between -90 and 90."
-    if form.data['longitude'] < -180 or form.data['longitude'] > 180 :
-        validation_errors["errors"]["longitude"] = "Longitude must be between -180 and 180."
+    # if len(str(form.data['latitude'])) == 0:
+    #     validation_errors["errors"]["latitude"] = "Latitude is required."
+    # if len(str(form.data['longitude'])) == 0:
+    #     validation_errors["errors"]["longitude"] = "Longitude is required."
+    # if form.data['latitude'] < -90 or form.data['latitude'] > 90 :
+    #     validation_errors["errors"]["latitude"] = "Latitude must be between -90 and 90."
+    # if form.data['longitude'] < -180 or form.data['longitude'] > 180 :
+    #     validation_errors["errors"]["longitude"] = "Longitude must be between -180 and 180."
     if not form.data['description']:
         validation_errors["errors"]["description"] = "Listing description is required."
     if not form.data['price']:
@@ -328,37 +388,33 @@ def update_listing(listing_id):
         validation_errors["errors"]["bed"] = "Number of beds is required."
     if not form.data['bath']:
         validation_errors["errors"]["bath"] = "Number of bathrooms is required."
-    if not form.data['types']:
-        validation_errors["errors"]["types"] = "Type(s) of listing is/are required."
-    if not form.data['amenities']:
-        validation_errors["errors"]["amenities"] = "Listing amenities are required."
+    # if not form.data['types']:
+    #     validation_errors["errors"]["types"] = "Type(s) of listing is/are required."
+    # if not form.data['amenities']:
+    #     validation_errors["errors"]["amenities"] = "Listing amenities are required."
     if len(validation_errors["errors"]) > 0:
         return jsonify(validation_errors), 400
 
     if form.validate_on_submit():
-        type_list = []
-        for alias in form.data['types']:
-            ty = Type.query.filter_by(alias=alias).first()
-            type_list.append(ty)
+        # type_list = []
+        # for alias in form.data['types']:
+        #     ty = Type.query.filter_by(alias=alias).first()
+        #     type_list.append(ty)
 
         # amenity_list = []
         # for alias in form.data['amenities']:
         #     amen = Amenity.query.filter_by(alias=alias).first()
         #     amenity_list.append(amen)
 
-        listing['name'] = form.data['name'],
-        listing['owner_id'] = user_id,
-        listing['address'] = form.data['address'],
-        listing['city'] = form.data['city'],
-        listing['state'] = form.data['state'],
-        # listing['country'] = form.data['country'],
-        listing['latitude'] = form.data['latitude'],
-        listing['longitude'] = form.data['longitude'],
-        listing['price'] = form.data['price'],
-        listing['max_guests'] = form.data['max_guests'],
-        listing['bed'] = form.data['bed'],
-        listing['bath'] = form.data['bath'],
-        listing['types'] = type_list,
+        listing.name = form.data['name'],
+        listing.address = form.data['address'],
+        listing.city = form.data['city'],
+        listing.state = form.data['state'],
+        listing.price = form.data['price'],
+        listing.max_guests = form.data['max_guests'],
+        listing.bed = form.data['bed'],
+        listing.bath = form.data['bath']
+        # listing['types'] = type_list,
         # listing['amenities'] = amenity_list
 
         db.session.commit()
@@ -374,13 +430,6 @@ def update_listing(listing_id):
 
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
-
-######## UPDATE A REVIEW #########
-
-@listing_routes.route('/<int:listing_id>/reviews/<int:review_id>', methods=['PUT'])
-@login_required
-def update_review(listing_id, review_id):
-    pass
 
 
 #################################### DELETE ####################################
@@ -414,11 +463,3 @@ def delete_listing(listing_id):
         db.session.commit()
 
         return { "message": "Successfully deleted", "status_code": 200 }
-
-
-######## DELETE A REVIEW #########
-
-@listing_routes.route('/<int:listing_id>/reviews/<int:review_id>', methods=['PUT'])
-@login_required
-def delete_review(listing_id, review_id):
-    pass

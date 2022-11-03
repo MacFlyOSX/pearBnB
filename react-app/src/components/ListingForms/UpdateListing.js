@@ -98,8 +98,8 @@ const UpdateListing = () => {
     }, [dispatch]);
 
     if (!user) {
-        alert("You must be logged in to update a listing.");
         history.push("/");
+        alert("You must be logged in to update a listing.");
     }
 
     return (

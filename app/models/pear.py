@@ -28,8 +28,6 @@ class Listing(db.Model):
     address = db.Column(db.String(100), nullable=False)
     city = db.Column(db.String(100), nullable=False)
     state = db.Column(db.String(100), nullable=False)
-    latitude = db.Column(db.Float, nullable=False)
-    longitude = db.Column(db.Float, nullable=False)
     description = db.Column(db.String(5000), nullable=False)
     price = db.Column(db.Integer, nullable=False)
     max_guests = db.Column(db.Integer, nullable=False)
@@ -54,8 +52,6 @@ class Listing(db.Model):
             "address": self.address,
             "city": self.city,
             "state": self.state,
-            "latitude": self.latitude,
-            "longitude": self.longitude,
             "description": self.description,
             "price": self.price,
             "max_guests": self.max_guests,

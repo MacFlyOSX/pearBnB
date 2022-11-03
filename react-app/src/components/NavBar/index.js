@@ -462,12 +462,12 @@ const NavBar = () => {
 
   return (
     <div className='entire-header'>
-    <div className='navbar-container'>
-      <div className={url === '/' ? 'navbar-inner navbar-home' : 'navbar-inner navbar-else'}>
+    <div className={url === '/' ? 'navbar-container-set' : 'navbar-container'}>
+      <div className={url === '/' ? 'navbar-inner-home navbar-home' : 'navbar-inner navbar-else'}>
       <div className='navbar-logo-side'>
         <NavLink className='logo' exact to="/">
           <div className='logo-container'>
-            <img src={url.includes('new') ? pear : logo} alt='logo' id='navbar-logo' />
+            <img src={url.includes('new') || url.includes('update') ? pear : logo} alt='logo' id='navbar-logo' />
           </div>
         </NavLink>
       </div>
@@ -487,7 +487,7 @@ const NavBar = () => {
       </div>
       <div className='navbar-user-side'>
         <div className='left-of-user'>
-          {url.includes('new') ? null : <button className='host-button' onClick={handleHost}>
+          {url.includes('new') || url.includes('update') ? null : <button className='host-button' onClick={handleHost}>
             <div className='become-a-host'>Become a Host</div>
           </button>}
         </div>
@@ -498,7 +498,7 @@ const NavBar = () => {
                 <img src={burger} alt='burger' className='burger-icon' />
               </div>
               <div className='user-icon'>
-                <img src={user ? userJohn : pearout} alt='user' className='user-image' />
+                <img src={user ? user.profile_pic : pearout} alt='user' className='user-image' />
               </div>
             </div>
           </button>

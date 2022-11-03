@@ -1,8 +1,8 @@
 """Create all tables
 
-Revision ID: 43fd608375ba
+Revision ID: 9b96ebc5d68d
 Revises: 
-Create Date: 2022-10-28 16:03:24.561195
+Create Date: 2022-11-03 13:14:29.136459
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '43fd608375ba'
+revision = '9b96ebc5d68d'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -30,8 +30,7 @@ def upgrade():
     sa.Column('hashed_password', sa.String(length=255), nullable=False),
     sa.Column('first_name', sa.String(length=100), nullable=False),
     sa.Column('last_name', sa.String(length=100), nullable=False),
-    sa.Column('lat', sa.Float(), nullable=True),
-    sa.Column('lng', sa.Float(), nullable=True),
+    sa.Column('profile_pic', sa.String(length=255), nullable=True),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('email')
     )
@@ -42,8 +41,6 @@ def upgrade():
     sa.Column('address', sa.String(length=100), nullable=False),
     sa.Column('city', sa.String(length=100), nullable=False),
     sa.Column('state', sa.String(length=100), nullable=False),
-    sa.Column('latitude', sa.Float(), nullable=False),
-    sa.Column('longitude', sa.Float(), nullable=False),
     sa.Column('description', sa.String(length=5000), nullable=False),
     sa.Column('price', sa.Integer(), nullable=False),
     sa.Column('max_guests', sa.Integer(), nullable=False),

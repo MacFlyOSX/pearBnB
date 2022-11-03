@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, useParams } from 'react-router-dom';
+import { NavLink, useHistory, useParams } from 'react-router-dom';
 import { getOne } from '../../store/listings';
 import { loadReviews } from '../../store/reviews';
-import heart from '../../icons/homepage/saveheart.svg';
+// import heart from '../../icons/homepage/saveheart.svg';
+import add from '../../icons/listing/add.svg';
 import star from '../../icons/listing/revstar.svg';
 import door from '../../icons/listing/selfcheckin.svg';
 import superhost from '../../icons/listing/superhost.svg';
@@ -19,6 +20,8 @@ const ListingDeets = () => {
     const reviewObj = useSelector(state => state.reviews.allReviews);
     const reviews = Object.values(reviewObj);
 
+    const user = useSelector(state => state.session.user);
+
     let acc = 0;
     let clean = 0;
     let check = 0;
@@ -33,6 +36,9 @@ const ListingDeets = () => {
     let commStyle;
     let locStyle;
     let valStyle;
+    let newStyle = {
+        width: '0'
+    }
 
     if (reviews) {
         numReviews = reviews.length;
@@ -112,7 +118,7 @@ const ListingDeets = () => {
             <div className='review-location-save'>
                 <div className='rev-location'>
                     <img className='listing-star' src={star} alt='star' />
-                    <span className='review-listing rev-loc-span'>{listing?.avg_rating?.toFixed(1)}</span>
+                    <span className='review-listing rev-loc-span'>{listing?.avg_rating > 0 ? listing?.avg_rating?.toFixed(1) : 'New'}</span>
                     <span id='middot'>&middot;</span>
                     <span className='num-reviews rev-loc-span'>{numReviews} reviews</span>
                     <span id='middot'>&middot;</span>
@@ -127,15 +133,38 @@ const ListingDeets = () => {
             </div>
         </div>
         <div className='listing-details-photos'>
+            {listing ? listing?.images?.length === 5 ?
             <div className='listing-photos-outer-grid'>
-                <img id='main-image' className='main-listing-image' src={listing?.images?.[0]} alt='listing' />
+                <img id='main-image image' className='main-listing-image' src={listing?.images?.[0]} alt='listing'  onError={e => e.currentTarget.src = 'https://i.imgur.com/nkPGkyY.png'} />
                 <div className='right-listing-image-grid'>
-                    <img className='listing-image' src={listing?.images?.[1]} alt='listing' />
-                    <img className='listing-image listing-image-righttop' src={listing?.images?.[2]} alt='listing' />
-                    <img className='listing-image' src={listing?.images?.[3]} alt='listing' />
-                    <img className='listing-image listing-image-rightbottom' src={listing?.images?.[4]} alt='listing' />
+                    <img className='listing-image image' src={listing?.images?.[1]} alt='listing' onError={e => e.currentTarget.src = 'https://i.imgur.com/nkPGkyY.png'} />
+                    <img className='listing-image listing-image-righttop image' src={listing?.images?.[2]} alt='listing' onError={e => e.currentTarget.src = 'https://i.imgur.com/nkPGkyY.png'} />
+                    <img className='listing-image image' src={listing?.images?.[3]} alt='listing' onError={e => e.currentTarget.src = 'https://i.imgur.com/nkPGkyY.png'} />
+                    <img className='listing-image listing-image-rightbottom image' src={listing?.images?.[4]} alt='listing' onError={e => e.currentTarget.src = 'https://i.imgur.com/nkPGkyY.png'} />
                 </div>
-            </div>
+            </div> : listing?.images?.length === 4 ?
+            <div className='listing-photos-outer-grid'>
+                <img id='main-image' className='main-listing-image image' src={listing?.images?.[0]} alt='listing'  onError={e => e.currentTarget.src = 'https://i.imgur.com/nkPGkyY.png'} />
+                <div className='right-triple-image-grid'>
+                    <img id='top-trip' className='image' src={listing?.images?.[1]} alt='listing' onError={e => e.currentTarget.src = 'https://i.imgur.com/nkPGkyY.png'} />
+                    <img id='left-trip' className='quad-split-images image' src={listing?.images?.[2]} alt='listing' onError={e => e.currentTarget.src = 'https://i.imgur.com/nkPGkyY.png'} />
+                    <img id='right-trip' className='quad-split-images image' src={listing?.images?.[3]} alt='listing' onError={e => e.currentTarget.src = 'https://i.imgur.com/nkPGkyY.png'} />
+                </div>
+            </div> : listing?.images?.length === 3 ?
+            <div className='listing-photos-outer-grid'>
+                <img id='left-image' className='two-listing-images image' src={listing?.images?.[0]} alt='listing'  onError={e => e.currentTarget.src = 'https://i.imgur.com/nkPGkyY.png'} />
+                <div className='right-listing-double-split'>
+                    <img className='top-bottom-split image' id='top-image' src={listing?.images?.[1]} alt='listing' onError={e => e.currentTarget.src = 'https://i.imgur.com/nkPGkyY.png'} />
+                    <img className='top-bottom-split image' id='bottom-image' src={listing?.images?.[2]} alt='listing' onError={e => e.currentTarget.src = 'https://i.imgur.com/nkPGkyY.png'} />
+                </div>
+            </div> : listing?.images?.length === 2 ?
+            <div className='listing-photos-outer-grid'>
+                <img id='left-image' className='two-listing-images image' src={listing?.images?.[0]} alt='listing'  onError={e => e.currentTarget.src = 'https://i.imgur.com/nkPGkyY.png'} />
+                <img id='right-image' className='two-listing-images image' src={listing?.images?.[1]} alt='listing'  onError={e => e.currentTarget.src = 'https://i.imgur.com/nkPGkyY.png'} />
+            </div> : listing?.images?.length === 1 ?
+            <div className='listing-photos-single-photo'>
+                <img id='single-image' className='image' src={listing?.images?.[0]} alt='single'  onError={e => e.currentTarget.src = 'https://i.imgur.com/nkPGkyY.png'} />
+            </div> : null : null}
         </div>
         <div className='listing-details-middle-container'>
             <div className='listing-details-middle-left'>
@@ -148,7 +177,7 @@ const ListingDeets = () => {
                         <span id='middot'>&middot;</span>
                         <span className='bed-bath-span'>{listing.bath} {listing.bath > 1 ? 'baths' : 'bath'}</span>
                     </div>
-                    <div className='user-icon'><img className='user-icon-image' src='https://i.imgur.com/xrTfdN1.png' alt='user' /></div>
+                    <div className='user-icon'><img className='user-icon-image' src={listing?.owner?.profile_pic} alt='user' /></div>
                 </div>
                 <div className='middle-perks-section mid-left'>
                     <div className='each-perk upper-perk'>
@@ -197,7 +226,7 @@ const ListingDeets = () => {
                             </div>
                             <div className='booking-reviews'>
                                 <img src={star} alt='star' id='booking-star' />
-                                <span id='booking-review-avg'>{listing?.avg_rating?.toFixed(1)}</span>
+                                <span id='booking-review-avg'>{listing?.avg_rating > 0 ? listing?.avg_rating?.toFixed(1) : 'New'}</span>
                                 <span id='middot'>&middot;</span>
                                 <span id='booking-num-reviews'>{numReviews} reviews</span>
                             </div>
@@ -223,65 +252,74 @@ const ListingDeets = () => {
             </div>
         </div>
         <div className='listing-details-reviews'>
-            <h1 id='reviews' >
-                <img src={star} className='review-section-star' alt='star' />
-                <span className='review-section-avg'>{listing?.avg_rating?.toFixed(1)}</span>
-                <span id='rev-middot'>&middot;</span>
-                <span className='review-section-avg'>{numReviews} reviews</span>
-            </h1>
+            <div className='listing-details-review-header'>
+                <h1 id='reviews' >
+                    <img src={star} className='review-section-star' alt='star' />
+                    <span className='review-section-avg'>{listing?.avg_rating > 0 ? listing?.avg_rating?.toFixed(1) : 'New'}</span>
+                    <span id='rev-middot'>&middot;</span>
+                    <span className='review-section-avg'>{numReviews} reviews</span>
+                </h1>
+                {user?.id === listing?.owner_id ? null : !user ? null : reviews?.filter(rev => rev.user_id === user.id)?.length ? null :
+                <NavLink to={`/listings/${listingId}/reviews/new`}>
+                    <button id='add-review-button'>
+                        <img src={add} alt='add' id='add-review-svg' />
+                        Add review
+                    </button>
+                </NavLink>}
+            </div>
             <div className='review-breakdown-section'>
                 <div className='specific-review-stat'>
                     <div className='specific-stat-title'>Cleanliness</div>
                     <div className='specfic-stat-breakdown'>
                         <div className='stat-container'>
-                            <div className='stat-distribution' style={cleanStyle} ></div>
+                            <div className='stat-distribution' style={listing?.avg_rating > 0 ? cleanStyle : newStyle} ></div>
                         </div>
-                        <span className='stat-number'>{clean.toFixed(1)}</span>
+                        <span className='stat-number'>{listing?.avg_rating > 0 ? clean.toFixed(1) : 'New'}</span>
                     </div>
                 </div>
                 <div className='specific-review-stat'>
                     <div className='specific-stat-title'>Accuracy</div>
                     <div className='specfic-stat-breakdown'>
                         <div className='stat-container'>
-                            <div className='stat-distribution' style={accStyle} ></div>
+                            <div className='stat-distribution' style={listing?.avg_rating > 0 ? accStyle : newStyle} ></div>
                         </div>
-                        <span className='stat-number'>{acc.toFixed(1)}</span>
+                        <span className='stat-number'>{listing?.avg_rating > 0 ? acc.toFixed(1) : 'New'}</span>
                     </div>
                 </div>
                 <div className='specific-review-stat'>
                     <div className='specific-stat-title'>Communication</div>
                     <div className='specfic-stat-breakdown'>
                         <div className='stat-container'>
-                            <div className='stat-distribution' style={commStyle} ></div>
+                            <div className='stat-distribution' style={listing?.avg_rating > 0 ? commStyle : newStyle} ></div>
                         </div>
-                        <span className='stat-number'>{comm.toFixed(1)}</span>
+                        <span className='stat-number'>{listing?.avg_rating > 0 ? comm.toFixed(1) : 'New'}</span>
                     </div>
                 </div>
                 <div className='specific-review-stat'>
                     <div className='specific-stat-title'>Location</div>
                     <div className='specfic-stat-breakdown'>
                         <div className='stat-container'>
-                            <div className='stat-distribution' style={locStyle} ></div>
+                            <div className='stat-distribution' style={listing?.avg_rating > 0 ? locStyle : newStyle} ></div>
                         </div>
-                        <span className='stat-number'>{loc.toFixed(1)}</span>
+                        <span className='stat-number'>{listing?.avg_rating > 0 ? loc.toFixed(1) : 'New'}</span>
                     </div>
                 </div>
                 <div className='specific-review-stat'>
                     <div className='specific-stat-title'>Check-in</div>
                     <div className='specfic-stat-breakdown'>
                         <div className='stat-container'>
-                            <div className='stat-distribution' style={checkStyle} ></div>
+                            <div className='stat-distribution' style={listing?.avg_rating > 0 ? checkStyle : newStyle} ></div>
                         </div>
-                        <span className='stat-number'>{check.toFixed(1)}</span>
+                        <span className='stat-number'>{listing?.avg_rating > 0 ? check.toFixed(1) : 'New'}</span>
                     </div>
                 </div>
                 <div className='specific-review-stat'>
                     <div className='specific-stat-title'>Value</div>
                     <div className='specfic-stat-breakdown'>
                         <div className='stat-container'>
-                            <div className='stat-distribution' style={valStyle} ></div>
+                            <div className='stat-distribution' style={listing?.avg_rating > 0 ? valStyle : newStyle} ></div>
                         </div>
-                        <span className='stat-number'>{val.toFixed(1)}</span>
+                        <span className='stat-number'>{listing?.avg_rating > 0 ? val.toFixed(1) : 'New'}</span>
                     </div>
                 </div>
             </div>
@@ -290,7 +328,7 @@ const ListingDeets = () => {
                     (
                         <div className='single-review-container' key={i}>
                             <div className='single-review-title'>
-                                <img src='https://i.imgur.com/xrTfdN1.png' alt='user' className='user-icon-single-review' />
+                                <img src={review?.user?.profile_pic} alt='user' className='user-icon-single-review' />
                                 <div className='single-review-user'>
                                     <span className='single-review-name'>{review?.user?.first_name}</span>
                                     <span className='single-review-date'>{review?.created_at?.slice(5,7) === '01' ? `January ${review?.created_at?.slice(0,4)}` : review?.created_at?.slice(5,7) === '02' ? `February ${review?.created_at?.slice(0,4)}` : review?.created_at?.slice(5,7) === '03' ? `March ${review?.created_at?.slice(0,4)}` : review?.created_at?.slice(5,7) === '04' ? `April ${review?.created_at?.slice(0,4)}` : review?.created_at?.slice(5,7) === '05' ? `May ${review?.created_at?.slice(0,4)}` : review?.created_at?.slice(5,7) === '06' ? `June ${review?.created_at?.slice(0,4)}` : review?.created_at?.slice(5,7) === '07' ? `July ${review?.created_at?.slice(0,4)}` : review?.created_at?.slice(5,7) === '08' ? `August ${review?.created_at?.slice(0,4)}` : review?.created_at?.slice(5,7) === '09' ? `September ${review?.created_at?.slice(0,4)}` : review?.created_at?.slice(5,7) === '10' ? `October ${review?.created_at?.slice(0,4)}` : review?.created_at?.slice(5,7) === '11' ? `November ${review?.created_at?.slice(0,4)}` : `December ${review?.created_at?.slice(0,4)}`}</span>
