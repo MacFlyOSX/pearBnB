@@ -406,13 +406,13 @@ def update_listing(listing_id):
         #     amen = Amenity.query.filter_by(alias=alias).first()
         #     amenity_list.append(amen)
 
-        listing.name = form.data['name'],
-        listing.address = form.data['address'],
-        listing.city = form.data['city'],
-        listing.state = form.data['state'],
-        listing.price = form.data['price'],
-        listing.max_guests = form.data['max_guests'],
-        listing.bed = form.data['bed'],
+        listing.name = form.data['name']
+        listing.address = form.data['address']
+        listing.city = form.data['city']
+        listing.state = form.data['state']
+        listing.price = form.data['price']
+        listing.max_guests = form.data['max_guests']
+        listing.bed = form.data['bed']
         listing.bath = form.data['bath']
         # listing['types'] = type_list,
         # listing['amenities'] = amenity_list

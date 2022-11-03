@@ -73,7 +73,7 @@ const UpdateListing = () => {
                 name, address, city, state, description, price, max_guests, bed, bath
             };
 
-            const newListing = await dispatch(updateListing(payload));
+            const newListing = await dispatch(updateListing(listingId, payload));
 
             if (newListing) history.replace(`/listings/${newListing.id}`);
         }

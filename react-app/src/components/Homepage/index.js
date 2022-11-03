@@ -105,7 +105,7 @@ const Homepage = () => {
             <a key={i} className='listing-card-link' href={`/listings/${listing.id}`}>
                 <div className='listing-card'>
                     <div className='listing-card-innertop'>
-                        <img src={listing.images[0]} alt='listing' className='listing-image-preview' onError={e => e.currentTarget.src = 'https://i.imgur.com/DsVjt4A.png'}/>
+                        <img src={listing?.images?.[0]} alt='listing' className='listing-image-preview' onError={e => e.currentTarget.src = 'https://i.imgur.com/DsVjt4A.png'}/>
                         {/* <div className='listing-image-inner'>
                             <div className='listing-image-top'>
                                 <button className='listing-image-top-button'>

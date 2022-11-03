@@ -164,6 +164,8 @@ const _updateListing = payload => ({
 });
 
 export const updateListing = (id, listing) => async dispatch => {
+    console.log('this is the ID passed through', id);
+    console.log('this is the payload passed through', listing);
     const response = await fetch(`/api/listings/${id}`, {
         method: 'PUT',
         headers: {

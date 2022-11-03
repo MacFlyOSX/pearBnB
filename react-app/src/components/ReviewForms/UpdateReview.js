@@ -2,12 +2,13 @@ import React, { useEffect, useState, useRef } from 'react';
 import {useParams, useHistory} from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import './Review.css';
-import { getOneReview, updateReview } from '../../store/reviews';
+import { getOneReview, updateReview, loadUsersReviews } from '../../store/reviews';
 
 const UpdateReview = () => {
   const { reviewId } = useParams();
   const history = useHistory();
   const dispatch = useDispatch();
+  const reviews = useSelector(state => state.reviews.allReviews);
 
   const user = useSelector(state => state.session.user);
 
@@ -59,6 +60,7 @@ const UpdateReview = () => {
 
   useEffect(() => {
     dispatch(getOneReview(reviewId));
+    dispatch(loadUsersReviews());
 
     setCleanRate(review.clean);
     setCommRate(review.comm);
@@ -68,12 +70,7 @@ const UpdateReview = () => {
     setValRate(review.val);
     setRevBody(review.review_body);
 
-    if (user.id !== review.user_id) {
-      alert('You cannot update a review that you did not write.');
-      history.replace('/');
-  }
-
-  }, [reviewId, history, review.user_id, user.id, dispatch, review.clean, review.comm, review.acc, review.check, review.loc, review.val, review.review_body])
+  }, [reviewId, history, dispatch, review.clean, review.comm, review.acc, review.check, review.loc, review.val, review.review_body])
 
   const handleSubmit = async (e) => {
       e.preventDefault();
@@ -106,6 +103,16 @@ const UpdateReview = () => {
 
       if (newReview) history.replace(`/reviews/current`);
   }
+
+
+
+//   if (reviews && user.id !== reviews?.reviewId?.user_id) {
+
+//     console.log('this is the userid', user.id)
+//     console.log('this is the reviews userid', review?.user_id)
+//     alert('You cannot update a review that you did not write.');
+//     history.replace('/');
+//   }
 
 
 return (

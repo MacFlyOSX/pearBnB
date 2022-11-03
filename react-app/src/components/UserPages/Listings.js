@@ -13,7 +13,6 @@ const Listings = () => {
     const user = useSelector(state => state.session.user);
     const listObj = useSelector(state => state.listings.allListings);
     const listings = Object.values(listObj);
-    const [ emptyList, setEmptyList ] = useState(false);
 
     const dispatch = useDispatch();
     const history = useHistory();
@@ -36,12 +35,11 @@ const Listings = () => {
 
     useEffect(() => {
         dispatch(loadUsersListings());
-        if (!Object.keys(listObj).length) setEmptyList(true);
-    }, [dispatch, listObj])
+    }, [dispatch])
 
     if (!user) history.push('/');
 
-    if (emptyList) {
+    if (!Object.keys(listObj).length) {
         return (
             <div className='user-listings-container'>
                 <div className='user-listings-inner'>
@@ -96,7 +94,7 @@ const Listings = () => {
                 <div key={i} className='indiv-listing-container'>
                     <NavLink to={`/listings/${list.id}`} >
                     <div className='indiv-listing-image'>
-                        <img src={list.images[0]} alt='listing' id='indiv-listing-pictures' />
+                        <img src={list?.images?.[0]} alt='listing' id='indiv-listing-pictures' onError={e => e.currentTarget.src = 'https://i.imgur.com/DsVjt4A.png'} />
                     </div></NavLink>
                     <div className='indiv-listing-body'>
                         <NavLink to={`/listings/${list.id}`} >
@@ -105,7 +103,7 @@ const Listings = () => {
                                     <h1 className='listing-title-user'>{list.name}</h1>
                                 <div className='indiv-review-header'>
                                     <img className='indiv-rev-star' src={star} alt='star' />
-                                    <span className='indiv-avg-rev'>{list.avg_rating.toFixed(1)}</span>
+                                    <span className='indiv-avg-rev'>{list?.avg_rating > 0 ? list.avg_rating.toFixed(1) : 'New'}</span>
                                 </div>
                             </div>
                             <div className='indiv-listing-rooms-such'>
