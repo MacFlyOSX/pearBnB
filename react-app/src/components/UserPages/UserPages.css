@@ -101,8 +101,8 @@
 }
 
 #indiv-listing-pictures {
-    height: 250px;
-    width: 250px;
+    height: 260px;
+    width: 260px;
     border-radius: 8px;
     object-fit: cover;
 }
@@ -111,10 +111,19 @@
     margin: 8px 0;
 }
 
+.indiv-listing-description {
+    word-wrap: break-word;
+    width: 801px;
+}
+
+.container-for-review-body {
+    word-wrap: break-word;
+}
+
 .indiv-listing-description,
 .bed-bath-span {
     font-size: 16px;
-    line-height: 24px;
+    line-height: 22px;
 }
 
 #delete-modal-header {
