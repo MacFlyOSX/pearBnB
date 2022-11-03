@@ -199,3 +199,49 @@
 .container-for-review-body {
     font-size: 16px;
 }
+
+.user-arrow {
+    height: 70px;
+    margin: 0 20px;
+}
+
+#left-arrow {
+    transform: rotate(90deg);
+}
+
+#right-arrow {
+    transform: rotate(270deg);
+}
+
+.get-started-listings {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+#list-your-place {
+    padding: 14px 24px;
+    border-radius: 8px;
+    border: none;
+    background-color: #6e9e00;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    width: 240px;
+}
+
+#list-your-review {
+    padding: 14px 24px;
+    border-radius: 8px;
+    border: none;
+    background-color: #6e9e00;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    width: 240px;
+}
+
+.user-sad-title {
+    font-size: 30px;
+    margin: 48px 0 24px;
+}
