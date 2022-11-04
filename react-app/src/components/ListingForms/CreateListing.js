@@ -32,6 +32,8 @@ const CreateListing = () => {
     const [ char, setChar ] = useState(600);
     const [ validationErrors, setValidationErrors ] = useState([]);
 
+    console.log('you are on page: ', page);
+
     if (!user) {
         alert("Please log in or create an account to host a listing.");
         history.push("/");
@@ -47,6 +49,10 @@ const CreateListing = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        if (validationErrors.length) {
+            return;
+        }
 
         console.log('here are your images', images)
 
@@ -96,6 +102,7 @@ const CreateListing = () => {
     }
 
     const turnPage2 = () => {
+        console.log('you are in turnPage2');
         let errors = [];
         if (!types.length) {
             errors.push('Please select at least one type for your listing.')
@@ -104,45 +111,48 @@ const CreateListing = () => {
             errors.push('Please enter a price per night for your listing.')
         }
         let imageUrls = [];
+        // let acceptable = ['.png', '.jpg', '.jpeg'];
         if (url.length) {
-            if (!url.match(/.(jpg|jpeg|png)$/)) {
+            if (!url.endsWith('.png') && !url.endsWith('.jpg') && !url.endsWith('.jpeg')) {
                 errors.push('Please enter a valid image URL for image #1.')
             } else {
                 imageUrls.push(url);
             }
         } else errors.push('Please provide a valid image URL for image #1.')
         if (url2.length) {
-            if (!url2.match(/.(jpg|jpeg|png)$/)) {
+            if (!url2.endsWith('.png') && !url2.endsWith('.jpg') && !url2.endsWith('.jpeg')) {
             errors.push('Please enter a valid image URL for image #2.')
             } else {
                 imageUrls.push(url2);
             }
         }
         if (url3.length) {
-            if (!url3.match(/.(jpg|jpeg|png)$/)) {
+            if (!url3.endsWith('.png') && !url3.endsWith('.jpg') && !url3.endsWith('.jpeg')) {
             errors.push('Please enter a valid image URL for image #3.')
             } else {
                 imageUrls.push(url3);
             }
         }
         if (url4.length) {
-            if (!url4.match(/.(jpg|jpeg|png)$/)) {
+            if (!url4.endsWith('.png') && !url4.endsWith('.jpg') && !url4.endsWith('.jpeg')) {
             errors.push('Please enter a valid image URL for image #4.')
             } else {
                 imageUrls.push(url4);
             }
         }
         if (url5.length) {
-            if (!url5.match(/.(jpg|jpeg|png)$/)) {
+            if (!url5.endsWith('.png') && !url5.endsWith('.jpg') && !url5.endsWith('.jpeg')) {
             errors.push('Please enter a valid image URL for image #5.')
             } else {
                 imageUrls.push(url5);
             }
         }
         if (imageUrls.length) setImages(imageUrls);
-        if(errors.length > 0) return setValidationErrors(errors);
-
-        else {
+        if(errors.length > 0) {
+            console.log('you got errors');
+            return setValidationErrors(errors);
+        } else {
+            console.log('you got no errors');
             setValidationErrors([]);
             setPage(3);
         }

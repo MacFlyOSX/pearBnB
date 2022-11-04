@@ -60,6 +60,9 @@
 .listing-title-user {
     font-size: 20px;
     margin: 0;
+    max-width: 715px;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .indiv-rev-header {
@@ -172,6 +175,9 @@
 .indiv-review-header-title {
     font-size: 28px;
     margin: 0 0 16px;
+    max-width: 1046px;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .indiv-review-container {
