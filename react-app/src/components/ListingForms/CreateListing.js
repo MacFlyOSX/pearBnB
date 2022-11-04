@@ -349,6 +349,7 @@ const CreateListing = () => {
                                     value={price}
                                     required
                                     min='20'
+                                    max='10000'
                                     className='form-field'
                                     onChange={(e) => setPrice(e.target.value)}
                                     />

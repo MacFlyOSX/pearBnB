@@ -15,9 +15,6 @@ const LoginSignupModal = () => {
     const [password, setPassword] = useState('');
     const [showLogModal, setShowLogModal] = useState(false);
     const [showSignModal, setShowSignModal] = useState(false);
-    const [ firstChar, setFirstChar ] = useState(0);
-    const [ lastChar, setLastChar ] = useState(0);
-    const [ emailChar, setEmailChar ] = useState(0);
 
     console.log('these are your errors:', errors);
 
@@ -147,7 +144,7 @@ const LoginSignupModal = () => {
                                     type='text'
                                     value={first_name}
                                     required
-                                    maxLength='100'
+                                    maxLength='30'
                                     className='login-form-field'
                                     onChange={(e) => setFirstname(e.target.value)}
                                     />
@@ -160,7 +157,7 @@ const LoginSignupModal = () => {
                                     type='text'
                                     value={last_name}
                                     required
-                                    maxLength='100'
+                                    maxLength='30'
                                     className='login-form-field'
                                     onChange={(e) => setLastname(e.target.value)}
                                     />
@@ -173,7 +170,7 @@ const LoginSignupModal = () => {
                                     type='text'
                                     value={email}
                                     required
-                                    maxLength='255'
+                                    maxLength='60'
                                     className='login-form-field'
                                     onChange={(e) => setEmail(e.target.value)}
                                     />
