@@ -410,6 +410,7 @@ def update_listing(listing_id):
         listing.address = form.data['address']
         listing.city = form.data['city']
         listing.state = form.data['state']
+        listing.description = form.data['description']
         listing.price = form.data['price']
         listing.max_guests = form.data['max_guests']
         listing.bed = form.data['bed']
