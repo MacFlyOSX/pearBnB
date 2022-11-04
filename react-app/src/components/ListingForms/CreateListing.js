@@ -159,7 +159,7 @@ const CreateListing = () => {
 
     }
 
-    const _types = [ ['omg', 'OMG!'], ['luxe', 'Luxe'], ['beach', 'Beachfront'], ['mansions', 'Mansions'], ['cabins', 'Cabins'], ['ryokans', 'Ryokans'], ['desert', 'Desert'], ['lakefront', 'Lakefront'], ['tinyhomes', 'Tiny homes'], ['castles', 'Castles'], ['containers', 'Containers'], ['camping', 'Camping'] ];
+    const _types = [ ['omg', 'OMG!'], ['luxe', 'Luxe'], ['beach', 'Beachfront'], ['mansions', 'Mansions'], ['cabins', 'Cabins'], ['countryside', 'Countryside'], ['desert', 'Desert'], ['lakefront', 'Lakefront'], ['tinyhomes', 'Tiny homes'], ['castles', 'Castles'], ['containers', 'Containers'], ['camping', 'Camping'], ['skiing', 'Skiing'], ['islands', 'Islands'] ];
     const _amenities = [ ['ac', 'Air conditioning'], ['bbq', 'BBQ grill'], ['coffee', 'Coffee maker'], ['firepit', 'Fire pit'], ['fireplace', 'Indoor fireplace'], ['heat', 'Heating'], ['hottub', 'Private hot tub'], ['kitchen', 'Kitchen'], ['outdoor', 'Outdoor furniture'], ['pets', 'Pets welcome'], ['pool', 'Private pool'], ['tv', 'TV'], ['wifi', 'Wifi'], ['workspace', 'Dedicated workspace'] ];
 
   return (
@@ -349,6 +349,7 @@ const CreateListing = () => {
                                     value={price}
                                     required
                                     min='20'
+                                    max='10000'
                                     className='form-field'
                                     onChange={(e) => setPrice(e.target.value)}
                                     />

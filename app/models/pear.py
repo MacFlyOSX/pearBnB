@@ -10,6 +10,15 @@ listing_types = db.Table(
         'types.id'), primary_key=True)
 )
 
+listing_amenities = db.Table(
+    'listing_amenities',
+    db.Model.metadata,
+    db.Column('listing_id', db.Integer, db.ForeignKey(
+        'listings.id'), primary_key=True),
+    db.Column('amenity_id', db.Integer, db.ForeignKey(
+        'amenities.id'), primary_key=True)
+)
+
 wishlist_listings = db.Table(
     'wishlist_listings',
     db.Model.metadata,
@@ -41,6 +50,7 @@ class Listing(db.Model):
     booking = db.relationship('Booking', back_populates='listing')
 
     types = db.relationship('Type', secondary=listing_types, back_populates="listings")
+    amenities = db.relationship('Amenity', secondary=listing_amenities, back_populates="listings")
 
     wishlists = db.relationship('Wishlist', secondary=wishlist_listings, back_populates="listings")
 
@@ -57,6 +67,8 @@ class Listing(db.Model):
             "max_guests": self.max_guests,
             "bed": self.bed,
             "bath": self.bath,
+            # "types": self.types,
+            "amenities": [amenity.to_dict() for amenity in self.amenities],
             "created_at": self.created_at
         }
 
@@ -147,6 +159,22 @@ class Type(db.Model):
         return {
             "id": self.id,
             "type": self.type,
+            "alias": self.alias
+        }
+
+class Amenity(db.Model):
+    __tablename__ = "amenities"
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100))
+    alias = db.Column(db.String(100))
+
+    listings = db.relationship('Listing', secondary=listing_amenities, back_populates='amenities')
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "name": self.name,
             "alias": self.alias
         }
 

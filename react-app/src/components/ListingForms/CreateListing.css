@@ -183,11 +183,11 @@
 .full-select-container {
     width: 100%;
     border: 2px solid black;
-    height: 90px;
+    height: 95px;
     border-radius: 8px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    padding: 15px 8px 0px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    padding: 12px 8px 0px;
     margin-bottom: 15px;
 }
 

@@ -43,7 +43,9 @@ const Reviews = () => {
         <div className='user-listings-container'>
             <div className='user-listings-inner'>
                 <h1 className='user-sad-title'>
-                    Hey {user.first_name}! You currently do not have any reviews.
+                    Hey {user.first_name}!
+                    <br />
+                    You currently do not have any reviews.
                 </h1>
                 <div className='get-started-listings'>
                     <svg className='user-arrow' id='left-arrow' version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 371.412 371.412">

@@ -1,4 +1,5 @@
 from app.models import db, Listing, Image, Review, Type
+from app.models.pear import Amenity
 
 types = [
     { 'type': 'OMG!', 'alias': 'omg' },
@@ -6,13 +7,15 @@ types = [
     { 'type': 'Beachfront', 'alias': 'beach' },
     { 'type': 'Mansions', 'alias': 'mansions' },
     { 'type': 'Cabins', 'alias': 'cabins' },
-    { 'type': 'Ryokans', 'alias': 'ryokans' },
+    { 'type': 'Countryside', 'alias': 'countryside' },
     { 'type': 'Desert', 'alias': 'desert' },
     { 'type': 'Lakefront', 'alias': 'lakefront' },
     { 'type': 'Tiny homes', 'alias': 'tinyhomes' },
     { 'type': 'Castles', 'alias': 'castles' },
     { 'type': 'Containers', 'alias': 'containers' },
-    { 'type': 'Camping', 'alias': 'camping' }
+    { 'type': 'Camping', 'alias': 'camping' },
+    { 'type': 'Skiing', 'alias': 'skiing' },
+    { 'type': 'Islands', 'alias': 'islands' }
 ]
 
 amenities = [
@@ -44,7 +47,8 @@ listings = [
             "max_guests": 8,
             "bed": 3,
             "bath": 4,
-            "type": 'omg'
+            "type": 'omg',
+            "amenity": ['kitchen', 'wifi', 'ac', 'fireplace', 'heat', 'workspace', 'coffee', 'outdoor', 'pets', 'hottub', 'tv']
         },
         {
             "name": "Spaceship Destination!",
@@ -57,7 +61,8 @@ listings = [
             "max_guests": 4,
             "bed": 2,
             "bath": 1,
-            "type": 'omg'
+            "type": 'omg',
+            "amenity": ['wifi', 'ac', 'heat', 'workspace', 'coffee', 'bbq', 'outdoor', 'tv']
         },
         {
             "name": "The Bloomhouse by Lodgewell>>Fairy Tale Escape",
@@ -70,7 +75,8 @@ listings = [
             "max_guests": 4,
             "bed": 2,
             "bath": 1,
-            "type": 'omg'
+            "type": 'omg',
+            "amenity": ['kitchen', 'wifi', 'ac', 'fireplace', 'heat', 'workspace', 'coffee', 'outdoor', 'tv']
         }
 ]
 
@@ -293,6 +299,11 @@ def seed_test():
         typey_type = Type(type=typey['type'], alias=typey['alias'])
         db.session.add(typey_type)
         type_dict[typey['alias']] = typey_type
+    amenity_dict = {}
+    for amenity in amenities:
+        amen = Amenity(name=amenity['name'], alias=amenity['alias'])
+        db.session.add(amen)
+        amenity_dict[amenity['alias']] = amen
     db.session.commit()
     for listing in listings:
         db.session.add(Listing(name=listing['name'],
@@ -305,7 +316,8 @@ def seed_test():
                                max_guests=listing['max_guests'],
                                bed=listing['bed'],
                                bath=listing['bath'],
-                               types=[type_dict[listing['type']]]
+                               types=[type_dict[listing['type']]],
+                               amenities=[amenity_dict[amenity] for amenity in listing['amenity']]
                     ))
     for img in images:
         db.session.add(Image(listing_id=img['listing_id'], url=img['url']))

@@ -6,7 +6,7 @@ from app.forms.review_add_form import AddReviewForm
 from app.forms.review_delete_form import DeleteReviewForm
 from app.forms.review_update_form import UpdateReviewForm
 from app.forms.image_add_form import AddImageForm
-from app.models import db, User, Listing, Review, Booking, Wishlist, Image, Type
+from app.models import db, User, Listing, Review, Booking, Wishlist, Image, Type, Amenity
 from flask_login import current_user, login_required
 from sqlalchemy import func
 
@@ -123,6 +123,18 @@ def get_one_listing(listing_id):
 ### Loading the owner
     owner = User.query.filter_by(id=single_listing['owner_id']).first().to_dict()
     single_listing['owner'] = owner
+
+    # print(single_listing.amenities)
+
+### Loading the listing's amenities
+    # for amenities in single_listing.amenities:
+    #     print(amenities)
+        # amen = [ amenity.to_dict() for amenity in amenities ]
+        # single_listing['amenities'] = amen
+    # for types in single_listing['types']:
+    #     type = [ type.to_dict() for type in types ]
+    #     single_listing['types'] = type
+
 
 ### Loading reviews
     # revs = Review.query.filter_by(listing_id=listing_id).all()
