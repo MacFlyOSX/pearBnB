@@ -28,6 +28,9 @@
     font-size: 26px;
     font-weight: 600;
     margin: 0 0 4px;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .review-location-save {

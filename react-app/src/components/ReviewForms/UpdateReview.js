@@ -49,13 +49,13 @@ const UpdateReview = () => {
   const [ locRate, setLocRate ] = useState(0);
   const [ valRate, setValRate ] = useState(0);
   const [ revBody, setRevBody ] = useState('');
-  const [ char, setChar ] = useState(600);
+  const [ char, setChar ] = useState(500);
   const [ errors, setErrors ] = useState([]);
 
   const review = useSelector(state => state.reviews.singleReview);
 
   useEffect(() => {
-    if (revBody?.length) setChar(600 - revBody.length);
+    if (revBody?.length) setChar(500 - revBody.length);
   }, [revBody]);
 
   useEffect(() => {
@@ -499,7 +499,7 @@ return (
               <textarea
                   id='review-body'
                   value={revBody}
-                  maxLength='600'
+                  maxLength='500'
                   required
                   className='edge-form-field create-review-field'
                   onChange={(e) => setRevBody(e.target.value)}
