@@ -12,6 +12,20 @@ import parking from '../../icons/listing/parkforfree.svg';
 import pearcover from '../../icons/listing/pearcover.png';
 import construction from '../../icons/construction.png';
 import './ListingDeets.css';
+import ac from '../../icons/amenities/ac.svg';
+import bbq from '../../icons/amenities/bbq.svg';
+import coffee from '../../icons/amenities/coffee.svg';
+import firepit from '../../icons/amenities/firepit.svg';
+import fireplace from '../../icons/amenities/fireplace.svg';
+import heat from '../../icons/amenities/heat.svg';
+import hottub from '../../icons/amenities/hottub.svg';
+import kitchen from '../../icons/amenities/kitchen.svg';
+import outdoor from '../../icons/amenities/outdoor.svg';
+import pets from '../../icons/amenities/pets.svg';
+import pool from '../../icons/amenities/pool.svg';
+import tv from '../../icons/amenities/tv.svg';
+import wifi from '../../icons/amenities/wifi.svg';
+import workspace from '../../icons/amenities/workspace.svg';
 
 const ListingDeets = () => {
     const { listingId } = useParams();
@@ -21,7 +35,7 @@ const ListingDeets = () => {
     const reviews = Object.values(reviewObj);
 
     const user = useSelector(state => state.session.user);
-
+    const _amenities = {'ac': ac, 'bbq': bbq, 'coffee': coffee, 'firepit': firepit, 'fireplace': fireplace, 'heat': heat, 'hottub': hottub, 'kitchen': kitchen, 'outdoor': outdoor, 'pets': pets, 'pool': pool, 'tv': tv, 'wifi': wifi, 'workspace': workspace};
     let acc = 0;
     let clean = 0;
     let check = 0;
@@ -213,7 +227,15 @@ const ListingDeets = () => {
                 </div>
                 <div className='middle-amenities-section'>
                     <h1 id='amenities'>What this place offers</h1>
-                    <img src={construction} alt='construction' className='construction' />
+                    {/* <img src={construction} alt='construction' className='construction' /> */}
+                    <div className='amenities-grid-layout'>
+                        {listing?.amenities?.map((amen, i) => (
+                            <div className='indiv-amenity-card' key={i} >
+                                <img src={_amenities[amen.alias]} alt='amenity' className='amenity-icon' />
+                                <span className='amenity-title-indiv'>{amen.name}</span>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
             <div className='listing-details-booking-right'>

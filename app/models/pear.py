@@ -67,6 +67,8 @@ class Listing(db.Model):
             "max_guests": self.max_guests,
             "bed": self.bed,
             "bath": self.bath,
+            # "types": self.types,
+            "amenities": [amenity.to_dict() for amenity in self.amenities],
             "created_at": self.created_at
         }
 
@@ -172,7 +174,7 @@ class Amenity(db.Model):
     def to_dict(self):
         return {
             "id": self.id,
-            "name": self.type,
+            "name": self.name,
             "alias": self.alias
         }
 
