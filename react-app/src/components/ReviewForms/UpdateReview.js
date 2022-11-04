@@ -55,7 +55,7 @@ const UpdateReview = () => {
   const review = useSelector(state => state.reviews.singleReview);
 
   useEffect(() => {
-      setChar(600 - revBody.length);
+    if (revBody?.length) setChar(600 - revBody.length);
   }, [revBody]);
 
   useEffect(() => {

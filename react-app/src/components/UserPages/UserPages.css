@@ -44,8 +44,8 @@
 
 .indiv-listing-body {
     margin-left: 32px;
-    width: 801px;
-    height: 253px;
+    /* width: 801px; */
+    /* height: 253px; */
     display: flex;
     flex-direction: column;
     justify-content:space-between;
@@ -80,6 +80,7 @@
     border-radius: 8px;
     font-size: 16px;
     font-weight: 600;
+    margin: -5px 0;
     background-color: transparent;
     transition: 1s background-color ease;
 }
@@ -113,7 +114,7 @@
 
 .indiv-listing-description {
     word-wrap: break-word;
-    width: 801px;
+    width: 790px;
 }
 
 .container-for-review-body {
