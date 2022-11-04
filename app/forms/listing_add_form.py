@@ -8,13 +8,15 @@ _TYPES = [
     ( 'beach', 'Beachfront' ),
     ( 'mansions', 'Mansions' ),
     ( 'cabins', 'Cabins' ),
-    ( 'ryokans', 'Ryokans' ),
+    ( 'countryside', 'Countryside' ),
     ( 'desert', 'Desert' ),
     ( 'lakefront', 'Lakefront' ),
     ( 'tinyhomes', 'Tiny homes' ),
     ( 'castles', 'Castles' ),
     ( 'containers', 'Containers' ),
-    ( 'camping', 'Camping' )
+    ( 'camping', 'Camping' ),
+    ( 'skiing', 'Skiing' ),
+    ( 'islands', 'Islands' )
 ]
 
 _AMENITIES = [
