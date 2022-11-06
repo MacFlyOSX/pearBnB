@@ -1151,11 +1151,6 @@ reviews = [
     "listing_id":19,
     "review_body":"Great stay at an amazing house!",
     "rating":3.8333333333333335,"clean":4,"comm":4,"check":4,"acc":3,"loc":4,"val":4},
-{
-    "user_id":7,
-    "listing_id":21,
-    "review_body":"Great stay at an amazing house!",
-    "rating":3.6666666666666665,"clean":3,"comm":3,"check":4,"acc":5,"loc":3,"val":4},
 ]
 
 def seed_test():
