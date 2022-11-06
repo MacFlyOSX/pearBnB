@@ -36,12 +36,15 @@ const UpdateListing = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+        setName(name.trim());
+        setAddress(address.trim());
+        setCity(city.trim());
+        setDescription(description.trim());
         let errors = [];
         if (!name) {
             errors.push('Please enter a listing title.')
-            console.log('this name error is hitting')
-            console.log(errors)
+            // console.log('this name error is hitting')
+            // console.log(errors)
         }
         if (name.length < 10) {
             errors.push('Your listing title must be at least 10 characters.')

@@ -81,6 +81,7 @@ def sign_up():
     """
     form = SignUpForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+    user = User.query.filter(User.email == form.data['email']).first()
 
     # Body validation error handlers:
     login_val_error = {
@@ -90,11 +91,12 @@ def sign_up():
     }
     if "@" not in form.data['email'] or "." not in form.data['email']:
         login_val_error["errors"]["email"] = "Invalid email"
-
     if not form.data['first_name']:
         login_val_error["errors"]["first_name"] = "First name is required"
     if not form.data['last_name']:
         login_val_error["errors"]["last_name"] = "Last name is required"
+    if user:
+        login_val_error['errors']['user'] = "User already exists"
     if len(login_val_error["errors"]) > 0:
         return jsonify(login_val_error), 400
 

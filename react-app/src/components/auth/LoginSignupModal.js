@@ -32,7 +32,7 @@ const LoginSignupModal = () => {
         else {
             setErrors([]);
             const data = await dispatch(signUp(first_name, last_name, email, password));
-            if (data) setErrors(data.email);
+            if (data) setErrors(data.email ?? data.user);
             console.log('this is your data: ', data);
         }
     };
@@ -164,7 +164,7 @@ const LoginSignupModal = () => {
                             </div>
                             <div className='input-container login-container'>
                                 <span className='login-input-title'>Email</span>
-                                {errors.includes('Invalid') ? <span className='login-input-error'>Account already exists for this email</span> : errors.includes('email') ? <span className='login-input-error'>Must be a valid email</span> : null}
+                                {errors.includes('User') ? <span className='login-input-error'>Account already exists for this email</span> : errors.includes('email') ? <span className='login-input-error'>Must be a valid email</span> : null}
                                 <input
                                     id='form-email'
                                     type='text'
