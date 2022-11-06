@@ -120,7 +120,7 @@ const UpdateListing = () => {
                         value={name}
                         required
                         className='edge-form-field update-field'
-                        onChange={(e) => setName(e.target.value)}
+                        onChange={(e) => setName(e.target.value.trimStart())}
                         />
                  </div>
                  <div className='input-container bed-input-container'>
@@ -212,7 +212,7 @@ const UpdateListing = () => {
                             value={address}
                             required
                             className='edge-form-field update-field'
-                            onChange={(e) => setAddress(e.target.value)}
+                            onChange={(e) => setAddress(e.target.value.trimStart())}
                             />
                     </div>
                     <div className='input-container city-input-container'>
@@ -224,7 +224,7 @@ const UpdateListing = () => {
                             value={city}
                             required
                             className='update-field'
-                            onChange={(e) => setCity(e.target.value)}
+                            onChange={(e) => setCity(e.target.value.trimStart())}
                             />
                     </div>
                     <div className='input-container state-input-container'>
@@ -314,7 +314,7 @@ const UpdateListing = () => {
                             maxLength='600'
                             required
                             className='edge-form-field update-field'
-                            onChange={(e) => setDescription(e.target.value)}
+                            onChange={(e) => setDescription(e.target.value.trimStart())}
                             />
                     </div>
                     <div className='update-button-section'>

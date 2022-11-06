@@ -502,7 +502,7 @@ return (
                   maxLength='500'
                   required
                   className='edge-form-field create-review-field'
-                  onChange={(e) => setRevBody(e.target.value)}
+                  onChange={(e) => setRevBody(e.target.value.trimStart())}
                   />
           </div>
           <div className='create-review-submit-button-section'>
