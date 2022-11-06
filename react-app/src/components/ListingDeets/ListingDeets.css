@@ -150,6 +150,14 @@
     border-bottom-left-radius: 16px;
 }
 
+.right-listing-double-split {
+    height: 300px;
+    width: 556px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row-gap: 8px;
+}
+
 .right-triple-image-grid {
     height: 300px;
     width: 556px;
@@ -542,7 +550,7 @@
     margin-bottom: 24px;
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 605px 1fr;
 }
 
 .specific-review-stat {
@@ -553,6 +561,10 @@
 .specfic-stat-breakdown {
     display: flex;
     align-items: center;
+}
+
+.left-stat {
+    margin-right: 94.656px;
 }
 
 .specific-stat-title {

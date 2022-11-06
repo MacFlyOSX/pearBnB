@@ -290,7 +290,7 @@ const ListingDeets = () => {
                 </NavLink>}
             </div>
             <div className='review-breakdown-section'>
-                <div className='specific-review-stat'>
+                <div className='specific-review-stat left-stat'>
                     <div className='specific-stat-title'>Cleanliness</div>
                     <div className='specfic-stat-breakdown'>
                         <div className='stat-container'>
@@ -308,7 +308,7 @@ const ListingDeets = () => {
                         <span className='stat-number'>{listing?.avg_rating > 0 ? acc.toFixed(1) : 'New'}</span>
                     </div>
                 </div>
-                <div className='specific-review-stat'>
+                <div className='specific-review-stat left-stat'>
                     <div className='specific-stat-title'>Communication</div>
                     <div className='specfic-stat-breakdown'>
                         <div className='stat-container'>
@@ -326,7 +326,7 @@ const ListingDeets = () => {
                         <span className='stat-number'>{listing?.avg_rating > 0 ? loc.toFixed(1) : 'New'}</span>
                     </div>
                 </div>
-                <div className='specific-review-stat'>
+                <div className='specific-review-stat left-stat'>
                     <div className='specific-stat-title'>Check-in</div>
                     <div className='specfic-stat-breakdown'>
                         <div className='stat-container'>
