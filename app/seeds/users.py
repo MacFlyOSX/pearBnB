@@ -11,7 +11,7 @@ profile_pictures = ['https://i.imgur.com/WhWHh0n.png', 'https://i.imgur.com/fLHO
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     demo = User(email='demo@user.io', password="password", profile_pic=profile_pictures[random.randrange(len(profile_pictures))], first_name='Demo', last_name='User')
-
+      # 2
     owner1 = User(email="davidrogers@user.io",
                   password="password",
                   profile_pic=profile_pictures[random.randrange(len(profile_pictures))],
@@ -25,28 +25,28 @@ def seed_users():
                   email='brandontasaki@user.io',
                   password='password'
                   )
-
+      # 4
     owner9 = User(first_name='Jae',
                   last_name='Hwang',
                   profile_pic=profile_pictures[random.randrange(len(profile_pictures))],
                   email='jaehwang@user.io',
                   password='password'
                   )
-         # 5
+      # 5
     owner10 = User(first_name='Jake',
                    last_name='Matillano',
                    profile_pic=profile_pictures[random.randrange(len(profile_pictures))],
                    email='jakematillano@user.io',
                    password='password'
                    )
-
+      # 6
     owner14 = User(first_name='Jessie',
                    last_name='Baron',
                    profile_pic=profile_pictures[random.randrange(len(profile_pictures))],
                    email='jessiebaron@user.io',
                     password='password'
                    )
-
+      # 7
     owner15 = User(first_name='Joanna',
                    last_name='Gilbert',
                    profile_pic=profile_pictures[random.randrange(len(profile_pictures))],
@@ -67,14 +67,14 @@ def seed_users():
                    email='loganseals@user.io',
                    password='password'
                    )
-
+      # 10
     owner18 = User(first_name='Noah',
                    last_name='Kerner',
                    profile_pic=profile_pictures[random.randrange(len(profile_pictures))],
                    email='kernersanders@user.io',
                    password='password'
                    )
-
+      # 11
     owner19 = User(first_name='Kyle',
                    last_name='Kassen',
                    profile_pic=profile_pictures[random.randrange(len(profile_pictures))],
@@ -88,49 +88,49 @@ def seed_users():
                    email='michaeljung@user.io',
                    password='password'
                    )
-
+      # 13
     owner21 = User(first_name='Na',
                    last_name='Chen',
                    profile_pic=profile_pictures[random.randrange(len(profile_pictures))],
                    email='nachen@user.io',
                 password='password'
                    )
-      # 13
+      # 14
     owner22 = User(first_name='Sam',
                    last_name='Suh',
                    profile_pic=profile_pictures[random.randrange(len(profile_pictures))],
                    email='samsuh@user.io',
                   password='password'
                    )
-
+      # 15
     owner23 = User(first_name='Schaeffer',
                    last_name='Ahn',
                    profile_pic=profile_pictures[random.randrange(len(profile_pictures))],
                    email='schaefferahn@user.io',
                      password='password'
                    )
-      # 15
+      # 16
     owner25 = User(first_name='Amanda',
                    last_name='Vien',
                    profile_pic=profile_pictures[random.randrange(len(profile_pictures))],
                    email='vienbean@user.io',
                    password='password'
                    )
-
+      # 17
     owner26 = User(first_name='Yasha',
                    last_name='Yang',
                    profile_pic=profile_pictures[random.randrange(len(profile_pictures))],
                    email='yashayang@user.io',
                   password='password'
                    )
-      # 17
+      # 18
     owner27 = User(first_name='Gary',
                    last_name='Song',
                    profile_pic=profile_pictures[random.randrange(len(profile_pictures))],
                    email='garebear@user.io',
                 password='password'
                    )
-
+      # 19
     owner28 = User(first_name='Alex',
                    last_name='Dam',
                    profile_pic=profile_pictures[random.randrange(len(profile_pictures))],

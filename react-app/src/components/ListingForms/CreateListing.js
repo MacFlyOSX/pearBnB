@@ -66,6 +66,16 @@ const CreateListing = () => {
     }
 
     const turnPage1 = () => {
+        let tempName = name;
+        let tempAddy = address;
+        let tempCity = city;
+        let tempDescrip = description;
+        setName(tempName.trim().split(/[\s,\t,\n]+/).join(' '));
+        console.log('here is your name:',name);
+        console.log('here is your name:',typeof name);
+        setAddress(tempAddy.trim().split(/[\s,\t,\n]+/).join(' '));
+        setCity(tempCity.trim().split(/[\s,\t,\n]+/).join(' '));
+        setDescription(tempDescrip.trim().split(/[\s,\t,\n]+/).join(' '));
         let errors = [];
         if (!name) {
             errors.push('Please enter a listing title.')
@@ -113,6 +123,7 @@ const CreateListing = () => {
         let imageUrls = [];
         // let acceptable = ['.png', '.jpg', '.jpeg'];
         if (url.length) {
+            setUrl(url.trim());
             if (!url.endsWith('.png') && !url.endsWith('.jpg') && !url.endsWith('.jpeg')) {
                 errors.push('Please enter a valid image URL for image #1.')
             } else {
@@ -120,6 +131,7 @@ const CreateListing = () => {
             }
         } else errors.push('Please provide a valid image URL for image #1.')
         if (url2.length) {
+            setUrl2(url2.trim());
             if (!url2.endsWith('.png') && !url2.endsWith('.jpg') && !url2.endsWith('.jpeg')) {
             errors.push('Please enter a valid image URL for image #2.')
             } else {
@@ -127,6 +139,7 @@ const CreateListing = () => {
             }
         }
         if (url3.length) {
+            setUrl3(url3.trim());
             if (!url3.endsWith('.png') && !url3.endsWith('.jpg') && !url3.endsWith('.jpeg')) {
             errors.push('Please enter a valid image URL for image #3.')
             } else {
@@ -134,6 +147,7 @@ const CreateListing = () => {
             }
         }
         if (url4.length) {
+            setUrl4(url4.trim());
             if (!url4.endsWith('.png') && !url4.endsWith('.jpg') && !url4.endsWith('.jpeg')) {
             errors.push('Please enter a valid image URL for image #4.')
             } else {
@@ -141,6 +155,7 @@ const CreateListing = () => {
             }
         }
         if (url5.length) {
+            setUrl5(url5.trim());
             if (!url5.endsWith('.png') && !url5.endsWith('.jpg') && !url5.endsWith('.jpeg')) {
             errors.push('Please enter a valid image URL for image #5.')
             } else {
@@ -186,7 +201,7 @@ const CreateListing = () => {
                             value={name}
                             required
                             className='edge-form-field form-field'
-                            onChange={(e) => setName(e.target.value)}
+                            onChange={(e) => setName(e.target.value.trimStart())}
                             />
                     </div>
                     <div className='input-container full-input-container'>
@@ -198,7 +213,7 @@ const CreateListing = () => {
                             value={address}
                             required
                             className='edge-form-field form-field'
-                            onChange={(e) => setAddress(e.target.value)}
+                            onChange={(e) => setAddress(e.target.value.trimStart())}
                             />
                     </div>
                     <div className='combined-input-container'>
@@ -211,7 +226,7 @@ const CreateListing = () => {
                                 value={city}
                                 required
                                 className='form-field'
-                                onChange={(e) => setCity(e.target.value)}
+                                onChange={(e) => setCity(e.target.value.trimStart())}
                                 />
                         </div>
                         <div className='input-container split-right-input-container'>
@@ -287,7 +302,7 @@ const CreateListing = () => {
                             maxLength='600'
                             required
                             className='edge-form-field form-field'
-                            onChange={(e) => setDescription(e.target.value)}
+                            onChange={(e) => setDescription(e.target.value.trimStart())}
                             />
                     </div>
                 </div>

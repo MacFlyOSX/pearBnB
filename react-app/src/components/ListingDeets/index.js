@@ -254,7 +254,7 @@ const ListingDeets = () => {
                             </div>
                         </div>
                         <div className='booking-form-container'>
-                            <form class='booking-form'>
+                            <form className='booking-form'>
                                 <div className='booking-calendar'>
                                 <div className='calendar-inner left-inner-calendar'>
                                     <span className='checkin-upper-text'>CHECK-IN</span>
