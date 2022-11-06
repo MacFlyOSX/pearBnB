@@ -202,10 +202,10 @@ def add_listing():
             ty = Type.query.filter_by(alias=alias).first()
             type_list.append(ty)
 
-        # amenity_list = []
-        # for alias in form.data['amenities']:
-        #     amen = Amenity.query.filter_by(alias=alias).first()
-        #     amenity_list.append(amen)
+        amenity_list = []
+        for alias in form.data['amenities']:
+            amen = Amenity.query.filter_by(alias=alias).first()
+            amenity_list.append(amen)
 
         listing = Listing(
             name=form.data['name'],
@@ -222,7 +222,7 @@ def add_listing():
             bed=form.data['bed'],
             bath=form.data['bath'],
             types=type_list,
-            # amenities=amenity_list
+            amenities=amenity_list
         )
 
         db.session.add(listing)
