@@ -35,16 +35,63 @@ Looking for vacation rentals, cabins, beach houses, and/or unique homes around t
 ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
 
 # 🛬 Landing Page
-🚧 Coming Soon!
-
+![Screen Shot 2022-11-06 at 11 12 03 PM](https://user-images.githubusercontent.com/102837663/200258240-d21c9fde-c08b-4152-9167-b1609c0a3d08.png)
 
 ## 💡 Features
-🚧 Coming Soon!
+### Create a Listing
+![Screen Shot 2022-11-06 at 11 25 41 PM](https://user-images.githubusercontent.com/102837663/200258343-581c46af-6103-4c01-b188-e059ef8abb83.png)
+![Screen Shot 2022-11-06 at 11 26 20 PM](https://user-images.githubusercontent.com/102837663/200258370-0f281545-95fc-4eaa-9a86-da8a19a40329.png)
+![Screen Shot 2022-11-06 at 11 27 30 PM](https://user-images.githubusercontent.com/102837663/200258411-87f30c98-c790-4ebb-b861-df55fee559c5.png)
+
+### View individual Listings
+![Screen Shot 2022-11-06 at 11 57 58 PM](https://user-images.githubusercontent.com/102837663/200258531-640abdcb-a382-4bc0-9f9a-87acfe6a15d7.png)
+
+### Update and/or Delete your Listings
+![Screen Shot 2022-11-07 at 12 00 14 AM](https://user-images.githubusercontent.com/102837663/200258614-ee54ba34-f78f-48a1-9f08-397a6c7bcc44.png)
+
+
+### Create a Review
+![Screen Shot 2022-11-07 at 12 01 50 AM](https://user-images.githubusercontent.com/102837663/200258696-cfbed8d7-5b9a-4960-b538-228575a4288a.png)
+
+### View Reviews for specific Listings
+![Screen Shot 2022-11-07 at 12 00 55 AM](https://user-images.githubusercontent.com/102837663/200258777-f00f7c38-c516-4540-90c0-067dee688e3f.png)
+
+### Update and/or Delete your Reviews
+![Screen Shot 2022-11-07 at 12 03 40 AM](https://user-images.githubusercontent.com/102837663/200258835-f9a5c710-f7cb-4390-805b-b1548a9aa13c.png)
+
 
 # 🚧 To do list
-🚧 Coming Soon!
+1. Complete CRUD functionality for Bookings
+2. Complete filter/search functionality based on location, type, and max guests
+3. Complete CRUD functionality for Wishlists
 
 # 📲 Setup locally
-🚧 Coming Soon!
+1. Clone this repository
+
+   ```bash
+   git clone https://github.com/MacFlyOSX/pearBnB.git
+   ```
+
+2. Install dependencies
+
+      ```bash
+      pipenv install
+      cd react-app
+      npm install
+      ```
+
+3. Create a **.env** file based on the example and set the environment variables for SECRET_KEY and DATABASE_URL for your
+   development environment
+
+4. Get into your pipenv, migrate your database, seed your database, run your Flask app, and start your React app
+
+   ```bash
+   pipenv shell
+   flask db upgrade
+   flask seed all
+   flask run
+   cd react-app
+   npm start
+   ```
 
 **📟 Contact: [Linkedin](https://www.linkedin.com/in/brandon-tasaki/)**
