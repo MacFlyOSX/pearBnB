@@ -239,7 +239,7 @@ const ListingDeets = () => {
                 </div>
             </div>
             <div className='listing-details-booking-right'>
-                {/* <div className='sticky-booking-container'>
+                <div className='sticky-booking-container'>
                     <div className='booking-container'>
                         <div className='booking-title'>
                             <div className='booking-cost-per'>
@@ -265,12 +265,12 @@ const ListingDeets = () => {
                                     <input type='date' id='booking-checkin' />
                                 </div>
                                 </div>
-                                <button id='submit-booking' type='submit' >Reserve</button>
+                                {/* <button id='submit-booking' type='submit' >Reserve</button> */}
                                 <div id='under-construction' onClick={() => undefined} >🚧 Under Construction 🚧</div>
                             </form>
                         </div>
                     </div>
-                </div> */}
+                </div>
             </div>
         </div>
         <div className='listing-details-reviews'>
