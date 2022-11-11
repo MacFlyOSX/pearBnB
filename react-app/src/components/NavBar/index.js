@@ -4,9 +4,8 @@ import { NavLink, useHistory, useLocation } from 'react-router-dom';
 import logo from '../../icons/pearbnb.png';
 import pear from '../../icons/pear.png';
 import pearout from '../../icons/pearout.png';
-// import search from '../../icons/homepage/search.svg';
+import search from '../../icons/homepage/search.svg';
 import burger from '../../icons/homepage/burger.svg';
-import userJohn from '../../icons/homepage/user.png';
 import { logout } from '../../store/session';
 import './NavBar.css';
 import LoginSignupModal from '../auth/LoginSignupModal';
@@ -472,7 +471,7 @@ const NavBar = () => {
         </NavLink>
       </div>
       <div className='navbar-search-container'>
-        {/* {url.includes('new') ? null : <div className='search-container'>
+        {url.includes('new') ? null : <div className='search-container'>
             <button className='where-searchbutton'>Anywhere</button>
             <span className='search-separator' />
             <button className='type-searchbutton'>Any type</button>
@@ -483,7 +482,7 @@ const NavBar = () => {
                 <img src={search} alt='search' className='search-button' />
               </div>
             </button>
-        </div>} */}
+        </div>}
       </div>
       <div className='navbar-user-side'>
         <div className='left-of-user'>
