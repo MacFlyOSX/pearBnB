@@ -1,9 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useHistory, useParams } from 'react-router-dom';
 import { getOne } from '../../store/listings';
+import DatePicker from "react-datepicker";
+import "./DatePicker.css";
 import { loadReviews } from '../../store/reviews';
-// import heart from '../../icons/homepage/saveheart.svg';
+import heart from '../../icons/homepage/saveheart.svg';
 import add from '../../icons/listing/add.svg';
 import star from '../../icons/listing/revstar.svg';
 import door from '../../icons/listing/selfcheckin.svg';
@@ -26,6 +28,7 @@ import pool from '../../icons/amenities/pool.svg';
 import tv from '../../icons/amenities/tv.svg';
 import wifi from '../../icons/amenities/wifi.svg';
 import workspace from '../../icons/amenities/workspace.svg';
+import { addBooking } from '../../store/bookings';
 
 const ListingDeets = () => {
     const { listingId } = useParams();
@@ -33,6 +36,8 @@ const ListingDeets = () => {
     const dispatch = useDispatch();
     const reviewObj = useSelector(state => state.reviews.allReviews);
     const reviews = Object.values(reviewObj);
+    const [ startDate, setStartDate ] = useState(new Date());
+    const [ endDate, setEndDate ] = useState(new Date());
 
     const user = useSelector(state => state.session.user);
     const _amenities = {'ac': ac, 'bbq': bbq, 'coffee': coffee, 'firepit': firepit, 'fireplace': fireplace, 'heat': heat, 'hottub': hottub, 'kitchen': kitchen, 'outdoor': outdoor, 'pets': pets, 'pool': pool, 'tv': tv, 'wifi': wifi, 'workspace': workspace};
@@ -93,7 +98,7 @@ const ListingDeets = () => {
     }
 
     const listing = useSelector(state => state.listings.singleListing);
-    console.log('this is the listing',listing);
+    // console.log('this is the listing',listing);
 
     /*
     if (reviews) {
@@ -105,6 +110,46 @@ const ListingDeets = () => {
         dispatch(getOne(listingId));
         dispatch(loadReviews(listingId));
     }, [dispatch]);
+
+    function monthToNum(month) {
+        switch(month) {
+            case 'Jan': return 1;
+            case 'Feb': return 2;
+            case 'Mar': return 3;
+            case 'Apr': return 4;
+            case 'May': return 5;
+            case 'Jun': return 6;
+            case 'Jul': return 7;
+            case 'Aug': return 8;
+            case 'Sep': return 9;
+            case 'Oct': return 10;
+            case 'Nov': return 11;
+            case 'Dec': return 12;
+            default: return;
+        }
+    }
+
+    function parseDateStr(dateStr) {
+        return [dateStr.slice(4, 7), +dateStr.slice(8, 10), +dateStr.slice(11, 15)];
+    }
+
+    async function sendBooking(e) {
+        e.preventDefault();
+        const [startMon, start_day, start_year] = parseDateStr(startDate.toString());
+        const [endMon, end_day, end_year] = parseDateStr(endDate.toString());
+        const start_month = monthToNum(startMon);
+        const end_month = monthToNum(endMon);
+
+        const payload = {
+            start_month, start_day, start_year, end_month, end_day, end_year
+        };
+
+        const booking = await dispatch(addBooking(payload, listingId));
+
+        if (booking) {
+            history.push('/');
+        }
+    }
 
     const toolbar = document.getElementById('hidden-toolbar');
     function onScrollShow() {
@@ -134,15 +179,15 @@ const ListingDeets = () => {
                     <img className='listing-star' src={star} alt='star' />
                     <span className='review-listing rev-loc-span'>{listing?.avg_rating > 0 ? listing?.avg_rating?.toFixed(1) : 'New'}</span>
                     <span id='middot'>&middot;</span>
-                    <span className='num-reviews rev-loc-span'>{numReviews} reviews</span>
+                    <span className='num-reviews rev-loc-span'>{numReviews} {numReviews === 1 ? 'review' : 'reviews'}</span>
                     <span id='middot'>&middot;</span>
                     <span className='listing-location rev-loc-span'>{listing.city}, {listing.state}, United States</span>
                 </div>
                 <div className='save'>
-                    {/* <button className='save-button'>
+                    <button className='save-button'>
                         <img src={heart} alt='heart' className='heart' />
                         <span className='save-span'>Save</span>
-                    </button> */}
+                    </button>
                 </div>
             </div>
         </div>
@@ -250,23 +295,43 @@ const ListingDeets = () => {
                                 <img src={star} alt='star' id='booking-star' />
                                 <span id='booking-review-avg'>{listing?.avg_rating > 0 ? listing?.avg_rating?.toFixed(1) : 'New'}</span>
                                 <span id='middot'>&middot;</span>
-                                <span id='booking-num-reviews'>{numReviews} reviews</span>
+                                <span id='booking-num-reviews'>{numReviews} {numReviews === 1 ? 'review' : 'reviews'}</span>
                             </div>
                         </div>
                         <div className='booking-form-container'>
-                            <form className='booking-form'>
+                            <form className='booking-form' onSubmit={sendBooking}>
                                 <div className='booking-calendar'>
                                 <div className='calendar-inner left-inner-calendar'>
                                     <span className='checkin-upper-text'>CHECK-IN</span>
-                                    <input type='date' id='booking-checkin' />
+                                    {/* <input type='date' id='booking-checkin' /> */}
+                                    <DatePicker
+                                      id='booking-checkin'
+                                      selected={startDate}
+                                      onChange={(date) => setStartDate(date)}
+                                      selectsStart
+                                      startDate={startDate}
+                                    //   endDate={endDate}
+                                      minDate={new Date()}
+                                      showDisabledMonthNavigation
+                                    />
                                 </div>
                                 <div className='calendar-inner'>
                                     <span className='checkin-upper-text'>CHECKOUT</span>
-                                    <input type='date' id='booking-checkin' />
+                                    <DatePicker
+                                      id='booking-checkin'
+                                      selected={endDate}
+                                      onChange={(date) => {console.log('this is the checkout date:',date.toString().slice(4)); setEndDate(date)}}
+                                      selectsEnd
+                                      startDate={startDate}
+                                      endDate={endDate}
+                                      minDate={startDate}
+                                      showDisabledMonthNavigation
+                                      shouldCloseOnSelect={false}
+                                    />
                                 </div>
                                 </div>
-                                {/* <button id='submit-booking' type='submit' >Reserve</button> */}
-                                <div id='under-construction' onClick={() => undefined} >🚧 Under Construction 🚧</div>
+                                <button id='submit-booking' type='submit' >Reserve</button>
+                                {/* <div id='under-construction' onClick={() => undefined} >🚧 Under Construction 🚧</div> */}
                             </form>
                         </div>
                     </div>
