@@ -381,6 +381,191 @@ listings = [
       'tv',        'wifi',
       'workspace'
     ]
+  },
+  {
+    "name": 'Beach Front Vacation Home on the sand at Mondos',
+    "owner_id": 2,
+    "address": '123 Fake Street',
+    "city": 'Ventura',
+    "state": 'CA',
+    "description": "Welcome to Chez Mondo, a bright and airy, stylish family home on the longest stretch of sandy beach. Stairs on the deck lead down to the south end of Mondo's Cove where you can surf, boogie board or just play in the ocean. This house will not only give you a peaceful getaway but also the opportunity to discover the charming  stores in downtown Ventura nearby.",
+    "price": 1000,
+    "max_guests": 8,
+    "bed": 4,
+    "bath": 3,
+    "type": 'beach',
+    "amenity": [
+      'kitchen',   'wifi',
+      'ac',        'tv',
+      'fireplace', 'heat',
+      'coffee',    'firepit',
+      'bbq',       'outdoor'
+    ]
+  },
+  {
+    "name": 'Shorebird 5br oceanfront home',
+    "owner_id": 2,
+    "address": '123 Fake Street',
+    "city": 'Oceanside',
+    "state": 'CA',
+    "description": 'Bring the whole family to this spectacular beach house, one of the largest on the beach.  The views and sound of the waves crashing in your backyard are just amazing. You will love how the oceanfront decks  reach across the entire west side of home to enjoy spectacular views.  You can see dolphins daily and the cooling ocean breeze is what this house is all about.',
+    "price": 981,
+    "max_guests": 12,
+    "bed": 7,
+    "bath": 5,
+    "type": 'beach',
+    "amenity": [
+      'kitchen',   'wifi',
+      'ac',        'tv',
+      'fireplace', 'heat',
+      'coffee',    'firepit',
+      'bbq',       'outdoor',
+      'workspace', 'pets'
+    ]
+  },
+  {
+    "name": '9,000 sq ft Celebrity Oceanfront Estate, La Jolla',
+    "owner_id": 2,
+    "address": '123 Fake Street',
+    "city": 'San Diego',
+    "state": 'CA',
+    "description": 'The house is truly the perfect California beachfront mansion—and it’s been featured on Hollywood’s longest-running reality TV shows. An ocean inspired 8-bedroom; 7.5-bathroom 9,100 square foot mansion is just like a private resort! Pickle Ball Tennis Court, Golf cart, Billiard room, Ping Pong table, Movie theater, Gym, Sauna, Steam shower, BBQ, heated Pool, Hot Tub, 2 pianos and Elevator!',
+    "price": 3150,
+    "max_guests": 16,
+    "bed": 10,
+    "bath": 8,
+    "type": 'beach',
+    "amenity": [
+      'ac',        'bbq',
+      'coffee',    'firepit',
+      'fireplace', 'heat',
+      'hottub',    'kitchen',
+      'outdoor',   'pool',
+      'tv',        'wifi',
+      'workspace'
+    ]
+  },
+  {
+    "name": 'Superb Oceanfront Spot at Haystack Rock',
+    "owner_id": 2,
+    "address": '123 Fake Street',
+    "city": 'Neskowin',
+    "state": 'OR',
+    "description": 'With its unparalleled location on the sand in front of Pacific "City"’s Haystack Rock, Whale’s Tail Cottage will bring your guests incredible memories of their stay at the beach. You can walk right out of the house to miles of sandy beach, surfers riding the waves, marvelous tide pools, challenging dunes to climb, and dory boats landing on the beach with their fresh catch.',
+    "price": 411,
+    "max_guests": 6,
+    "bed": 3,
+    "bath": 3,
+    "type": 'beach',
+    "amenity": [ 'kitchen', 'coffee', 'firepit', 'wifi', 'tv' ]
+  },
+  {
+    "name": 'South Beach Paradise in Spectacular Oceanfront Home',
+    "owner_id": 2,
+    "address": '123 Fake Street',
+    "city": 'South Beach',
+    "state": 'OR',
+    "description": 'With its wind-screened deck, front-seat-to-the ocean patio with whimsical beach sculpture, The Ocean Lounge’s siren call is to enjoy the panoramic oceanfront views from its cliff-top location. Time in the sun and ocean breezes will scour away your weekday concerns and wheeling seabirds and whale sightings will return you to a more relaxed, contented state of mind. Indoors, the roar of the ocean, and lots of Pacific light will continue that ambiance; the great room’s soaring windows, ocean views, and the placement of its contemporary furnishings keep the ocean in mind.',
+    "price": 312,
+    "max_guests": 6,
+    "bed": 5,
+    "bath": 3,
+    "type": 'beach',
+    "amenity": [ 'kitchen', 'coffee', 'firepit', 'wifi', 'tv', 'outdoor' ]
+  },
+  {
+    "name": 'The Big Blue',
+    "owner_id": 2,
+    "address": '123 Fake Street',
+    "city": 'Avalon',
+    "state": 'CA',
+    "description": 'With 180 degree ocean views and the waves gently splashing against the beach, it is a soothing adventure.  This vacation home includes use of a golf cart, the community’s amenities, pool, spa, health club, 18-hole putting course, tennis courts, croquet court, sand volleyball and beach with built in barbecues and picnic tables. Some restrictions may apply. ',
+    "price": 355,
+    "max_guests": 4,
+    "bed": 2,
+    "bath": 1,
+    "type": 'beach',
+    "amenity": [
+      'kitchen',   'coffee',
+      'firepit',   'wifi',
+      'tv',        'outdoor',
+      'pool',      'hottub',
+      'fireplace'
+    ]
+  },
+  {
+    "name": 'Mountain View Villa - Alpine Falls Ranch',
+    "owner_id": 2,
+    "address": '123 Fake Street',
+    "city": 'Superior',
+    "state": 'MT',
+    "description": "Come enjoy the beauty, privacy and seclusion of Mountain View Villa at Alpine Falls Ranch, adjacent to the LoLo National Forest and steps away from the Clark Fork river. Ranch Manager and housekeeping on site, catering available upon request. The ranch includes horse facilities, a riding arena, gym, theater and trap/skeet for entertaining or parties. 50 minutes to Missoula, 90 miles to Coeur d'Alene. Unlimited hiking, hunting, fishing, floating and adventure opportunities await.",
+    "price": 2650,
+    "max_guests": 14,
+    "bed": 11,
+    "bath": 6,
+    "type": 'mansions',
+    "amenity": [ 'kitchen', 'wifi', 'workspace', 'tv', 'fireplace', 'ac' ]
+  },
+  {
+    "name": 'Country Home near Lynchburg, Amherst, Colleges',
+    "owner_id": 2,
+    "address": '123 Fake Street',
+    "city": 'Madison Heights',
+    "state": 'VA',
+    "description": 'Oak Lawn:  Circa 1850 farmhouse fully retro with modern conveniences. Four bedrooms, sleeps 8. High speed Internet, HDTV, ample parking.  Only 50 minutes south from Charlottesville.  Excellent place to get-away.  Conveniently located between Lynchburg and Sweet Briar College.  Parties and events are not allowed.',
+    "price": 500,
+    "max_guests": 8,
+    "bed": 8,
+    "bath": 4,
+    "type": 'mansions',
+    "amenity": [
+      'kitchen',   'wifi',
+      'workspace', 'tv',
+      'fireplace', 'ac',
+      'coffee',    'heat'
+    ]
+  },
+  {
+    "name": "Tennessee's Clubhouse Year Round Pool Estate",
+    "owner_id": 2,
+    "address": '123 Fake Street',
+    "city": "Thompson's Station",
+    "state": 'TN',
+    "description": "Welcome to Tennessee's Clubhouse, your private luxury escape getaway on six acres in Williamson County. Located just 30 minutes south of the lights of Nashville, you'll feel worlds away amidst a backdrop of natural Tennessee beauty. Spend days in your 16X40 inground, heated pool open year round with LED lighting or on your private sand volleyball court and nights at the custom firepit.",
+    "price": 530,
+    "max_guests": 16,
+    "bed": 15,
+    "bath": 3,
+    "type": 'mansions',
+    "amenity": [
+      'kitchen',   'wifi',
+      'workspace', 'tv',
+      'fireplace', 'ac',
+      'coffee',    'heat',
+      'pets',      'pool'
+    ]
+  },
+  {
+    "name": 'Luxury Blue Ridge Lodge',
+    "owner_id": 2,
+    "address": '123 Fake Street',
+    "city": 'Blue Ridge',
+    "state": 'GA',
+    "description": 'The Lodge at Deer Crest is the ultimate luxury retreat for your next special occasion, family reunion, couples getaway, or retreat. Featuring 12,000 sq.ft of beautiful living space, 9 bedrooms (5K, 2Q, 2 bunk rooms), 8 full bathrooms, and 3 half bathrooms this home offers both ample gathering space and plenty of privacy for quieter times. This home has every amenity you could ever hope for to make your stay a relaxing and memorable one.',
+    "price": 1470,
+    "max_guests": 16,
+    "bed": 10,
+    "bath": 10,
+    "type": 'mansions',
+    "amenity": [
+      'kitchen',   'wifi',
+      'workspace', 'tv',
+      'fireplace', 'ac',
+      'coffee',    'heat',
+      'pets',      'pool',
+      'hottub'
+    ]
   }
 ]
 
@@ -655,6 +840,94 @@ images = [
 {
     'listing_id': 20,
     'url': 'https://i.imgur.com/2skNlaN.png'
+},
+{
+    'listing_id': 21,
+    'url': 'https://a0.muscache.com/im/pictures/miso/Hosting-600082528420105160/original/0d482573-63ac-45e9-b144-ff238f537dea.jpeg'
+},
+{
+    'listing_id': 21,
+    'url': 'https://a0.muscache.com/im/pictures/miso/Hosting-600082528420105160/original/23e04e18-cc12-4e2f-bcd8-47d2a6538fef.jpeg'
+},
+{
+    'listing_id': 21,
+    'url': 'https://a0.muscache.com/im/pictures/miso/Hosting-600082528420105160/original/330089bc-5286-4f5b-ac14-e8bee0c337d0.jpeg'
+},
+{
+    'listing_id': 22,
+    'url': 'https://a0.muscache.com/im/pictures/f3e42ca3-6d2a-47e5-af3a-481ec297cf54.jpg'
+},
+{
+    'listing_id': 22,
+    'url': 'https://a0.muscache.com/im/pictures/afac06ca-3ca2-4435-8ce3-7a79ea6c2a37.jpg'
+},
+{
+    'listing_id': 22,
+    'url': 'https://a0.muscache.com/im/pictures/miso/Hosting-53431391/original/5e80e8b7-0940-4b46-a68b-ef8aa4a4fae2.jpeg'
+},
+{
+    'listing_id': 23,
+    'url': 'https://a0.muscache.com/im/pictures/f5db5ef1-898c-4cfc-9d83-92b3adfd1e4b.jpg'
+},
+{
+    'listing_id': 23,
+    'url': 'https://a0.muscache.com/im/pictures/6b832031-7e11-44c2-8892-b379042dd035.jpg'
+},
+{
+    'listing_id': 24,
+    'url': 'https://a0.muscache.com/im/pictures/prohost-api/Hosting-49347171/original/c6fe9470-b113-4e5c-9b8a-574256d957c5.jpeg'
+},
+{
+    'listing_id': 24,
+    'url': 'https://a0.muscache.com/im/pictures/prohost-api/Hosting-49347171/original/aa5757b1-0f1d-4067-bb6f-d0c317350cea.jpeg'
+},
+{
+    'listing_id': 25,
+    'url': 'https://a0.muscache.com/im/pictures/prohost-api/Hosting-38872800/original/1323f6fb-1fd6-4bfb-9acb-67a3dc50a768.jpeg'
+},
+{
+    'listing_id': 25,
+    'url': 'https://a0.muscache.com/im/pictures/prohost-api/Hosting-38872800/original/962fd4fd-bb63-48a5-a986-b041bfd61f06.jpeg'
+},
+{
+    'listing_id': 25,
+    'url': 'https://a0.muscache.com/im/pictures/prohost-api/Hosting-38872800/original/2fc77d02-a7d3-42fb-be5f-ff9ec4239adb.jpeg'
+},
+{
+    'listing_id': 26,
+    'url': 'https://a0.muscache.com/im/pictures/66526778/a45cd4a4_original.jpg'
+},
+{
+    'listing_id': 26,
+    'url': 'https://a0.muscache.com/im/pictures/66524575/bd93bfad_original.jpg'
+},
+{
+    'listing_id': 27,
+    'url': 'https://a0.muscache.com/im/pictures/2bfa9fd4-08cc-4014-b7ec-898f80a24525.jpg'
+},
+{
+    'listing_id': 28,
+    'url': 'https://a0.muscache.com/im/pictures/71d64013-713d-4be3-bae7-ee6049c3d9db.jpg'
+},
+{
+    'listing_id': 29,
+    'url': 'https://a0.muscache.com/im/pictures/prohost-api/Hosting-49155220/original/63fc1877-323c-432a-aa38-29691ea72387.jpeg'
+},
+{
+    'listing_id': 29,
+    'url': 'https://a0.muscache.com/im/pictures/prohost-api/Hosting-49155220/original/20be7682-37c4-4760-afe7-584536483f7e.jpeg'
+},
+{
+    'listing_id': 30,
+    'url': 'https://a0.muscache.com/im/pictures/prohost-api/Hosting-47972703/original/89a1e103-9bf3-4d24-af28-8dddbe8df836.jpeg'
+},
+{
+    'listing_id': 30,
+    'url': 'https://a0.muscache.com/im/pictures/prohost-api/Hosting-47972703/original/70cbfd37-66e0-4625-98b5-c193b06a58f9.jpeg'
+},
+{
+    'listing_id': 31,
+    'url': 'https://a0.muscache.com/im/pictures/prohost-api/Hosting-47972703/original/70cbfd37-66e0-4625-98b5-c193b06a58f9.jpeg'
 },
 ]
 
@@ -1151,6 +1424,43 @@ reviews = [
     "listing_id":19,
     "review_body":"Great stay at an amazing house!",
     "rating":3.8333333333333335,"clean":4,"comm":4,"check":4,"acc":3,"loc":4,"val":4},
+{"user_id":4,"listing_id":21,"review_body":"Chez Mondo is the perfect beach house. Everything is new and super clean.","rating":4.333333333333333,"clean":3,"comm":5,"check":5,"acc":5,"loc":3,"val":5},
+{"user_id":6,"listing_id":21,"review_body":"Heaven on earth. This place has it all: quiet, clean, spacious, and modern. I wish I could give it even more stars! Enjoy.","rating":4.333333333333333,"clean":5,"comm":5,"check":3,"acc":5,"loc":3,"val":5},
+{"user_id":9,"listing_id":21,"review_body":"We loved our stay! Our host was very responsive to questions, it is an ideal location, very clean and comfortable. We will definitely be repeat customers!! Highest rating!","rating":3.6666666666666665,"clean":5,"comm":3,"check":3,"acc":4,"loc":3,"val":4},
+{"user_id":13,"listing_id":21,"review_body":"I don't even want to tell you how incredibly beautiful this house is, because I still want to be able to book it! But it's really magical and anyone who gets to stay at chez mondo is lucky.","rating":3.6666666666666665,"clean":4,"comm":3,"check":5,"acc":3,"loc":4,"val":3},
+{"user_id":12,"listing_id":22,"review_body":"Wonderful home with beautiful views. Bed and shower was amazing. Would stay again....","rating":3.8333333333333335,"clean":5,"comm":4,"check":5,"acc":3,"loc":3,"val":3},
+{"user_id":9,"listing_id":22,"review_body":"We had the best girls weekend on the beach! The location is amazing, the house is so beautiful. Plenty of room to spread out. Thank you for the amazing memories!","rating":3.6666666666666665,"clean":5,"comm":3,"check":3,"acc":3,"loc":4,"val":4},
+{"user_id":7,"listing_id":22,"review_body":"This home was very spacious and clean! Our family of 6 adults was able to spread out when we needed privacy, yet come together in one place for a family meal.","rating":3.8333333333333335,"clean":4,"comm":4,"check":3,"acc":3,"loc":5,"val":4},
+{"user_id":16,"listing_id":22,"review_body":"The house was beautiful and in a great location. Five star views of the ocean. Beach access very rocky and difficult, especially for little kids.","rating":3.6666666666666665,"clean":5,"comm":3,"check":4,"acc":4,"loc":3,"val":3},
+{"user_id":4,"listing_id":23,"review_body":"Already missing the gorgeous views. The place had plenty of space for all our guests. We did get lost finding them a few times.","rating":4.333333333333333,"clean":5,"comm":3,"check":5,"acc":5,"loc":3,"val":5},
+{"user_id":16,"listing_id":23,"review_body":"View was amazing! The host was great. The only drawback I would say is there were one or two rooms that I would not have stayed in myself. Other than that everything was great.","rating":4,"clean":4,"comm":4,"check":4,"acc":4,"loc":5,"val":3},
+{"user_id":7,"listing_id":23,"review_body":"Great House if you want some of the most amazing views of the Pacific Ocean and surrounding coastline. The pictures don't do it justice.","rating":3.8333333333333335,"clean":3,"comm":4,"check":4,"acc":5,"loc":4,"val":3},
+{"user_id":8,"listing_id":24,"review_body":"This has been my favorite Airbnb ever. Excellent house and the location can’t be better. ","rating":4.666666666666667,"clean":5,"comm":5,"check":4,"acc":5,"loc":4,"val":5},
+{"user_id":5,"listing_id":24,"review_body":"Beautiful place. The management handled a check in issue well with timely communication.","rating":4.5,"clean":5,"comm":4,"check":5,"acc":4,"loc":5,"val":4},
+{"user_id":14,"listing_id":24,"review_body":"We had a great stay and we were even treated to sunset late October! Great location, beautiful views, and house has comfortable furnishings and all the kitchen appliances and extras for cooking/baking. A great home for a young family!","rating":4,"clean":3,"comm":5,"check":4,"acc":3,"loc":4,"val":5},
+{"user_id":5,"listing_id":24,"review_body":"Not very clean. Found all sorts of crackers and things upon arrival. Hair on the toilet. Ceiling fan in very front bedroom didn’t work. Heater in bathroom didn’t work.","rating":4,"clean":4,"comm":3,"check":4,"acc":5,"loc":5,"val":3},
+{"user_id":3,"listing_id":25,"review_body":"Absolutely gorgeous view and beautiful home. We really enjoyed our stay!","rating":3.6666666666666665,"clean":5,"comm":4,"check":3,"acc":3,"loc":3,"val":4},
+{"user_id":5,"listing_id":25,"review_body":"Amazing house and surroundings! Me and my family enjoyed every sec at this house, just be mindful of the cliff in the back for the kiddos. Would definitely stay here again.","rating":4,"clean":4,"comm":4,"check":3,"acc":4,"loc":5,"val":4},
+{"user_id":12,"listing_id":25,"review_body":"Beautiful place with an amazing view. We appreciate the thoughtful touches such as binocular, board games, sand toys, umbrellas, etc. The host is very responsive when you have a question. Everything in the house is labeled which is really helpful.","rating":3.8333333333333335,"clean":4,"comm":4,"check":3,"acc":3,"loc":4,"val":5},
+{"user_id":3,"listing_id":26,"review_body":"We love the location, and the amenities included with this unit. The view is out of this world. The included golf cart made it perfect.","rating":3.8333333333333335,"clean":4,"comm":3,"check":5,"acc":4,"loc":4,"val":3},
+{"user_id":3,"listing_id":26,"review_body":"Really great views off the patio. Could it use updates, yes. Are there a lot of steps, yes. But really the view because of its location is what you want anyways!","rating":4,"clean":5,"comm":4,"check":4,"acc":5,"loc":3,"val":3},
+{"user_id":9,"listing_id":26,"review_body":"Really enjoyed everything about our stay. Beautiful apartment, amazing location and the perfect place for a getaway!","rating":3.3333333333333335,"clean":4,"comm":3,"check":3,"acc":4,"loc":3,"val":3},
+{"user_id":15,"listing_id":26,"review_body":"We really enjoyed our stay. This place has beautiful ocean and beach views. We absolutely loved having access to our own golf cart, which made it so much fun to get around the city. Would definitely recommend this place to anyone wanting to travel to Catalina island.","rating":4.166666666666667,"clean":5,"comm":3,"check":5,"acc":3,"loc":4,"val":5},
+{"user_id":15,"listing_id":27,"review_body":"This place is magical! It is a haven that we were so impressed with. We were here for Christmas and we couldn’t have asked for a better location. The host was extremely helpful and always available the house it was absolutely incredible and we would love to be able to come here again! I highly recommend this place it is one of the best Airbnb‘s ever.","rating":4,"clean":3,"comm":4,"check":4,"acc":5,"loc":5,"val":3},
+{"user_id":9,"listing_id":27,"review_body":"Everything about our time here was exceptional. Jason, our host, went above and beyond. Helping to coordinate everything from white water rafting, to what’s on the menu for a long weekend, to giving up his afternoon so we could spend some time last minute enjoying the shooting range. As beautiful as this Ranch looks in the pictures, they don’t come close to doing it justice. What a trip!","rating":3.8333333333333335,"clean":4,"comm":3,"check":3,"acc":4,"loc":5,"val":4},
+{"user_id":12,"listing_id":27,"review_body":"This was a perfect getaway for our group of friends. Totally relaxing. Beautiful scenery all around. Comfortable bedrooms and plenty of areas for socializing. We loved cooking dinner and having movie nights in the theater after days filled with hiking and swimming. We can’t wait for our next visit.","rating":4.5,"clean":4,"comm":5,"check":4,"acc":4,"loc":5,"val":5},
+{"user_id":8,"listing_id":27,"review_body":"We very much enjoyed staying at this property. It is very elegant but not at the expense of being functional. Any question or concern we had was handled swiftly and thoughtfully. It was a perfect spot for a large family reunion and we highly recommend it!","rating":3.8333333333333335,"clean":4,"comm":4,"check":4,"acc":3,"loc":3,"val":5},
+{"user_id":3,"listing_id":28,"review_body":"Beautiful, super clean and comfortable, well appointed home with lovely grounds and easy access to the surrounding areas. We loved staying here and hope to be back!","rating":4.333333333333333,"clean":4,"comm":3,"check":4,"acc":5,"loc":5,"val":5},
+{"user_id":3,"listing_id":28,"review_body":"Absolutely beautiful home and the hosts were very communicative throughout the whole process with any questions we had. Would definitely stay again!","rating":3.6666666666666665,"clean":5,"comm":3,"check":4,"acc":4,"loc":3,"val":3},
+{"user_id":16,"listing_id":28,"review_body":"Oak Lawn is wonderful! We enjoyed our stay there immensely and would encourage you to consider reserving it for your next trip to the area!","rating":4.333333333333333,"clean":4,"comm":5,"check":3,"acc":4,"loc":5,"val":5},
+{"user_id":5,"listing_id":28,"review_body":"Very magical place. Scenery was beautiful. Fully appointed with all your needs. Would totally go back. A special place for a special event in my life.","rating":3.5,"clean":4,"comm":4,"check":3,"acc":3,"loc":3,"val":4},
+{"user_id":6,"listing_id":28,"review_body":"Great location and nice home for a family with adult children. Would not recommend to book for young children due to the nice furnishings.","rating":4.5,"clean":4,"comm":3,"check":5,"acc":5,"loc":5,"val":5},
+{"user_id":6,"listing_id":28,"review_body":"Wonderful little get away about 15 minutes outside of Lynchburg. Definitely worth the commute to stay in this lovely home!","rating":4,"clean":3,"comm":5,"check":3,"acc":5,"loc":5,"val":3},
+{"user_id":14,"listing_id":29,"review_body":"The house was amazing! Perfect spot for our family to gather together for a family event in Nashville.","rating":4.166666666666667,"clean":5,"comm":5,"check":3,"acc":5,"loc":4,"val":3},
+{"user_id":15,"listing_id":29,"review_body":"This PearBnB has everything! From the moment you enter the property, you will feel complete privacy. The views from the front and back porches are breathless. The house is fully stocked with towels, glassware, plates, etc. The pool was warm and the fire pit kept us comfortable at night. There are tv’s throughout the entire home and things for people of all ages to do. We will be back soon, for an even longer stay. I highly recommend this property!","rating":4,"clean":4,"comm":5,"check":3,"acc":4,"loc":4,"val":4},
+{"user_id":17,"listing_id":29,"review_body":"Our stay at the Clubhouse was outstanding. Each person uttered, \"Wow!\" walking into the gorgeous, well-designed home. Everything was spotless; superior cleaning crews. The pool was warm and a fabulous way to spend the days. Sitting by the firepit in the evening listening to frogs and looking at the stars was like a dream.","rating":4,"clean":4,"comm":3,"check":3,"acc":5,"loc":5,"val":4},
+{"user_id":14,"listing_id":30,"review_body":"Beautiful property with many amenities. They really paid attention to detail and kept guests in mind when furnishing this home. Will definitely be back! Thanks","rating":4.166666666666667,"clean":4,"comm":5,"check":4,"acc":4,"loc":3,"val":5},
+{"user_id":5,"listing_id":30,"review_body":"Beautiful property with many amenities. They really paid attention to detail and kept guests in mind when furnishing this home. Will definitely be back! Thanks","rating":4.166666666666667,"clean":5,"comm":5,"check":3,"acc":3,"loc":5,"val":4},
 ]
 
 def seed_test():
