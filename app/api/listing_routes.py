@@ -3,12 +3,14 @@ from app.forms.listing_add_form import AddListingForm
 from app.forms.listing_delete_form import DeleteListingForm
 from app.forms.listing_update_form import UpdateListingForm
 from app.forms.review_add_form import AddReviewForm
+from app.forms.booking_add_form import AddBookingForm
 from app.forms.review_delete_form import DeleteReviewForm
 from app.forms.review_update_form import UpdateReviewForm
 from app.forms.image_add_form import AddImageForm
 from app.models import db, User, Listing, Review, Booking, Wishlist, Image, Type, Amenity
 from flask_login import current_user, login_required
 from sqlalchemy import func
+import datetime
 
 listing_routes = Blueprint('listings', __name__)
 
@@ -301,6 +303,64 @@ def add_review(listing_id):
 
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
+######## CREATE NEW BOOKING #########
+
+@listing_routes.route('/<int:listing_id>/bookings', methods=['POST'])
+@login_required
+def add_booking(listing_id):
+    print('WE MADE IT HERE!!')
+    print('**********************************')
+    print(' ')
+    print(' ')
+    print(' ')
+    print(' ')
+    print(' ')
+    user = current_user.to_dict()
+    user_id = user['id']
+    form = AddBookingForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    validation_errors = {
+        "message": "Validation error",
+        "status_code": 400,
+        "errors": {}
+    }
+
+    if not form.data['start_month']:
+        validation_errors["errors"]["start_month"] = "Start month is required."
+    if not form.data['start_day']:
+        validation_errors["errors"]["start_day"] = "Start day is required."
+    if not form.data['start_year']:
+        validation_errors["errors"]["start_year"] = "Start year is required."
+    if not form.data['end_month']:
+        validation_errors["errors"]["end_month"] = "End month is required."
+    if not form.data['end_day']:
+        validation_errors["errors"]["end_day"] = "End day is required."
+    if not form.data['end_year']:
+        validation_errors["errors"]["end_year"] = "End year is required."
+    if len(validation_errors["errors"]) > 0:
+        return jsonify(validation_errors), 400
+
+    if form.validate_on_submit():
+        print('WE MADE IT IN THE VALIDATED SECTION')
+        booking = Booking(
+            user_id=user_id,
+            listing_id=listing_id,
+            startdate=datetime.datetime(form.data['start_year'], form.data['start_month'], form.data['start_day']),
+            enddate=datetime.datetime(form.data['end_year'], form.data['end_month'], form.data['end_day'])
+        )
+
+        db.session.add(booking)
+        db.session.commit()
+
+        book = booking.to_dict()
+
+        user = User.query.filter_by(id=user_id).first().to_dict()
+        book['user'] = user
+
+        return jsonify(book)
+
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 ######## ADD IMAGE TO LISTING ########
 
