@@ -126,23 +126,6 @@ def get_one_listing(listing_id):
     owner = User.query.filter_by(id=single_listing['owner_id']).first().to_dict()
     single_listing['owner'] = owner
 
-    # print(single_listing.amenities)
-
-### Loading the listing's amenities
-    # for amenities in single_listing.amenities:
-    #     print(amenities)
-        # amen = [ amenity.to_dict() for amenity in amenities ]
-        # single_listing['amenities'] = amen
-    # for types in single_listing['types']:
-    #     type = [ type.to_dict() for type in types ]
-    #     single_listing['types'] = type
-
-
-### Loading reviews
-    # revs = Review.query.filter_by(listing_id=listing_id).all()
-    # reviews = [ rev.to_dict() for rev in revs]
-    # single_listing['reviews'] = reviews
-
     return single_listing
 
 #################################### CREATE ####################################
@@ -171,16 +154,6 @@ def add_listing():
         validation_errors["errors"]["city"] = "City is required."
     if not form.data['state']:
         validation_errors["errors"]["state"] = "State is required."
-    # if not form.data['country']:
-    #     validation_errors["errors"]["country"] = "Country is required."
-    # if len(str(form.data['latitude'])) == 0:
-    #     validation_errors["errors"]["latitude"] = "Latitude is required."
-    # if len(str(form.data['longitude'])) == 0:
-    #     validation_errors["errors"]["longitude"] = "Longitude is required."
-    # if form.data['latitude'] < -90 or form.data['latitude'] > 90 :
-    #     validation_errors["errors"]["latitude"] = "Latitude must be between -90 and 90."
-    # if form.data['longitude'] < -180 or form.data['longitude'] > 180 :
-    #     validation_errors["errors"]["longitude"] = "Longitude must be between -180 and 180."
     if not form.data['description']:
         validation_errors["errors"]["description"] = "Listing description is required."
     if not form.data['price']:
@@ -193,8 +166,6 @@ def add_listing():
         validation_errors["errors"]["bath"] = "Number of bathrooms is required."
     if not form.data['types']:
         validation_errors["errors"]["types"] = "Type(s) of listing is/are required."
-    # if not form.data['amenities']:
-    #     validation_errors["errors"]["amenities"] = "Listing amenities are required."
     if len(validation_errors["errors"]) > 0:
         return jsonify(validation_errors), 400
 
@@ -216,9 +187,6 @@ def add_listing():
             city=form.data['city'],
             state=form.data['state'],
             description=form.data['description'],
-            # country=form.data['country'],
-            # latitude=form.data['latitude'],
-            # longitude=form.data['longitude'],
             price=form.data['price'],
             max_guests=form.data['max_guests'],
             bed=form.data['bed'],

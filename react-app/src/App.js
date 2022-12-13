@@ -13,6 +13,7 @@ import UpdateReview from './components/ReviewForms/UpdateReview';
 import { authenticate } from './store/session';
 import Listings from './components/UserPages/Listings';
 import Reviews from './components/UserPages/Reviews';
+import Trips from './components/UserPages/Trips';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -44,6 +45,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute exact path='/reviews/current' >
           <Reviews />
+        </ProtectedRoute>
+        <ProtectedRoute exact path='/trips/current' >
+          <Trips />
         </ProtectedRoute>
         <Route exact path='/listings/:listingId' >
           <ListingDeets />

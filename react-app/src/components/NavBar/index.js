@@ -471,7 +471,7 @@ const NavBar = () => {
         </NavLink>
       </div>
       <div className='navbar-search-container'>
-        {url.includes('new') ? null : <div className='search-container'>
+        {/* {url.includes('new') ? null : <div className='search-container'>
             <button className='where-searchbutton'>Anywhere</button>
             <span className='search-separator' />
             <button className='type-searchbutton'>Any type</button>
@@ -482,7 +482,7 @@ const NavBar = () => {
                 <img src={search} alt='search' className='search-button' />
               </div>
             </button>
-        </div>}
+        </div>} */}
       </div>
       <div className='navbar-user-side'>
         <div className='left-of-user'>
@@ -522,6 +522,15 @@ const NavBar = () => {
                 </NavLink>
               </div>
               <div>
+                <NavLink id='listings-button' className='dropdown-text' to='/trips/current'>
+                  <button className='user-dropdown-buttons'>
+                    <span className='user-button-inner-span'>
+                    Trips
+                    </span>
+                  </button>
+                </NavLink>
+              </div>
+              <div>
                   <button className='user-dropdown-buttons' onClick={onLogout}>
                     <span className='user-button-inner-span logout-button'>
                     Log out
@@ -532,8 +541,8 @@ const NavBar = () => {
                 <NavLink className='dropdown-text' to='/bookings/current'>
                   Trips
                 </NavLink>
-              </div>
-              <div>
+              </div> */}
+              {/* <div>
                 <NavLink className='dropdown-text' to='/wishlists/current'>
                   Wishlists
                 </NavLink>

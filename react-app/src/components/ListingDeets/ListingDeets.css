@@ -476,10 +476,19 @@
     padding: 14px 24px;
     border-radius: 8px;
     border: none;
-    background-color: #6e9e00;
-    color: white;
     font-size: 16px;
     font-weight: 600;
+}
+
+.loggedin-user {
+    background-color: #6e9e00;
+    color: white;
+}
+
+.nologgedin-user {
+    background-color: rgb(220, 220, 220);
+    color: black;
+    cursor: not-allowed;
 }
 
 #under-construction {

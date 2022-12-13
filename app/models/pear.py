@@ -67,9 +67,21 @@ class Listing(db.Model):
             "max_guests": self.max_guests,
             "bed": self.bed,
             "bath": self.bath,
-            # "types": self.types,
             "amenities": [amenity.to_dict() for amenity in self.amenities],
             "created_at": self.created_at
+        }
+
+    def to_wish(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "city": self.city,
+            "state": self.state,
+            "price": self.price,
+            "max_guests": self.max_guests,
+            "bed": self.bed,
+            "bath": self.bath,
+            "images": [img.to_dict()['url'] for img in self.images]
         }
 
 class Review(db.Model):
@@ -191,5 +203,6 @@ class Wishlist(db.Model):
         return {
             "id": self.id,
             "user_id": self.user_id,
-            "name": self.name
+            "name": self.name,
+            "listings": [listing.to_wish() for listing in self.listings]
         }
