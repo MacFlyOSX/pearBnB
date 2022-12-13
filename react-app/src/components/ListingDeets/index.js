@@ -135,6 +135,7 @@ const ListingDeets = () => {
 
     async function sendBooking(e) {
         e.preventDefault();
+        if (!user) return;
         const [startMon, start_day, start_year] = parseDateStr(startDate.toString());
         const [endMon, end_day, end_year] = parseDateStr(endDate.toString());
         const start_month = monthToNum(startMon);
@@ -184,10 +185,10 @@ const ListingDeets = () => {
                     <span className='listing-location rev-loc-span'>{listing.city}, {listing.state}, United States</span>
                 </div>
                 <div className='save'>
-                    <button className='save-button'>
+                    {/* <button className='save-button'>
                         <img src={heart} alt='heart' className='heart' />
                         <span className='save-span'>Save</span>
-                    </button>
+                    </button> */}
                 </div>
             </div>
         </div>
@@ -330,7 +331,7 @@ const ListingDeets = () => {
                                     />
                                 </div>
                                 </div>
-                                <button id='submit-booking' type='submit' >Reserve</button>
+                                <button id='submit-booking' className={user ? 'loggedin-user' : 'nologgedin-user'} type='submit' >{user ? 'Reserve' : 'Log in to Reserve'}</button>
                                 {/* <div id='under-construction' onClick={() => undefined} >🚧 Under Construction 🚧</div> */}
                             </form>
                         </div>
